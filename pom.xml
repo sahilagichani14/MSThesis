@@ -1,102 +1,20 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>upb.thesis</groupId>
-    <artifactId>sootUpTutorial_1_1_2</artifactId>
+    <artifactId>MSThesis</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
 
-    <name>sootUpTutorial_1_1_2</name>
+    <name>MSThesis</name>
     <url>http://maven.apache.org</url>
+    <modules>
+        <module>sootThesis</module>
+        <module>sootUpThesis</module>
+    </modules>
 
     <properties>
-        <!--  <maven.test.skip>true</maven.test.skip>  -->
-        <!--  <tests.skip>true</tests.skip>  -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <sootup.groupid>org.soot-oss</sootup.groupid>
-<!--        <sootup.version>1.2.1-SNAPSHOT</sootup.version>-->
-        <sootup.version>1.1.2</sootup.version>
     </properties>
 
-    <repositories>
-        <repository>
-            <id>jitpack.io</id>
-            <url>https://jitpack.io</url>
-        </repository>
-        <repository>
-            <id>/maven.google.com</id>
-            <url>https://maven.google.com</url>
-        </repository>
-    </repositories>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>9</source>
-                    <target>9</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-
-    <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>3.8.1</version>
-            <scope>test</scope>
-        </dependency>
-
-        <!-- or Use SootUp Dependencies -->
-        <dependency>
-            <groupId>${sootup.groupid}</groupId>
-            <artifactId>sootup.java.sourcecode</artifactId>
-            <version>${sootup.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>${sootup.groupid}</groupId>
-            <artifactId>sootup.jimple.parser</artifactId>
-            <version>${sootup.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>${sootup.groupid}</groupId>
-            <artifactId>sootup.core</artifactId>
-            <version>${sootup.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>${sootup.groupid}</groupId>
-            <artifactId>sootup.java.core</artifactId>
-            <version>${sootup.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>${sootup.groupid}</groupId>
-            <artifactId>sootup.java.bytecode</artifactId>
-            <version>${sootup.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>${sootup.groupid}</groupId>
-            <artifactId>sootup.analysis</artifactId>
-            <version>${sootup.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.bitbucket.cowwoc</groupId>
-            <artifactId>diff-match-patch</artifactId>
-            <version>1.2</version>
-        </dependency>
-        <dependency>
-            <groupId>${sootup.groupid}</groupId>
-            <artifactId>sootup.callgraph</artifactId>
-            <version>${sootup.version}</version>
-        </dependency>
-
-        <!--    <dependency>-->
-        <!--      <groupId>com.github.soot-oss.SootUp</groupId>-->
-        <!--      <artifactId>sootup</artifactId>-->
-        <!--      <version>develop-SNAPSHOT</version>-->
-        <!--    </dependency>-->
-
-    </dependencies>
 </project>

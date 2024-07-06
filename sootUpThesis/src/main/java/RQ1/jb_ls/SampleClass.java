@@ -1,4 +1,4 @@
-package upb.thesis.RQ1.jb_ls;
+package RQ1.jb_ls;
 
 public class SampleClass {
 //    int global = 10;
