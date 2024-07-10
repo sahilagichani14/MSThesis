@@ -1,4 +1,4 @@
-package soot.RQ1.jb_ls;
+package soot.RQ1.jb_lp;
 
 import soot.*;
 import soot.options.Options;
@@ -34,6 +34,7 @@ public class BaseSetup {
         writerOut.flush();
     }
 
+
     /*
      * This method provides the options to soot to analyze the respective classes.
      */
@@ -44,7 +45,6 @@ public class BaseSetup {
         String sootCp = userdir + File.separator + "sootThesis" + File.separator + "target" + File.separator + "classes" + File.pathSeparator + userdir + File.separator + "sootThesis" + File.separator + "lib" + File.separator + "rt.jar";
         Options.v().set_num_threads(1);
         Options.v().set_soot_classpath(sootCp);
-        Options.v().set_output_format(Options.output_format_jimple);
 
         // for test case 17 using Strings
         Options.v().set_prepend_classpath(true);
@@ -54,18 +54,18 @@ public class BaseSetup {
         Scene.v().loadClassAndSupport(StringConcatFactory.class.getName());
 
         List<String> list = new ArrayList<>();
-        list.add("jb.ls");
+        list.add("jb.lp");
         Options.v().set_dump_body(list);
 
         Options.v().setPhaseOption("bb", "enabled:false"); //bafBody bb bydefault calls bb.lp, bb.ule, bb.ne so disabled
-
+        
         //Options.v().setPhaseOption("jb", "use-original-names:true");
         //Options.v().setPhaseOption("jb.ls", "use-original-names:true");
 
         //disable all jb body transformers
         Options.v().setPhaseOption("jb.dtr", "enabled:false"); //Duplicate CatchAll Trap Remover
         Options.v().setPhaseOption("jb.ese", "enabled:false"); //Empty Switch Eliminator
-        Options.v().setPhaseOption("jb.ls", "enabled:true");//LocalSplitter
+        Options.v().setPhaseOption("jb.ls", "enabled:false");//LocalSplitter
         Options.v().setPhaseOption("jb.sils", "enabled:false"); //Shared Initialization Local Splitter
         Options.v().setPhaseOption("jb.a", "enabled:false"); //Aggregator
         Options.v().setPhaseOption("jb.ule", "enabled:false"); //Unused Local Eliminator
@@ -75,7 +75,7 @@ public class BaseSetup {
         Options.v().setPhaseOption("jb.cp", "enabled:false"); // CopyPropagator
         Options.v().setPhaseOption("jb.dae", "enabled:false"); // DeadAssignmentEliminator
         Options.v().setPhaseOption("jb.cp-ule", "enabled:false"); // UnusedLocalEliminator
-        Options.v().setPhaseOption("jb.lp", "enabled:false"); //Local Packer
+        Options.v().setPhaseOption("jb.lp", "enabled:true"); //Local Packer
         Options.v().setPhaseOption("jb.ne", "enabled:false"); //No operation Eliminator
         Options.v().setPhaseOption("jb.uce", "enabled:false"); // UnreachableCodeEliminator
         Options.v().setPhaseOption("jb.tt", "enabled:false"); //Trap Tightener

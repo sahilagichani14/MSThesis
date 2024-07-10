@@ -19,7 +19,7 @@ import java.util.Collections;
 import java.util.Set;
 
 public class BaseSetup {
-    public void setUp() throws FileNotFoundException {
+    public void setUp(String targetClassName) throws FileNotFoundException {
 
         String classPath = System.getProperty("user.dir") + File.separator + "sootUpThesis" + File.separator + "target" + File.separator + "classes";
         //String pathToBinary = "src/main/java/upb/thesis/latestsootup/example.jar";
@@ -40,37 +40,22 @@ public class BaseSetup {
 //                .getMethodSignature("RQ1.jb_ls.SampleClass", "localSplitterTest", "void", Collections.emptyList());
 //        System.out.println(methodSignature.getName());
 
-        JimplePrinter printer = new JimplePrinter(JimplePrinter.Option.LegacyMode);
-        PrintWriter qPrintWriter = new PrintWriter(new StringWriter());
-        printer.printTo(sootClass, qPrintWriter);
+        generateOutputDirs(sootClass, view);
+        generateJimpleOutputClass(sootClass, targetClassName);
+    }
+
+    public void generateJimpleOutputClass(SootClass sootClass, String targetClassName) throws FileNotFoundException {
+        //JimplePrinter printer = new JimplePrinter(JimplePrinter.Option.LegacyMode);
+        //PrintWriter qPrintWriter = new PrintWriter(new StringWriter());
+        //printer.printTo(sootClass, qPrintWriter);
         //System.out.println(qPrintWriter);
 
-        String fileName = this.getClass().getPackageName();
+        String fileName = "sootupRes/" + targetClassName + ".jimple";
         JimplePrinter printer1 = new JimplePrinter(JimplePrinter.Option.LegacyMode);
         OutputStream streamOut = new FileOutputStream(fileName);
         PrintWriter writerOut = new PrintWriter(new OutputStreamWriter(streamOut));
         printer1.printTo(sootClass, writerOut);
         writerOut.flush();
-
-        //generateOutputDirs(sootClass, view);
-
-        /*
-        Set<? extends JavaSootMethod> sootMethods =  sootClass.getMethods();
-        for (JavaSootMethod jsm: sootMethods){
-            boolean condition = jsm.getSignature().getSubSignature().getName().equals(methodSignature.getSubSignature().getName());
-            if (condition){
-                System.out.println("========Before Jimple Body=========");
-                System.out.println(jsm.getBody());
-                System.out.println("========Transformed Body=========");
-                Body.BodyBuilder builder = Body.builder(jsm.getBody(), Collections.emptySet());
-                new LocalSplitter().interceptBody(builder, view);
-                //new CopyPropagator().interceptBody(builder, view);
-                //new ConditionalBranchFolder().interceptBody(builder, view);
-                //System.out.println(builder.getStmtGraph().toString().trim());
-                System.out.println(builder.getStmtGraph().toString());
-            }
-        }
-        */
     }
 
     private static void generateOutputDirs(SootClass sootClass, JavaView view) {
