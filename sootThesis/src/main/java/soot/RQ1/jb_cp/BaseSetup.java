@@ -19,7 +19,7 @@ public class BaseSetup {
         // This will run the intra-procedural analysis
         PackManager.v().runPacks();
         for (String targetTestClassName: targetTestClassNames){
-            jimpleClassOutput(targetTestClassName);
+            //jimpleClassOutput(targetTestClassName);
         }
     }
 
