@@ -1,4 +1,4 @@
-package sootUp.RQ1.jb_ls;
+package sootUp.RQ1.jb_cp_ule;
 
 import sootup.core.inputlocation.AnalysisInputLocation;
 import sootup.core.model.Body;

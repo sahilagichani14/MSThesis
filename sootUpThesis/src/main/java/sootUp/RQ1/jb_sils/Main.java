@@ -1,10 +1,11 @@
-package sootUp.RQ1.jb_ls;
+package sootUp.RQ1.jb_sils;
+
+import sootUp.RQ1.jb_ls.JB_LS;
 
 import java.io.FileNotFoundException;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
-        System.out.println("SootUp JB_LS Local Splitter Body Interceptor");
         new BaseSetup().setUp(JB_LS.class.getName());
     }
 }

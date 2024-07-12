@@ -1,4 +1,4 @@
-package sootUp.RQ1.jb_ls;
+package sootUp.RQ1.jb_lp;
 
 import sootup.core.inputlocation.AnalysisInputLocation;
 import sootup.core.model.Body;
@@ -8,7 +8,7 @@ import sootup.core.types.ClassType;
 import sootup.core.util.printer.JimplePrinter;
 import sootup.java.bytecode.inputlocation.JavaClassPathAnalysisInputLocation;
 import sootup.java.core.JavaSootClass;
-import sootup.java.core.interceptors.LocalSplitter;
+import sootup.java.core.interceptors.LocalPacker;
 import sootup.java.core.views.JavaView;
 
 import java.io.*;
@@ -31,7 +31,7 @@ public class BaseSetup {
         Collection<JavaSootClass> viewClasses = view.getClasses();
         System.out.println(viewClasses);
         ClassType classType =
-                view.getIdentifierFactory().getClassType("sootUp.RQ1.jb_ls.JB_LS");
+                view.getIdentifierFactory().getClassType("sootUp.RQ1.jb_lp.JB_LP");
         System.out.println(classType);
         JavaSootClass sootClass = view.getClass(classType).get();
         System.out.println(sootClass);
@@ -85,7 +85,7 @@ public class BaseSetup {
 
             String input = sootClassMethod.getBody().toString();
             Body.BodyBuilder builder = Body.builder(sootClassMethod.getBody(), Collections.emptySet());
-            new LocalSplitter().interceptBody(builder, view);
+            new LocalPacker().interceptBody(builder, view);
 
             String output = builder.getStmtGraph().toString();
 
