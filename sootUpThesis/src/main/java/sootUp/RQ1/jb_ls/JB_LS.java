@@ -3,9 +3,8 @@ package sootUp.RQ1.jb_ls;
 public class JB_LS {
     int global = 10;
 
-    public void tc1() {
-        int a;
-        if (10 > 20) {
+    public void tc1(int a) {
+        if (a > 20) {
             a = 10;
         } else {
             a = 20;
@@ -27,12 +26,55 @@ public class JB_LS {
         int b = a + 5;
     }
 
+    private void tc2_1(int a) {
+        if (a > 0) {
+            if (a < 30) {
+                a = 10;
+            } else {
+                a = 20;
+            }
+            a = 6;
+        } else {
+            a = 30;
+        }
+        int b = a + 5;
+    }
+
+    private void tc2_2(int a) {
+        if (a > 0) {
+            if (a < 30) {
+                a = 10;
+            } else {
+                a = 20;
+            }
+        } else {
+            a = 30;
+        }
+        int b = a + 5;
+    }
+
     protected void tc3() {
         int a = 0;
         for (int i = 0; i < 10; i++) {
             a = i * 2;
         }
         int b = a + 1;
+    }
+
+    protected void tc3_1(int a) {
+        for (int i = 0; i < 10; i++) {
+            a = i * 2;
+        }
+        int b = a + 1;
+    }
+
+    protected void tc3_2(int a) {
+        for (int i = 0; i < 10; i++) {
+            a = i * 2;
+        }
+        int b = a + 1;
+        b++;
+        int c = b;
     }
 
     static void tc4() {
@@ -46,6 +88,16 @@ public class JB_LS {
         int b = a + 5;
     }
 
+    static void tc4_1(int a) {
+        if (a > 20) {
+            a = 10;
+        }
+        if (a > 5) {
+            a = 20;
+        }
+        int b = a + 5;
+    }
+
     int tc5() {
         int a;
         if (10 > 20) {
@@ -54,6 +106,7 @@ public class JB_LS {
             a = 2;
         }
         int b = a + 1;
+        a = a + 5;
         if (5 == 6) {
             a = 3;
         }
@@ -77,7 +130,7 @@ public class JB_LS {
         for (int i = 0; i < 10; i++) {
             if (a > i) {
                 a = i * 2;
-            } else if (i < 20) {
+            } else if (i < 8) {
                 a = i * 3;
             } else {
                 a = i * 4;
@@ -103,10 +156,36 @@ public class JB_LS {
         int b = a + 5;
     }
 
+    void tc8_1(int a) {
+        switch (a) {
+            case 1:
+                a = 10;
+                break;
+            case 2:
+                a = 20;
+                break;
+            default:
+                a = 30;
+                break;
+        }
+        int b = a + 5;
+    }
+
     void tc9() {
         int a, b, c;
         if (10 > 20) {
             //a = 10;
+        } else {
+            a = 5;
+            b = 20;
+        }
+        c = a + b;
+    }
+
+    void tc9_1(int a, int b, int c) {
+        if (a + b > 20) {
+            a = 10;
+            c = 5;
         } else {
             a = 5;
             b = 20;
@@ -124,6 +203,15 @@ public class JB_LS {
         int b = a + 1;
     }
 
+    void tc10_1(int a) {
+        if (a > 5) {
+            a = getValue1();
+        } else {
+            a = getValue2();
+        }
+        int b = a + 1;
+    }
+
     private int getValue1() {
         return 10;
     }
@@ -132,8 +220,8 @@ public class JB_LS {
         return 20;
     }
 
-    void tc11() {
-        int a = 0, b, c, d;
+    void tc11(int a) {
+        int b, c, d;
         if (a > 10) {
             b = 10;
         } else {
@@ -146,20 +234,22 @@ public class JB_LS {
         a = b + 20;
     }
 
-    void tc12() {
-        int a = 1, b = 2, c = 3, d = 4;
+    void tc12(int b) {
+        int a = 1, c = 3, d = 4;
         while (a + b > 6) {
             c = d;
         }
     }
 
-    void tc13() {
+    void tc13(int a) {
         {
-            int i = 10, a;
+            int i = 10;
+            a = 6;
         }
         for (int i = 5; i < 10; i++) {
             System.out.println(i);
         }
+        a = 10;
     }
 
     void tc14() {
@@ -174,6 +264,18 @@ public class JB_LS {
         }
     }
 
+    void tc14_1(int i) {
+        if (global == 5) {
+            i = 10;
+            global = i + 1;
+        } else {
+            i = 34;
+        }
+        while (global > 30) {
+            i = i * 2;
+        }
+    }
+
     void tc15() {
         try {
             int a = 8 / 0;
@@ -183,6 +285,17 @@ public class JB_LS {
         }
     }
 
+    void tc15_1(int a, int b) {
+        try {
+            a = 8 / 0;
+            b = a + 2;
+        } catch (ArithmeticException ex) {
+            b = b + 1;
+            a = a + 5;
+        }
+        a = b;
+    }
+
     void tc16() {
         int a = global;
         int b, c;
@@ -190,10 +303,29 @@ public class JB_LS {
         c = a + b;
     }
 
+    void tc16_1(int c) {
+        int a = global;
+        int b;
+        b = a;
+        a = 5;
+        global = b + a;
+        b = a + b;
+        c = b + 1;
+        global += 2;
+        b = c + b;
+    }
+
     void tc17() {
         String x = "abc";
         String y = "bcd";
         String z = x + y;
+    }
+
+    void tc17_1() {
+        String x = "abc";
+        String y = "bcd";
+        x = x + y;
+        y = "abcd";
     }
 
     void tc18() {
@@ -207,9 +339,28 @@ public class JB_LS {
         }
     }
 
-    void tc19() {
-        int a = 0;
+    void tc18_1(int x) {
+        if (x > 0) {
+            x++;
+        } else if (x + 10 > 21) {
+            x--;
+        } else {
+            System.out.println("Do Nothing");
+        }
+    }
+
+    void tc19(int a) {
         int b;
+        if (a == 20 ? true : false) {
+            b = 1;
+        } else {
+            b = 2;
+        }
+        a = a + b + a;
+    }
+
+    void tc19_1() {
+        int a = 0 ,b;
         if (a == 20 ? true : false) {
             b = 1;
         } else {
@@ -226,6 +377,14 @@ public class JB_LS {
         if (true)
             return;
         return;
+    }
+
+    void tc21(int a){
+        int b = a + 1;
+        a = a + 1;
+        b = b + a;
+        int c = b;
+        c++;
     }
 
 }
