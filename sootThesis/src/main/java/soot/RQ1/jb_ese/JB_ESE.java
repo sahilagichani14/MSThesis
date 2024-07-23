@@ -2,33 +2,37 @@ package soot.RQ1.jb_ese;
 
 public class JB_ESE {
 
-    public void tc1(int x){
+    public void tc1(int x) {
         switch (x) {
             default:
-                System.out.println("Default case");
+                System.out.println("Default case" + x);
         }
     }
-    public void tc2(int x){
+
+    public void tc2(int x) {
         switch (x) {
             case 1:
-                System.out.println("Case 1");
+                System.out.println("Case 1" + x);
                 break;
             default:
                 System.out.println("Default case");
         }
     }
-    public void tc3(int x){
+
+    public void tc3(int x) {
         switch (x) {
         }
     }
-    public void tc4(int x){
+
+    public void tc4(int x) {
         switch (x) {
             default:
             case 1:
                 System.out.println("Case 1 or Default");
         }
     }
-    public void tc5(int x){
+
+    public void tc5(int x) {
         switch (x) {
             case 1:
             case 2:
@@ -38,7 +42,8 @@ public class JB_ESE {
                 System.out.println("Default case");
         }
     }
-    public void tc6(int x){
+
+    public void tc6(int x) {
         switch (x) {
             case 1:
                 switch (x) {
@@ -50,7 +55,8 @@ public class JB_ESE {
                 System.out.println("Outer Default");
         }
     }
-    public void tc7(int x){
+
+    public void tc7(int x) {
         switch (x) {
             case 1:
             case 2:
@@ -58,7 +64,8 @@ public class JB_ESE {
                 System.out.println("Empty Cases and Default");
         }
     }
-    public void tc8(int x){
+
+    public void tc8(int x) {
         switch (x) {
             case 1:
                 System.out.println("case 1");
@@ -68,17 +75,43 @@ public class JB_ESE {
                 break;
         }
     }
-    public void tc9(int x){
+
+    public void tc9(int x) {
         switch (x) {
             default:
                 System.out.println("default case");
                 break;
         }
     }
-    public void tc10(){
+
+    public void tc10() {
         switch (2) {
             default:
                 System.out.println("fixed");
+        }
+    }
+
+    public void tc11(int x) {
+        String y = "switch inside switch";
+        switch (x) {
+            default:
+                switch (y) {
+                    default:
+                        System.out.println("Nested Default");
+                }
+        }
+    }
+
+    public void tc12(int x) {
+        String y = "3";
+        Integer integer = Integer.valueOf(y);
+        switch (x) {
+            case 1:
+            default:
+                switch (y) {
+                    default:
+                        System.out.println("Nested Default");
+                }
         }
     }
 

@@ -56,7 +56,10 @@ public class BaseSetup {
         Options.v().set_dump_body(list);
 
         Options.v().setPhaseOption("bb", "enabled:false"); //bafBody bb bydefault calls bb.lp, bb.ule, bb.ne so disabled
-        
+
+        //test this case also
+        //Options.v().setPhaseOption("jb.cp", "only-regular-locals:true");
+
         //Options.v().setPhaseOption("jb", "use-original-names:true");
         //Options.v().setPhaseOption("jb.ls", "use-original-names:true");
 

@@ -1,0 +1,39 @@
+public class RQ1.jb_ls.tc1.TC1 extends java.lang.Object
+{
+    public void <init>()
+    {
+        RQ1.jb_ls.tc1.TC1 this;
+
+
+        this := @this: RQ1.jb_ls.tc1.TC1;
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public int tc1_1(int)
+    {
+        RQ1.jb_ls.tc1.TC1 this;
+        int $stack3, $stack4, a, b;
+
+
+        this := @this: RQ1.jb_ls.tc1.TC1;
+        a := @parameter0: int;
+
+        if a <= 20 goto label1;
+        a = 10;
+
+        goto label2;
+
+      label1:
+        a = 20;
+
+      label2:
+        b = a + 5;
+        $stack3 = 2 * a;
+        $stack4 = b + $stack3;
+
+        return $stack4;
+    }
+}
+

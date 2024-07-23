@@ -5,6 +5,6 @@ import java.io.FileNotFoundException;
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
         System.out.println("SootUp JB_LS Local Splitter Body Interceptor");
-        new BaseSetup().setUp(JB_LS.class.getName());
+        new BaseSetup().setUp();
     }
 }

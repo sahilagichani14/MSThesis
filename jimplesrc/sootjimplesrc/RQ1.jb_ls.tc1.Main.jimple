@@ -1,0 +1,62 @@
+public class tc1.Main extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        tc1.Main this;
+
+        this := @this;
+
+        specialinvoke this.<init>();
+
+        return;
+
+        nop;
+    }
+
+    public static void main(java.lang.String[])
+    {
+        java.io.PrintStream $stack10, $stack11, $stack12;
+        java.lang.String[] args;
+        int $stack6, $stack7, i, $stack8, i1, $stack9, i2;
+        RQ1.jb_ls.tc1.TC1 $stack5, tc1;
+
+        args := @parameter0;
+
+        $stack5 = new RQ1.jb_ls.tc1.TC1;
+
+        specialinvoke $stack5.<init>();
+
+        tc1 = $stack5;
+
+        $stack6 = staticinvoke java.lang.Integer.min(4, 76);
+
+        $stack7 = virtualinvoke tc1.tc1_1($stack6);
+
+        i = $stack7;
+
+        $stack8 = virtualinvoke tc1.tc1_1(5);
+
+        i1 = $stack8;
+
+        $stack9 = virtualinvoke tc1.tc1_1(0);
+
+        i2 = $stack9;
+
+        $stack10 = java.lang.System.out;
+
+        virtualinvoke $stack10.println(i);
+
+        $stack11 = java.lang.System.out;
+
+        virtualinvoke $stack11.println(i1);
+
+        $stack12 = java.lang.System.out;
+
+        virtualinvoke $stack12.println(i2);
+
+        return;
+
+        nop;
+    }
+}

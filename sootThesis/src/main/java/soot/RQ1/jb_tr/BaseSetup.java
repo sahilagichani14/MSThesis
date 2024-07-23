@@ -1,6 +1,7 @@
 package soot.RQ1.jb_tr;
 
 import soot.*;
+import soot.jimple.StringConstant;
 import soot.options.Options;
 
 import java.io.*;
@@ -51,6 +52,7 @@ public class BaseSetup {
         Options.v().set_allow_phantom_refs(true);
         //Options.v().set_whole_program(true);
         //Scene.v().addBasicClass(StringConcatFactory.class.getName(), SootClass.SIGNATURES);
+        Scene.v().loadClassAndSupport(StringConstant.class.getName());
         Scene.v().loadClassAndSupport(StringConcatFactory.class.getName());
 
         List<String> list = new ArrayList<>();

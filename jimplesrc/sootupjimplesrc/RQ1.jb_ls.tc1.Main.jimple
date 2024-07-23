@@ -1,0 +1,40 @@
+public class RQ1.jb_ls.tc1.Main extends java.lang.Object
+{
+    public static void main(java.lang.String[])
+    {
+        RQ1.jb_ls.tc1.TC1 $stack5, tc1;
+        int $stack6, i, i1, i2;
+        java.io.PrintStream $stack7, $stack8, $stack9;
+        java.lang.String[] args;
+
+
+        args := @parameter0: java.lang.String[];
+        $stack5 = new RQ1.jb_ls.tc1.TC1;
+        specialinvoke $stack5.<RQ1.jb_ls.tc1.TC1: void <init>()>();
+        tc1 = $stack5;
+        $stack6 = staticinvoke <java.lang.Integer: int min(int,int)>(4, 76);
+        i = virtualinvoke tc1.<RQ1.jb_ls.tc1.TC1: int tc1_1(int)>($stack6);
+        i1 = virtualinvoke tc1.<RQ1.jb_ls.tc1.TC1: int tc1_1(int)>(5);
+        i2 = virtualinvoke tc1.<RQ1.jb_ls.tc1.TC1: int tc1_1(int)>(0);
+        $stack7 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke $stack7.<java.io.PrintStream: void println(int)>(i);
+        $stack8 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke $stack8.<java.io.PrintStream: void println(int)>(i1);
+        $stack9 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke $stack9.<java.io.PrintStream: void println(int)>(i2);
+
+        return;
+    }
+
+    public void <init>()
+    {
+        RQ1.jb_ls.tc1.Main this;
+
+
+        this := @this: RQ1.jb_ls.tc1.Main;
+        specialinvoke this.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+}
+

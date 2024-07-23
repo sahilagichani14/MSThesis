@@ -3,13 +3,14 @@ package soot.RQ1.jb_ls;
 public class JB_LS {
     int global = 10;
 
-    public void tc1(int a) {
+    public int tc1(int a) {
         if (a > 20) {
             a = 10;
         } else {
             a = 20;
         }
         int b = a + 5;
+        return b + a * 2;
     }
 
     private void tc2() {
@@ -385,6 +386,18 @@ public class JB_LS {
         b = b + a;
         int c = b;
         c++;
+    }
+
+    void tc22() {
+        int a = 5;
+        int b = 6;
+        int c = (a > b) ? a : b;
+        System.out.println(c);
+    }
+
+    void tc22_1(int x){
+        String s = "a" + (x > 10 ? "ok":"not okay") + "d";
+        System.out.println(s);
     }
 
 }

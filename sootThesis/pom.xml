@@ -30,6 +30,12 @@
 		SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
 		-->
         <dependency>
+            <groupId>upb.thesis</groupId>
+            <artifactId>test-case-resources</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>1.7.36</version>

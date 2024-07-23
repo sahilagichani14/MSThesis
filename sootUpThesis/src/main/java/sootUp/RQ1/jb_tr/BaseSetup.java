@@ -87,8 +87,13 @@ public class BaseSetup {
             String input = sootClassMethod.getBody().toString();
             Body.BodyBuilder builder = Body.builder(sootClassMethod.getBody(), Collections.emptySet());
             new TypeAssigner().interceptBody(builder, view);
+            StringBuilder typeString = new StringBuilder();
+            builder.getLocals().stream()
+                    .map(lc -> lc.getType() + " " + lc.getName() + "\n")
+                    .forEach(typeString::append);
 
-            String output = builder.getStmtGraph().toString();
+            typeString.append(builder.getStmtGraph().toString());
+            String output = typeString.toString();
 
             generateOutput(sootMethodDir, input, output);
         }

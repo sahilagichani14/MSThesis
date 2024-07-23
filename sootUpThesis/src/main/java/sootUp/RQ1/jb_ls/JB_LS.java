@@ -387,4 +387,16 @@ public class JB_LS {
         c++;
     }
 
+    void tc22() {
+        int a = 5;
+        int b = 6;
+        int c = (a > b) ? a : b;
+        System.out.println(c);
+    }
+
+    void tc22_1(int x){
+        String s = "a" + (x > 10 ? "ok":"not okay") + "d";
+        System.out.println(s);
+    }
+
 }
