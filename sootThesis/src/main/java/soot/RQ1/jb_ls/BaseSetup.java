@@ -22,7 +22,7 @@ public class BaseSetup {
         PackManager.v().runPacks();
         for (SootClass targetSootClass: Scene.v().getApplicationClasses()) {
             jimpleClassOutput(targetSootClass);
-            //byteCodeFromJimpleOutput(targetSootClass);
+            byteCodeFromJimpleOutput(targetSootClass);
         }
     }
 
@@ -62,13 +62,33 @@ public class BaseSetup {
         int java_version = Options.v().java_version();
         //SootClass sootClass = Scene.v().getSootClass(targetTestClassName);
         //SootClass sootClassUnsafe = Scene.v().getSootClassUnsafe(targetTestClassName, false);
+        //int insertPosition = fileName.indexOf('\\');
+        //String newFileName = fileName.substring(0, insertPosition) + "\\" + "RQ1" + "\\" + "jb_ls" + "\\" + fileName.substring(insertPosition + 1);
+
         String fileName = SourceLocator.v().getFileNameFor(targetSootClass, Options.output_format_class);
-        int insertPosition = fileName.indexOf('\\');
-        String newFileName = fileName.substring(0, insertPosition) + "\\" + "RQ1" + "\\" + "jb_ls" + "\\" + fileName.substring(insertPosition + 1);
-        OutputStream streamOut1 = new FileOutputStream(newFileName);
-        BafASMBackend backend = new BafASMBackend(targetSootClass, java_version);
-        backend.generateClassFile(streamOut1);
-        streamOut1.close();
+        String directoryPath = "sootOutput/sootbytecode/RQ1/jb_ls/" + targetSootClass.getPackageName();
+        // Create the directory if it does not exist
+        File directory = new File(directoryPath);
+        if (!directory.exists()) {
+            boolean dirCreated = directory.mkdirs();
+            if (!dirCreated) {
+                System.err.println("Failed to create directory: " + directoryPath);
+                return;
+            }
+        }
+
+        // Create and write to the file
+        String classFileName = targetSootClass.getShortName() + ".class";
+        File file = new File(directory, classFileName);
+        try {
+            OutputStream streamOut = new FileOutputStream(file);
+            BafASMBackend backend = new BafASMBackend(targetSootClass, java_version);
+            backend.generateClassFile(streamOut);
+            streamOut.close();
+            //System.out.println("File written successfully.");
+        } catch (IOException e) {
+            System.err.println("Error writing to file: " + e.getMessage());
+        }
     }
 
     /*

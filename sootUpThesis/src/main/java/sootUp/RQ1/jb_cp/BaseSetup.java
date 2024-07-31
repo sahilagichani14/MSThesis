@@ -8,6 +8,7 @@ import sootup.core.types.ClassType;
 import sootup.core.util.printer.JimplePrinter;
 import sootup.java.bytecode.inputlocation.JavaClassPathAnalysisInputLocation;
 import sootup.java.core.JavaSootClass;
+import sootup.java.core.interceptors.ConstantPropagatorAndFolder;
 import sootup.java.core.interceptors.CopyPropagator;
 import sootup.java.core.interceptors.LocalSplitter;
 import sootup.java.core.views.JavaView;
@@ -86,7 +87,8 @@ public class BaseSetup {
 
             String input = sootClassMethod.getBody().toString();
             Body.BodyBuilder builder = Body.builder(sootClassMethod.getBody(), Collections.emptySet());
-            new CopyPropagator().interceptBody(builder, view);
+            //new CopyPropagator().interceptBody(builder, view);
+            new ConstantPropagatorAndFolder().interceptBody(builder, view);
 
             String output = builder.getStmtGraph().toString();
 

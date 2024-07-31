@@ -14,6 +14,9 @@ public class JB_TR {
 
     void tc1() {
         int a = 10;
+        a = a + 15;
+        char c = 'a';
+        short s = 100;
     }
 
     void tc2() {
@@ -62,16 +65,6 @@ public class JB_TR {
         }
     }
 
-    void tc9_1(int a, String str) {
-        if (a > 56) {
-            a = 10;
-            boolean b = true;
-        } else {
-            String x = "cha";
-            a = 20;
-        }
-    }
-
     void tc10() {
         int a = 1;
         switch (a) {
@@ -80,17 +73,6 @@ public class JB_TR {
                 break;
             case 2:
                 int c = 20;
-                break;
-        }
-    }
-
-    void tc10_1(int a) {
-        switch (a) {
-            case 1:
-                int b = 10;
-                break;
-            case 2:
-                boolean c = a > 6;
                 break;
         }
     }
@@ -115,31 +97,16 @@ public class JB_TR {
     void tc14() {
         Object obj = "Hello";
         String str = (String) obj;
+        obj = Integer.valueOf(6);
         byte[] strBytes = str.getBytes();
         strBytes.toString();
-    }
-
-    void tc14_1() {
-        Object obj = "2";
-        String str = (String) obj;
-        Integer integer = (Integer) obj;
-        byte[] strBytes = str.getBytes();
-        strBytes.toString();
+        int b = (Integer) obj;
     }
 
     void tc15() {
         List<String> list = new ArrayList<>();
         List<Integer> list1 = new ArrayList<>();
         list.add("str");
-        //double brackets
-        list1.add((0));
-        Integer i = list1.get(0);
-    }
-
-    void tc15_1() {
-        List<String> list = new ArrayList<>();
-        List<Integer> list1 = new ArrayList<>();
-        list.add(("str"));
         //double brackets
         list1.add((0));
         Integer i = list1.get(0);
@@ -188,8 +155,19 @@ public class JB_TR {
         int intValue = s.intValue();
     }
 
-//    void tc23() {
-//        String someString = "Some String abc";
-//        boolean a = someString.contains("abc");
-//    }
+    void tc23() {
+        String someString = "Some String abc";
+        boolean a = someString.contains("abc");
+    }
+
+    void tc24() {
+        int a = 0;
+        try {
+            a = 8 / 0;
+            int b = a + 2;
+        } catch (ArithmeticException ex) {
+
+        }
+        System.out.println(a);
+    }
 }

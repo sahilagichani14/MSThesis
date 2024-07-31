@@ -14,6 +14,9 @@ public class JB_TR {
 
     void tc1() {
         int a = 10;
+        a = a + 15;
+        char c = 'a';
+        short s = 100;
     }
 
     void tc2() {
@@ -94,8 +97,10 @@ public class JB_TR {
     void tc14() {
         Object obj = "Hello";
         String str = (String) obj;
+        obj = Integer.valueOf(6);
         byte[] strBytes = str.getBytes();
         strBytes.toString();
+        int b = (Integer) obj;
     }
 
     void tc15() {
@@ -153,5 +158,16 @@ public class JB_TR {
     void tc23() {
         String someString = "Some String abc";
         boolean a = someString.contains("abc");
+    }
+
+    void tc24() {
+        int a = 0;
+        try {
+            a = 8 / 0;
+            int b = a + 2;
+        } catch (ArithmeticException ex) {
+
+        }
+        System.out.println(a);
     }
 }
