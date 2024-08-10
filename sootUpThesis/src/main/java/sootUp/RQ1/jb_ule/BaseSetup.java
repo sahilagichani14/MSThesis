@@ -88,7 +88,13 @@ public class BaseSetup {
             Body.BodyBuilder builder = Body.builder(sootClassMethod.getBody(), Collections.emptySet());
             new UnusedLocalEliminator().interceptBody(builder, view);
 
-            String output = builder.getStmtGraph().toString();
+            StringBuilder localVar = new StringBuilder();
+            builder.getLocals().stream()
+                    .map(lc -> lc.getType() + " " + lc.getName() + "\n")
+                    .forEach(localVar::append);
+
+            localVar.append(builder.getStmtGraph().toString());
+            String output = localVar.toString();
 
             generateOutput(sootMethodDir, input, output);
         }

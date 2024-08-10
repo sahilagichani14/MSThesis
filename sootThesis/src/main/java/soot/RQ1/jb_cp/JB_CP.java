@@ -11,6 +11,18 @@ public class JB_CP {
         System.out.println(b);
     }
 
+    void tc1_1(String x){
+        int a = 6, b;
+        b = a;
+        if (x.length() > 10){
+            b = 10;
+        }
+        a = 10;
+        a = b;
+        System.out.println(a);
+        System.out.println(b);
+    }
+
     void tc2() {
         int a = 5;
         int b = a;

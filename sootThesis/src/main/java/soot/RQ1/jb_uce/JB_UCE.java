@@ -63,16 +63,42 @@ public class JB_UCE {
             for (int j = 0; j < 10; j++) {
                 break outer;
             }
+            int a = 10; // Unreachable code
+            return;
         }
-        int a = 10; // Unreachable code
     }
 
 
     public void anotherMethod() {
-        while (true){
-            // Some code
-        }
+        int x = 10;
+//        while (true){
+//            // Some code
+//            if (x > 5){
+//                break;
+//            }
+//        }
     }
+
+//    public void anotherMethod1(){
+//        int x = 10;
+//        for (;;) {
+//            // Some code
+//            if (x > 5) {
+//                break;
+//            }
+//        }
+//    }
+
+//    public void anotherMethod2(){
+//        int x = 10;
+//        do {
+//            // Some code
+//            if (x > 5) {
+//                break;
+//            }
+//        } while (true);
+//
+//    }
 
     void tc9() {
         anotherMethod();
@@ -90,6 +116,35 @@ public class JB_UCE {
     void tc11() {
         System.exit(0);
         int a = 10; // Unreachable code
+    }
+
+    void tc12(String x){
+        if (x.length() < -2) {
+            int temp = 10; // Unreachable code
+        }
+        if ((true && true) && false){
+            int temp = 10;
+        }
+    }
+
+    void tc13() {
+        try {
+            int x = 10;
+            int temp;
+        } catch (Exception e) {
+            int temp = 10;
+            e.printStackTrace();
+        } finally {
+            char grade;
+        }
+    }
+
+    void tc14(){
+        if (true){
+            int x = 10;
+            return;
+        }
+        int y = 20;
     }
 
 }

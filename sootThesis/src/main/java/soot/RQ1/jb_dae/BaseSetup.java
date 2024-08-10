@@ -62,6 +62,8 @@ public class BaseSetup {
         //Options.v().setPhaseOption("jb", "use-original-names:true");
         //Options.v().setPhaseOption("jb.ls", "use-original-names:true");
 
+        Options.v().setPhaseOption("jb.dae", "only-stack-locals:false");
+
         //disable all jb body transformers
         Options.v().setPhaseOption("jb.dtr", "enabled:false"); //Duplicate CatchAll Trap Remover
         Options.v().setPhaseOption("jb.ese", "enabled:false"); //Empty Switch Eliminator

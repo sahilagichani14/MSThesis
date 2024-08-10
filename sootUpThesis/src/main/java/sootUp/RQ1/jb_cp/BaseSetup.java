@@ -87,8 +87,8 @@ public class BaseSetup {
 
             String input = sootClassMethod.getBody().toString();
             Body.BodyBuilder builder = Body.builder(sootClassMethod.getBody(), Collections.emptySet());
-            //new CopyPropagator().interceptBody(builder, view);
-            new ConstantPropagatorAndFolder().interceptBody(builder, view);
+            new CopyPropagator().interceptBody(builder, view);
+            //new ConstantPropagatorAndFolder().interceptBody(builder, view);
 
             String output = builder.getStmtGraph().toString();
 

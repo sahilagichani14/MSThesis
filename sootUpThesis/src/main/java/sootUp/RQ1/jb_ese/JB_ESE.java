@@ -258,4 +258,23 @@ public class JB_ESE {
         }
     }
 
+    public void tc21(int x){
+        switch (x){
+            case 1:
+                x++;
+                System.out.println(x);
+        }
+    }
+
+    public void tc22(int x){
+        switch (x){
+            case 1:
+                x++;
+                switch (x){
+                    case 2:
+                        x++;
+                }
+        }
+    }
+
 }
