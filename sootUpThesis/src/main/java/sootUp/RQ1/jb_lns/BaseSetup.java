@@ -8,7 +8,9 @@ import sootup.core.types.ClassType;
 import sootup.core.util.printer.JimplePrinter;
 import sootup.java.bytecode.inputlocation.JavaClassPathAnalysisInputLocation;
 import sootup.java.core.JavaSootClass;
+import sootup.java.core.interceptors.LocalNameStandardizer;
 import sootup.java.core.interceptors.LocalSplitter;
+import sootup.java.core.interceptors.TypeAssigner;
 import sootup.java.core.views.JavaView;
 
 import java.io.*;
@@ -31,7 +33,7 @@ public class BaseSetup {
         Collection<JavaSootClass> viewClasses = view.getClasses();
         System.out.println(viewClasses);
         ClassType classType =
-                view.getIdentifierFactory().getClassType("sootUp.RQ1.jb_ls.JB_LS");
+                view.getIdentifierFactory().getClassType("sootUp.RQ1.jb_lns.JB_LNS");
         System.out.println(classType);
         JavaSootClass sootClass = view.getClass(classType).get();
         System.out.println(sootClass);
@@ -85,9 +87,16 @@ public class BaseSetup {
 
             String input = sootClassMethod.getBody().toString();
             Body.BodyBuilder builder = Body.builder(sootClassMethod.getBody(), Collections.emptySet());
-            new LocalSplitter().interceptBody(builder, view);
+            new TypeAssigner().interceptBody(builder, view);
+            new LocalNameStandardizer().interceptBody(builder, view);
 
-            String output = builder.getStmtGraph().toString();
+            StringBuilder localVar = new StringBuilder();
+            builder.getLocals().stream()
+                    .map(lc -> lc.getType() + " " + lc.getName() + "\n")
+                    .forEach(localVar::append);
+
+            localVar.append(builder.getStmtGraph().toString());
+            String output = localVar.toString();
 
             generateOutput(sootMethodDir, input, output);
         }
