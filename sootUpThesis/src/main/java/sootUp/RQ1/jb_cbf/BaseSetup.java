@@ -8,6 +8,8 @@ import sootup.core.types.ClassType;
 import sootup.core.util.printer.JimplePrinter;
 import sootup.java.bytecode.inputlocation.JavaClassPathAnalysisInputLocation;
 import sootup.java.core.JavaSootClass;
+import sootup.java.core.interceptors.ConditionalBranchFolder;
+import sootup.java.core.interceptors.CopyPropagator;
 import sootup.java.core.interceptors.LocalSplitter;
 import sootup.java.core.views.JavaView;
 
@@ -31,7 +33,7 @@ public class BaseSetup {
         Collection<JavaSootClass> viewClasses = view.getClasses();
         System.out.println(viewClasses);
         ClassType classType =
-                view.getIdentifierFactory().getClassType("sootUp.RQ1.jb_ls.JB_LS");
+                view.getIdentifierFactory().getClassType("sootUp.RQ1.jb_cbf.JB_CBF");
         System.out.println(classType);
         JavaSootClass sootClass = view.getClass(classType).get();
         System.out.println(sootClass);
@@ -85,7 +87,8 @@ public class BaseSetup {
 
             String input = sootClassMethod.getBody().toString();
             Body.BodyBuilder builder = Body.builder(sootClassMethod.getBody(), Collections.emptySet());
-            new LocalSplitter().interceptBody(builder, view);
+            new CopyPropagator().interceptBody(builder, view);
+            new ConditionalBranchFolder().interceptBody(builder, view);
 
             String output = builder.getStmtGraph().toString();
 

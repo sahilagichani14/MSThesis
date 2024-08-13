@@ -305,4 +305,13 @@ public class JB_LNS {
         String x = String.SUNDAY;
     }
 
+    void tc31(){
+        Integer temp = null;
+        if (temp == null){
+            temp = null;
+        }
+        temp= null;
+        System.out.println(temp);
+    }
+
 }

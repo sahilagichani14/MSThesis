@@ -1,9 +1,5 @@
 package sootUp.RQ1.jb_dae;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-
 public class JB_DAE {
 //    void tc1() {
 //        int x = 10;
@@ -37,7 +33,7 @@ public class JB_DAE {
 //        }
 //        System.out.println(z);
 //    }
-//
+
     void tc5(int y) {
         int x = 10;
         x = 20;
@@ -46,7 +42,7 @@ public class JB_DAE {
         }
         System.out.println(x);
     }
-//
+
 //    void tc6() {
 //        int x = 10;
 //        x = someMethod();
@@ -141,7 +137,7 @@ public class JB_DAE {
 //            return x;
 //        }
 //    }
-
+//
 //    int tc12_1(boolean flag) {
 //        int x = 10;
 //        int temp = 0;
@@ -156,7 +152,7 @@ public class JB_DAE {
 //        System.out.println(temp);
 //        return x;
 //    }
-
+//
 //    void tc13() {
 //        if (false) {
 //            int x = 10;
@@ -265,8 +261,8 @@ public class JB_DAE {
 //    }
 //
 //    void tc26() {
-//        List l1 = new ArrayList();
-//        List l2 = new ArrayList();
+//        List l1 = new ArrayList<>();
+//        List l2 = new ArrayList<>();
 //        List l3, l4;
 //        l2 = l1;
 //        l4 = l1;
@@ -282,25 +278,25 @@ public class JB_DAE {
 //        bool = bool;
 //        System.out.println("");
 //    }
-
-    void tc28(){
-        try (BufferedReader reader = new BufferedReader(new FileReader("file.txt"))) {
-            String line;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    void tc29(){
-        int[] numbers = {4, 5};
-        for (int number : numbers) {
-            System.out.println("");
-        }
-    }
-
-    void tc30(){
-        enum String { SUNDAY }
-        String x = String.SUNDAY;
-    }
+//
+//    void tc28(){
+//        try (BufferedReader reader = new BufferedReader(new FileReader("file.txt"))) {
+//            String line;
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
+//
+//    void tc29(){
+//        int[] numbers = {4, 5};
+//        for (int number : numbers) {
+//            System.out.println("");
+//        }
+//    }
+//
+//    void tc30(){
+//        enum String { SUNDAY }
+//        String x = String.SUNDAY;
+//    }
 
 }
