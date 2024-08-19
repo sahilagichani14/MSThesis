@@ -56,6 +56,10 @@ public class BaseSetup {
         Options.v().set_dump_body(list);
 
         Options.v().setPhaseOption("bb", "enabled:false"); //bafBody bb bydefault calls bb.lp, bb.ule, bb.ne so disabled
+
+        //CP also enabled then cbf
+        Options.v().setPhaseOption("jb.cp", "only-regular-locals:true");
+        Options.v().setPhaseOption("jb.cp", "only-stack-locals:false");
         
         //Options.v().setPhaseOption("jb", "use-original-names:true");
         //Options.v().setPhaseOption("jb.ls", "use-original-names:true");
@@ -70,7 +74,7 @@ public class BaseSetup {
         Options.v().setPhaseOption("jb.tr", "enabled:false"); //Type Assigner
         Options.v().setPhaseOption("jb.ulp", "enabled:false"); //Unsplit-originals Local    Packer
         Options.v().setPhaseOption("jb.lns", "enabled:false"); //Local Name Standardizer
-        Options.v().setPhaseOption("jb.cp", "enabled:false"); // CopyPropagator
+        Options.v().setPhaseOption("jb.cp", "enabled:true"); // CopyPropagator
         Options.v().setPhaseOption("jb.dae", "enabled:false"); // DeadAssignmentEliminator
         Options.v().setPhaseOption("jb.cp-ule", "enabled:false"); // UnusedLocalEliminator
         Options.v().setPhaseOption("jb.lp", "enabled:false"); //Local Packer

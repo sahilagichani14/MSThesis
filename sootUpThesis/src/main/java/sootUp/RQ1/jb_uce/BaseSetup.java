@@ -29,7 +29,7 @@ public class BaseSetup {
         // if nothing passed then 8 by default BI are applied which are defined in ByteCodeBodyInterceptors
         AnalysisInputLocation inputLocation = new JavaClassPathAnalysisInputLocation(classPath, null, Collections.emptyList());
         JavaView view = new JavaView(inputLocation);
-        Collection<JavaSootClass> viewClasses = view.getClasses();
+        Collection<JavaSootClass> viewClasses = view.getClasses().toList();
         System.out.println(viewClasses);
         ClassType classType =
                 view.getIdentifierFactory().getClassType("sootUp.RQ1.jb_uce.JB_UCE");

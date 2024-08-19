@@ -2,6 +2,13 @@ public class MemoryUsage
 {
     public static void main (String [] args) throws Exception
     {
+        Runtime runtime = Runtime.getRuntime();
+        long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();
+        System.out.println("Used Memory before" + usedMemoryBefore);
+        // working code here
+        long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
+        System.out.println("Memory increased:" + (usedMemoryAfter-usedMemoryBefore));
+
         run ();
         memoryUsed ();
         final int count = 100000;

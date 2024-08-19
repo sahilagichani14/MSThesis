@@ -35,7 +35,7 @@ public class BaseSetup {
 
         AnalysisInputLocation inputLocation = new JavaClassPathAnalysisInputLocation(tcpath, SourceType.Application, Collections.singletonList(new TypeAssigner()));
         JavaView view = new JavaView(inputLocation);
-        Collection<JavaSootClass> viewClasses = view.getClasses();
+        Collection<JavaSootClass> viewClasses = view.getClasses().toList();
         System.out.println(viewClasses);
         List<JavaSootClass> javaSootClassList = viewClasses.stream().filter(viewClass -> viewClass.getName().contains("RQ1.jb_ls")).collect(Collectors.toList());
 
