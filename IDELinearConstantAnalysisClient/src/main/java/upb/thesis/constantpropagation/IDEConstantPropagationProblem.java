@@ -35,10 +35,10 @@ public class IDEConstantPropagationProblem
   private final SootMethod entryMethod;
 
   public static final ConstantValue TOP =
-      new ConstantValue(IntConstant.getInstance(Integer.MAX_VALUE), null); // Unknown
+      new ConstantValue(IntConstant.getInstance(Integer.MIN_VALUE), null); // Unknown
 
   public static final ConstantValue BOTTOM =
-      new ConstantValue(IntConstant.getInstance(Integer.MIN_VALUE), null); // Unknown
+      new ConstantValue(IntConstant.getInstance(Integer.MAX_VALUE), null); // Unknown
 
   /**
    * Constructs an IDEConstantPropagationProblem with the provided interprocedural control flow

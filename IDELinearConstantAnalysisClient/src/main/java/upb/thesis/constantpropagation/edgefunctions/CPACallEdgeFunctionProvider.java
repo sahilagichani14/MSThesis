@@ -1,11 +1,13 @@
 package upb.thesis.constantpropagation.edgefunctions;
 
+import com.googlecode.dex2jar.ir.expr.InvokeExpr;
 import heros.EdgeFunction;
 import heros.edgefunc.AllBottom;
 import heros.edgefunc.EdgeIdentity;
 import sootup.core.jimple.basic.Local;
 import sootup.core.jimple.basic.Value;
 import sootup.core.jimple.common.constant.NumericConstant;
+import sootup.core.jimple.common.expr.JSpecialInvokeExpr;
 import sootup.core.jimple.common.expr.JVirtualInvokeExpr;
 import sootup.core.jimple.common.stmt.JAssignStmt;
 import sootup.core.jimple.common.stmt.JInvokeStmt;
@@ -64,7 +66,11 @@ public class CPACallEdgeFunctionProvider {
     Value rhs = assignment.getRightOp();
     if (rhs instanceof JVirtualInvokeExpr) {
       for (int i = 0; i < destinationMethod.getParameterCount(); i++) {
-        processInvokeExpr((JVirtualInvokeExpr) rhs, destinationMethod, succNode, i, assignment);
+        processJVirtualInvokeExpr((JVirtualInvokeExpr) rhs, destinationMethod, succNode, i, assignment);
+      }
+    } else if (rhs instanceof JSpecialInvokeExpr) {
+      for (int i = 0; i < destinationMethod.getParameterCount(); i++) {
+        processJSpecialInvokeExpr((JSpecialInvokeExpr) rhs, destinationMethod, succNode, i, assignment);
       }
     }
   }
@@ -79,12 +85,23 @@ public class CPACallEdgeFunctionProvider {
   private void handleInvokeStmt(
       JInvokeStmt invokeStmt, SootMethod destinationMethod, Value succNode) {
     for (int i = 0; i < destinationMethod.getParameterCount(); i++) {
-      processInvokeExpr(
-          (JVirtualInvokeExpr) invokeStmt.asInvokableStmt().getInvokeExpr().get(),
-          destinationMethod,
-          succNode,
-          i,
-          invokeStmt);
+      if (invokeStmt.asInvokableStmt().getInvokeExpr().get() instanceof JVirtualInvokeExpr) {
+        JVirtualInvokeExpr invokeExpr = (JVirtualInvokeExpr) invokeStmt.asInvokableStmt().getInvokeExpr().get();
+        processJVirtualInvokeExpr(
+                invokeExpr,
+                destinationMethod,
+                succNode,
+                i,
+                invokeStmt);
+      } else if (invokeStmt.asInvokableStmt().getInvokeExpr().get() instanceof JSpecialInvokeExpr) {
+        JSpecialInvokeExpr specialInvokeExpr = (JSpecialInvokeExpr) invokeStmt.asInvokableStmt().getInvokeExpr().get();
+        processJSpecialInvokeExpr(
+                specialInvokeExpr,
+                destinationMethod,
+                succNode,
+                i,
+                invokeStmt);
+      }
     }
   }
 
@@ -97,8 +114,22 @@ public class CPACallEdgeFunctionProvider {
    * @param index The index of the method parameter being processed.
    * @param stmt The statement associated with the invocation.
    */
-  private void processInvokeExpr(
+  private void processJVirtualInvokeExpr(
       JVirtualInvokeExpr invokeExpr,
+      SootMethod destinationMethod,
+      Value succNode,
+      int index,
+      Stmt stmt) {
+    Local paramLocal = destinationMethod.getBody().getParameterLocal(index);
+    if (paramLocal.equals(succNode) && invokeExpr.getArg(index) instanceof NumericConstant) {
+      ConstantValue constantValue =
+          new ConstantValue((NumericConstant) invokeExpr.getArg(index), stmt);
+      edgeFunction = new ConstantAssign(constantValue);
+    }
+  }
+
+  private void processJSpecialInvokeExpr(
+          JSpecialInvokeExpr invokeExpr,
       SootMethod destinationMethod,
       Value succNode,
       int index,

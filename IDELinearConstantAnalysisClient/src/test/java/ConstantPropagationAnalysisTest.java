@@ -546,7 +546,7 @@ public class ConstantPropagationAnalysisTest {
    */
   private void checkResults(
       Set<Pair<String, String>> defaultIDEResult, Set<Pair<String, String>> expected) {
-
+    defaultIDEResult.forEach(System.out::println);
     assertTrue(defaultIDEResult.containsAll(expected));
   }
 }
