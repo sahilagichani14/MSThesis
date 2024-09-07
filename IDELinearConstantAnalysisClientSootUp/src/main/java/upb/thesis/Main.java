@@ -34,7 +34,7 @@ public class Main {
     public static int maxMethodSize = 10;
 
     public static void main(String[] args) {
-        Path jarPath = Paths.get(System.getProperty("user.dir") + "/IDELinearConstantAnalysisClient/src/test/resources/jars/jcl-over-slf4j-2.0.7.jar");
+        Path jarPath = Paths.get(System.getProperty("user.dir") + "/IDELinearConstantAnalysisClientSootUp/src/test/resources/latest/jcl-over-slf4j-2.0.7.jar");
         //Path workingDirectory = Paths.get(System.getProperty("user.dir") + "/IDELinearConstantAnalysisClient/src/test/resources/");
         //String packageName = "constantpropagation";
         //String targetClassName = "Assignment";

@@ -12,7 +12,8 @@
         <module>sootThesis</module>
         <module>sootUpThesis</module>
         <module>test-case-resources</module>
-        <module>IDELinearConstantAnalysisClient</module>
+        <module>IDELinearConstantAnalysisClientSootUp</module>
+        <module>IDELinearConstantAnalysisClientSoot</module>
     </modules>
 
     <properties>
