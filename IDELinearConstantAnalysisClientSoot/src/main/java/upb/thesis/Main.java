@@ -1,7 +1,6 @@
 package upb.thesis;
 
 import com.google.common.base.Stopwatch;
-import soot.BodyTransformer;
 import soot.Scene;
 import soot.SootClass;
 import soot.SootMethod;
@@ -18,8 +17,8 @@ import java.util.concurrent.TimeUnit;
 
 public class Main {
     public static void main(String[] args) {
-        Path pathToJars = Paths.get("C:\\Users\\sahil\\Documents\\master-thesis\\MSThesis\\IDELinearConstantAnalysisClientSoot\\src\\test\\resources\\latest");
-        String jarPath = pathToJars + File.separator + args[0];
+        Path pathToJar = Paths.get(System.getProperty("user.dir") + "/IDELinearConstantAnalysisClientSoot/src/test/resources/latest/");
+        String jarPath = pathToJar + File.separator + args[0];
         String solver = args[1];
         int maxMethods = Integer.parseInt(args[2]);
         String algorithm = args[3];
@@ -100,6 +99,7 @@ public class Main {
         EvalHelper.setTotalDuration(elapsed);
         (new EvalPrinter(solver)).generate();
 
+        /*
         Chain<SootClass> applicationClasses_afterpacks = Scene.v().getApplicationClasses();
         for (SootClass sootClass : applicationClasses_afterpacks) {
             for (SootMethod sootMethod : sootClass.getMethods()) {
@@ -110,6 +110,7 @@ public class Main {
                 //LocalSplitter.v().transform(jimpleBody);
             }
         }
+         */
     }
 
     private static List<BodyTransformer> parseBodyTransformer(String s) throws Exception {
