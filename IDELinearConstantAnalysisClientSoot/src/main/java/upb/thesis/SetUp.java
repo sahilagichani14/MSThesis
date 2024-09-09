@@ -169,9 +169,11 @@ public class SetUp {
         Transform transform = new Transform("wjtp.ifds", createAnalysisTransformer());
         PackManager.v().getPack("wjtp").add(transform);
         List<Main.BodyTransformer> bodyTransformers = EvalHelper.getBodyTransformers();
-        for (Main.BodyTransformer x : bodyTransformers) {
-            Transform transform1 = new Transform("jb." + x.name(), createAnalysisTransformer1(x));
-            PackManager.v().getPack("jb").add(transform1);
+        if (bodyTransformers!=null){
+            for (Main.BodyTransformer x : bodyTransformers) {
+                Transform transform1 = new Transform("jb." + x.name(), createAnalysisTransformer1(x));
+                PackManager.v().getPack("jb").add(transform1);
+            }
         }
     }
 

@@ -25,8 +25,10 @@ public class Main {
         String numberOfThreads = args[4];
         int numThreads = Runtime.getRuntime().availableProcessors();
 
-        // actually it is Enable List, if present in list then enabled = true
-        Options.v().setDisableBTList(Arrays.asList("jb.tt", "jb.dtr", "jb.uce", "jb.ls", "jb.sils", "jb.a", "jb.ule", "jb.tr", "jb.lns", "jb.cp", "jb.dae", "jb.cp-ule", "jb.lp", "jb.ne", "jb.uce"));
+        List<String> allBTList = Arrays.asList("jb.ls", "jb.lp", "jb.ese", "jb.ne", "jb.dae", "jb.ule", "jb.cp", "jb.uce", "jb.tr", "jb.tt", "jb.lns", "jb.cbf", "jb.dtr", "jb.sils", "jb.a", "jb.ulp", "jb.cp-ule");
+        List<String> defaultBTList = Arrays.asList("jb.tt", "jb.dtr", "jb.uce", "jb.ls", "jb.sils", "jb.a", "jb.ule", "jb.tr", "jb.lns", "jb.cp", "jb.dae", "jb.cp-ule", "jb.lp", "jb.ne", "jb.uce");
+        // actually it is Enable List, if present in list then enabled = true, jb.ls, jb.tr should be enabled always else at soot.jimple.toolkits.callgraph.CallGraphPack.internalApply
+        Options.v().setDisableBTList(Arrays.asList("jb.ls", "jb.tr"));
         //Options.v().setPhaseOption("jb.tr", "use-older-type-assigner:true");
         /*
         Options.v().setPhaseOption("bb", "enabled:false"); //bafBody bb bydefault calls bb.lp, bb.ule, bb.ne so disabled
@@ -64,6 +66,7 @@ public class Main {
         if (args.length > 5) {
             try {
                 List<String> appliedBTList = Arrays.asList(args[5].split(","));
+                // to set in Soot
                 Options.v().setDisableBTList(appliedBTList);
                 String cmdLineBT = String.join(",", appliedBTList);
                 List<BodyTransformer> var6 = parseBodyTransformer(cmdLineBT);
@@ -72,13 +75,16 @@ public class Main {
                 throw new RuntimeException(exception);
             }
         } else {
-            Set<String> disableBTList = new HashSet<>(Options.v().getDisableBTList());
-            String appliedBTList = String.join(",", disableBTList);
-            try {
-                List<BodyTransformer> var6 = parseBodyTransformer(appliedBTList);
-                EvalHelper.setBodyTransformers(var6);
-            } catch (Exception e) {
-                throw new RuntimeException(e);
+            List<String> disableBTList1 = Options.v().getDisableBTList();
+            if (disableBTList1 != null) {
+                Set<String> disableBTList = new HashSet<>(disableBTList1);
+                String appliedBTList = String.join(",", disableBTList);
+                try {
+                    List<BodyTransformer> var6 = parseBodyTransformer(appliedBTList);
+                    EvalHelper.setBodyTransformers(var6);
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
             }
         }
 
