@@ -4,7 +4,7 @@ import com.google.common.base.Stopwatch;
 import heros.InterproceduralCFG;
 import heros.solver.Pair;
 import sootup.analysis.interprocedural.icfg.JimpleBasedInterproceduralCFG;
-import sootup.analysis.interprocedural.ide.JimpleIDESolver;
+import sootup.callgraph.CallGraph;
 import sootup.core.inputlocation.AnalysisInputLocation;
 import sootup.core.jimple.basic.Value;
 import sootup.core.jimple.common.constant.IntConstant;
@@ -14,18 +14,17 @@ import sootup.core.model.Body;
 import sootup.core.model.SootClass;
 import sootup.core.model.SootMethod;
 import sootup.core.model.SourceType;
+import sootup.core.signatures.MethodSignature;
 import sootup.core.transform.BodyInterceptor;
 import sootup.core.views.View;
 import sootup.java.bytecode.inputlocation.DefaultRTJarAnalysisInputLocation;
 import sootup.java.bytecode.inputlocation.JavaClassPathAnalysisInputLocation;
 import sootup.java.core.interceptors.*;
 import sootup.java.core.views.JavaView;
-import upb.thesis.config.CallGraphAlgorithm;
-import upb.thesis.config.CallGraphApplication;
-import upb.thesis.config.CallGraphConfig;
-import upb.thesis.config.CallGraphMetricsWrapper;
+import upb.thesis.config.*;
 import upb.thesis.constantpropagation.ConstantValue;
 import upb.thesis.constantpropagation.IDEConstantPropagationProblem;
+import upb.thesis.solver.JimpleIDESolver;
 
 import java.io.File;
 import java.util.*;
@@ -39,8 +38,10 @@ public class SetUp {
 
     public static long defaultPropCount = 0;
 
+    public CallGraph generatedcallGraph;
+
     protected void executeStaticAnalysis(String jarPath) {
-        setupSoot(jarPath);
+        setupSootUp(jarPath);
     }
 
     private CallGraphConfig constructCallGraphConfig() {
@@ -155,7 +156,7 @@ public class SetUp {
      * This method provides the options to soot to analyse the respecive
      * classes.
      */
-    private void setupSoot(String jarPath) {
+    private void setupSootUp(String jarPath) {
         String sootCp = jarPath + File.pathSeparator + "lib" + File.separator + "rt.jar";
         List<Main.BodyInterceptor> bodyInterceptors = EvalHelper.getBodyInterceptors();
         List<BodyInterceptor> appliedBIList = new ArrayList<>();
@@ -171,6 +172,20 @@ public class SetUp {
         View view = new JavaView(List.of(inputLocation));
         entryMethods = getEntryPointMethods(view);
         System.out.println(entryMethods);
+
+        try {
+            Stopwatch var1 = Stopwatch.createStarted();
+            CallGraphMetricsWrapper var2 = CallGraphApplication.generateCallGraph(view, this.constructCallGraphConfig());
+            EvalHelper.setCg_construction_duration(var1.elapsed(TimeUnit.MILLISECONDS));
+            generatedcallGraph = var2.getCallGraph();
+            int noOfReachableNodes = calNumOfReachableNodes(generatedcallGraph);
+            EvalHelper.setNumber_of_cg_Edges(var2.getCallGraph().callCount());
+            EvalHelper.setNumber_of_reachable_methods(noOfReachableNodes);
+            System.out.println("Number of CallGraph edges: " + var2.getCallGraph().callCount());
+        } catch (Exception var3) {
+            var3.printStackTrace();
+            System.exit(1);
+        }
 
         /*
         view.getClasses().forEach(clazz -> {
@@ -194,7 +209,8 @@ public class SetUp {
          */
 
         for (SootMethod method : entryMethods) {
-            JimpleBasedInterproceduralCFG icfg = new JimpleBasedInterproceduralCFG(view, method.getSignature(), false, false);
+            //JimpleBasedInterproceduralCFG icfg = new JimpleBasedInterproceduralCFG(view, method.getSignature(), false, false);
+            JimpleBasedInterproceduralCFG icfg = new JimpleBasedInterproceduralCFG(EvalHelper.getCallgraphAlgorithm().name(), view, method.getSignature(), false, false);
             System.out.println("started solving from: " + method.getSignature());
             IDEConstantPropagationProblem problem = new IDEConstantPropagationProblem(icfg, method);
             upb.thesis.solver.JimpleIDESolver<?, ?, ?> mSolver = new upb.thesis.solver.JimpleIDESolver<>(problem);
@@ -202,24 +218,42 @@ public class SetUp {
             solver = mSolver;
             mSolver.addFinalResults(method.getSignature());
             Set<Pair<String, String>> pairs = getResult(mSolver, method);
-            pairs.forEach(System.out::println);
+            //pairs.forEach(System.out::println);
         }
         if (solver != null) {
             solver.dumpResults(EvalHelper.getTargetName());
         }
 
-        try {
-            Stopwatch var1 = Stopwatch.createStarted();
-            CallGraphMetricsWrapper var2 = CallGraphApplication.generateCallGraph(view, this.constructCallGraphConfig());
-            EvalHelper.setCg_construction_duration(var1.elapsed(TimeUnit.MILLISECONDS));
-            EvalHelper.setNumber_of_cg_Edges(var2.getCallGraph().callCount());
-            EvalHelper.setNumber_of_reachable_methods(var2.getCallGraph().getMethodSignatures().size());
-            System.out.println("Number of CallGraph edges: " + var2.getCallGraph().callCount());
-        } catch (Exception var3) {
-            var3.printStackTrace();
-            System.exit(1);
-        }
+    }
 
+    private int calNumOfReachableNodes(CallGraph generatedcallGraph) {
+        Set<MethodSignature> reachableNodes = new HashSet<>();
+        List<MethodSignature> entryMethods = generatedcallGraph.getEntryMethods();
+
+        for (MethodSignature startingNode: entryMethods){
+            // Stack to implement DFS
+            Deque<MethodSignature> stack = new ArrayDeque<>();
+            // add all entryMethods as reachableNodes
+            stack.push(startingNode);
+            // Traverse the call graph using DFS
+            while (!stack.isEmpty()) {
+                MethodSignature currentMethod = stack.pop();
+                // If the method has already been visited, skip it
+                if (!reachableNodes.add(currentMethod)) {
+                    continue;
+                }
+                // Get the successors (i.e., called methods) of the current method
+                Set<MethodSignature> successors = generatedcallGraph.callTargetsFrom(currentMethod);
+
+                // Push the successors into the stack
+                for (MethodSignature successor : successors) {
+                    if (!reachableNodes.contains(successor)) {
+                        stack.push(successor);
+                    }
+                }
+            }
+        }
+        return reachableNodes.size();
     }
 
 
@@ -264,8 +298,8 @@ public class SetUp {
     public static Set<Pair<String, String>> getResult(Object analysis, SootMethod entryMethod) {
         Map<Value, ConstantValue> res = null;
         Set<Pair<String, String>> result = new HashSet<>();
-        if (analysis instanceof JimpleIDESolver<?,?,?>) {
-            JimpleIDESolver solver = (JimpleIDESolver) analysis;
+        if (analysis instanceof upb.thesis.solver.JimpleIDESolver) {
+            JimpleIDESolver solver = (upb.thesis.solver.JimpleIDESolver) analysis;
             List<Stmt> stmts = entryMethod.getBody().getStmts();
             res = (Map<Value, ConstantValue>) solver.resultsAt(stmts.get(stmts.size() - 1));
             defaultPropCount += solver.propagationCount;

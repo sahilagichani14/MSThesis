@@ -37,19 +37,21 @@ public class JimpleIDESolver<D, V, I extends InterproceduralCFG<Stmt, SootMethod
         while (iter.hasNext()) {
             Table.Cell<Stmt, D, ?> entry = (Table.Cell) iter.next();
             SootMethod method = this.icfg.getMethodOf(entry.getRowKey());
-            int lastIndex = method.getBody().getStmts().size() - 1;
-            Stmt lastStmt = method.getBody().getStmts().get(lastIndex);
-            Set<String> results = new TreeSet<>();
-            Map<D, V> res = this.resultsAt(lastStmt);
-            for (Map.Entry<D, V> e : res.entrySet()) {
-                if(!e.getKey().toString().contains("$stack") && !e.getKey().toString().contains("varReplacer")){
-                    results.add(e.getKey().toString() + " - " + e.getValue());
+            if (method != null){
+                int lastIndex = method.getBody().getStmts().size() - 1;
+                Stmt lastStmt = method.getBody().getStmts().get(lastIndex);
+                Set<String> results = new TreeSet<>();
+                Map<D, V> res = this.resultsAt(lastStmt);
+                for (Map.Entry<D, V> e : res.entrySet()) {
+                    if(!e.getKey().toString().contains("$stack") && !e.getKey().toString().contains("varReplacer")){
+                        results.add(e.getKey().toString() + " - " + e.getValue());
+                    }
                 }
-            }
-            if(!results.isEmpty()){
-                Pair pair = new Pair(method.getSignature().toString(), results);
-                if(!checked.contains(pair)){
-                    checked.add(pair);
+                if(!results.isEmpty()){
+                    Pair pair = new Pair(method.getSignature().toString(), results);
+                    if(!checked.contains(pair)){
+                        checked.add(pair);
+                    }
                 }
             }
         }

@@ -1,6 +1,8 @@
 package upb.thesis;
 
 import com.google.common.base.Stopwatch;
+import sootup.core.transform.BodyInterceptor;
+import sootup.java.core.interceptors.*;
 
 import java.io.File;
 import java.nio.file.Path;
@@ -36,6 +38,8 @@ public class Main {
 
         if (args.length > 5) {
             try {
+                // Default in order: jb.ne, jb.ese, CastAndReturnInliner, jb.ls, jb.a, jb.cp, ConstantPropagatorAndFolder, jb.tr
+                // List<sootup.core.transform.BodyInterceptor> defaultBodyInterceptors = BytecodeBodyInterceptors.Default.getBodyInterceptors();
                 List<String> appliedBTList = Arrays.asList(args[5].split(","));
                 String cmdLineBT = String.join(",", appliedBTList);
                 List<BodyInterceptor> var6 = parseBodyInterceptors(cmdLineBT);

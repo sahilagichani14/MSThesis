@@ -1,8 +1,5 @@
 package upb.thesis;
 
-import heros.sparse.SparseCFGCache;
-import heros.sparse.SparseCFGQueryStat;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -10,7 +7,7 @@ import java.util.List;
 
 public class EvalPrinter {
     private static final String OUT_PUT_DIR = "./IDELinearConstantAnalysisClientSoot/results";
-    private static final String FILE = "sparseide_eval.csv";
+    private static final String FILE = "soot_ide_eval.csv";
 
     private final String targetProgram;
     private final String solver;
@@ -18,8 +15,9 @@ public class EvalPrinter {
     private long totalDuration = 0;
     private long totalPropagationCount = 0;
     private int methodCount = 0;
-    private long sparseCFGBuildtime = 0;
-    private long scfgBuildCount = 0;
+    private long callGraphConstructionTime = 0;
+    private int callGraphReachableNodes = 0;
+    private int callGraphEdges = 0;
 
     private String callgraphAlgo;
 
@@ -35,6 +33,9 @@ public class EvalPrinter {
         this.methodCount = EvalHelper.getActualMethodCount();
         this.callgraphAlgo = EvalHelper.getCallgraphAlgorithm().name();
         this.bodyTransformers = EvalHelper.getBodyTransformers();
+        this.callGraphConstructionTime = EvalHelper.getCg_construction_duration();
+        this.callGraphEdges = EvalHelper.getNumber_of_cg_Edges();
+        this.callGraphReachableNodes = EvalHelper.getNumber_of_reachable_methods();
     }
 
     public void generate() {
@@ -52,19 +53,21 @@ public class EvalPrinter {
                 str.append(",");
                 str.append("thread");
                 str.append(",");
-                str.append("runtime");
+                str.append("totalRuntime");
+                str.append(",");
+                str.append("cgConstructionTime");
                 str.append(",");
                 str.append("prop");
                 str.append(",");
                 str.append("method");
                 str.append(",");
-                str.append("SCFGConst");
-                str.append(",");
-                str.append("SCFGCount");
-                str.append(",");
                 str.append("mem");
                 str.append(",");
                 str.append("CallGraphAlgo");
+                str.append(",");
+                str.append("callGraphEdges");
+                str.append(",");
+                str.append("callGraphReachableNodes");
                 str.append(",");
                 str.append("BodyTransformers");
                 str.append(System.lineSeparator());
@@ -83,17 +86,19 @@ public class EvalPrinter {
             str.append(",");
             str.append(totalDuration);
             str.append(",");
+            str.append(callGraphConstructionTime);
+            str.append(",");
             str.append(totalPropagationCount);
             str.append(",");
             str.append(methodCount);
             str.append(",");
-            str.append(sparseCFGBuildtime);
-            str.append(",");
-            str.append(scfgBuildCount);
-            str.append(",");
             str.append(getMemoryUsage());
             str.append(",");
             str.append(callgraphAlgo);
+            str.append(",");
+            str.append(callGraphEdges);
+            str.append(",");
+            str.append(callGraphReachableNodes);
             str.append(",");
             str.append(bodyTransformers);
             str.append(System.lineSeparator());
