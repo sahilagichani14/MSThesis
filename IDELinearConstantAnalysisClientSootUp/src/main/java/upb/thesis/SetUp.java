@@ -29,6 +29,7 @@ import upb.thesis.solver.JimpleIDESolver;
 import java.io.File;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class SetUp {
 
@@ -170,6 +171,16 @@ public class SetUp {
         }
         AnalysisInputLocation inputLocation = new JavaClassPathAnalysisInputLocation(jarPath, SourceType.Application, appliedBIList);
         View view = new JavaView(List.of(inputLocation));
+        AtomicInteger stmtCountAfterApplyingBI = new AtomicInteger();
+        view.getClasses().forEach(clazz -> {
+            clazz.getMethods().forEach(method -> {
+                if (method.isConcrete()) {
+                    stmtCountAfterApplyingBI.addAndGet(method.getBody().getStmts().size());
+                }
+            });
+        });
+        EvalHelper.setStmtCountAfterApplyingBI(stmtCountAfterApplyingBI.get());
+
         entryMethods = getEntryPointMethods(view);
         System.out.println(entryMethods);
 
@@ -178,7 +189,8 @@ public class SetUp {
             CallGraphMetricsWrapper var2 = CallGraphApplication.generateCallGraph(view, this.constructCallGraphConfig());
             EvalHelper.setCg_construction_duration(var1.elapsed(TimeUnit.MILLISECONDS));
             generatedcallGraph = var2.getCallGraph();
-            int noOfReachableNodes = calNumOfReachableNodes(generatedcallGraph);
+            // int noOfReachableNodes = calNumOfReachableNodes(generatedcallGraph);
+            int noOfReachableNodes = 0;
             EvalHelper.setNumber_of_cg_Edges(var2.getCallGraph().callCount());
             EvalHelper.setNumber_of_reachable_methods(noOfReachableNodes);
             System.out.println("Number of CallGraph edges: " + var2.getCallGraph().callCount());
@@ -210,7 +222,9 @@ public class SetUp {
 
         for (SootMethod method : entryMethods) {
             //JimpleBasedInterproceduralCFG icfg = new JimpleBasedInterproceduralCFG(view, method.getSignature(), false, false);
-            JimpleBasedInterproceduralCFG icfg = new JimpleBasedInterproceduralCFG(EvalHelper.getCallgraphAlgorithm().name(), view, method.getSignature(), false, false);
+            List<MethodSignature> entryPointsMethodSignatures = entryMethods.stream().map(sootMethod -> method.getSignature()).toList();
+            //JimpleBasedInterproceduralCFG icfg = new JimpleBasedInterproceduralCFG(EvalHelper.getCallgraphAlgorithm().name(), view, method.getSignature(), entryPointsMethodSignatures,false, false);
+            JimpleBasedInterproceduralCFG icfg = new JimpleBasedInterproceduralCFG(EvalHelper.getCallgraphAlgorithm().name(), view, method.getSignature(), null,false, false);
             System.out.println("started solving from: " + method.getSignature());
             IDEConstantPropagationProblem problem = new IDEConstantPropagationProblem(icfg, method);
             upb.thesis.solver.JimpleIDESolver<?, ?, ?> mSolver = new upb.thesis.solver.JimpleIDESolver<>(problem);
@@ -243,12 +257,13 @@ public class SetUp {
                     continue;
                 }
                 // Get the successors (i.e., called methods) of the current method
-                Set<MethodSignature> successors = generatedcallGraph.callTargetsFrom(currentMethod);
+                // Set<MethodSignature> successors = generatedcallGraph.callTargetsFrom(currentMethod);
+                Set<CallGraph.Call> successors = generatedcallGraph.callsFrom(currentMethod);
 
                 // Push the successors into the stack
-                for (MethodSignature successor : successors) {
-                    if (!reachableNodes.contains(successor)) {
-                        stack.push(successor);
+                for (CallGraph.Call successor : successors) {
+                    if (!reachableNodes.contains(successor.getTargetMethodSignature())) {
+                        stack.push(successor.getTargetMethodSignature());
                     }
                 }
             }

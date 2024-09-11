@@ -18,6 +18,8 @@ public class EvalPrinter {
     private long callGraphConstructionTime = 0;
     private int callGraphReachableNodes = 0;
     private int callGraphEdges = 0;
+    private int initialStmtCount = 0;
+    private int stmtCountAfterApplyingBI = 0;
 
     private String callgraphAlgo;
 
@@ -36,6 +38,8 @@ public class EvalPrinter {
         this.callGraphConstructionTime = EvalHelper.getCg_construction_duration();
         this.callGraphEdges = EvalHelper.getNumber_of_cg_Edges();
         this.callGraphReachableNodes = EvalHelper.getNumber_of_reachable_methods();
+        this.initialStmtCount = EvalHelper.getInitialStmtCount();
+        this.stmtCountAfterApplyingBI = EvalHelper.getStmtCountAfterApplyingBI();
     }
 
     public void generate() {
@@ -69,6 +73,9 @@ public class EvalPrinter {
                 str.append(",");
                 str.append("callGraphReachableNodes");
                 str.append(",");
+                str.append("initialStmtCount");
+                str.append(",");
+                str.append("stmtCountAfterApplyingBI");
                 str.append(",");
                 str.append("BodyInterceptors");
                 str.append(System.lineSeparator());
@@ -100,6 +107,10 @@ public class EvalPrinter {
             str.append(callGraphEdges);
             str.append(",");
             str.append(callGraphReachableNodes);
+            str.append(",");
+            str.append(initialStmtCount);
+            str.append(",");
+            str.append(stmtCountAfterApplyingBI);
             str.append(",");
             str.append(bodyInterceptors);
             str.append(System.lineSeparator());

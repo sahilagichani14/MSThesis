@@ -26,6 +26,7 @@ import upb.thesis.solver.JimpleIDESolver;
 import java.io.File;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class SetUp {
 
@@ -54,6 +55,10 @@ public class SetUp {
             EvalHelper.setNumber_of_reachable_methods(Scene.v().getReachableMethods().size());
             System.out.println("Number of CallGraph edges: " + Scene.v().getCallGraph().size());
             PackManager.v().getPack("wjtp").apply();
+            // Before 1st BT initialStmtCount
+            System.out.println(Options.internallyAppliedBT);
+            System.out.println(Options.getFirstBodyTransformer() + " " + Options.initialStmtCount);
+            EvalHelper.setInitialStmtCount(Options.initialStmtCount);
         } catch (Exception var3) {
             var3.printStackTrace();
             System.exit(1);
@@ -233,10 +238,6 @@ public class SetUp {
 //            c.setApplicationClass();
 //        }
         Scene.v().loadNecessaryClasses();
-//        for (SootClass sc : Scene.v().getApplicationClasses()) {
-//            Scene.v().forceResolve(sc.getName(), SootClass.BODIES);
-//        }
-//        Scene.v().loadNecessaryClasses();
         entryMethods = getEntryPointMethods();
     }
 

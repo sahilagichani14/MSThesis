@@ -1,17 +1,19 @@
 package upb.thesis;
 
 import com.google.common.base.Stopwatch;
-import sootup.core.transform.BodyInterceptor;
-import sootup.java.core.interceptors.*;
+import sootup.core.inputlocation.AnalysisInputLocation;
+import sootup.core.model.SourceType;
+import sootup.core.views.View;
+import sootup.java.bytecode.inputlocation.JavaClassPathAnalysisInputLocation;
+import sootup.java.core.views.JavaView;
 
 import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.MessageFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Main {
 
@@ -40,7 +42,11 @@ public class Main {
             try {
                 // Default in order: jb.ne, jb.ese, CastAndReturnInliner, jb.ls, jb.a, jb.cp, ConstantPropagatorAndFolder, jb.tr
                 // List<sootup.core.transform.BodyInterceptor> defaultBodyInterceptors = BytecodeBodyInterceptors.Default.getBodyInterceptors();
-                List<String> appliedBTList = Arrays.asList(args[5].split(","));
+                String[] split = args[5].split(",");
+                List<String> appliedBTList = new LinkedList<>();
+                for (String bi: split){
+                    appliedBTList.add(bi);
+                }
                 String cmdLineBT = String.join(",", appliedBTList);
                 List<BodyInterceptor> var6 = parseBodyInterceptors(cmdLineBT);
                 EvalHelper.setBodyInterceptors(var6);
@@ -56,8 +62,19 @@ public class Main {
         String msg = MessageFormat.format("Running {0} - {1} solver - {2} threads", EvalHelper.getTargetName(), solver, numThreads);
         System.out.println(msg);
 
-        SetUp setUp = new SetUp();
+        AnalysisInputLocation inputLocation = new JavaClassPathAnalysisInputLocation(jarPath, SourceType.Application, Collections.emptyList());
+        View viewBeforeBI = new JavaView(List.of(inputLocation));
+        AtomicInteger initialStmtCount = new AtomicInteger();
+        viewBeforeBI.getClasses().forEach(clazz -> {
+            clazz.getMethods().forEach(method -> {
+                if (method.isConcrete()) {
+                    initialStmtCount.addAndGet(method.getBody().getStmts().size());
+                }
+            });
+        });
+        EvalHelper.setInitialStmtCount(initialStmtCount.get());
 
+        SetUp setUp = new SetUp();
         Stopwatch stopwatch = Stopwatch.createStarted();
         if (solver.equalsIgnoreCase("default")) {
             setUp.executeStaticAnalysis(jarPath);
@@ -171,7 +188,7 @@ public class Main {
     }
 
     private static List<BodyInterceptor> parseBodyInterceptors(String s) throws Exception {
-        List<BodyInterceptor> listOfApplyingBodyInterceptors = new ArrayList<>();
+        List<BodyInterceptor> listOfApplyingBodyInterceptors = new LinkedList<>();
         String[] bodyInterceptors = s.split(",");
         for (String x : bodyInterceptors) {
             //jb.ls,jb.lp,jb.ese,jb.ne,jb.dae,jb.ule,jb.cp,jb.uce,jb.tr,jb.tt,jb.lns,jb.cbf,jb.dtr,jb.sils,jb.a,jb.ulp,jb.cp-ule

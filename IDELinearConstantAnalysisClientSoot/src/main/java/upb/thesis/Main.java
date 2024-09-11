@@ -14,6 +14,7 @@ import java.nio.file.Paths;
 import java.text.MessageFormat;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Main {
     public static void main(String[] args) {
@@ -25,10 +26,13 @@ public class Main {
         String numberOfThreads = args[4];
         int numThreads = Runtime.getRuntime().availableProcessors();
 
-        List<String> allBTList = Arrays.asList("jb.ls", "jb.lp", "jb.ese", "jb.ne", "jb.dae", "jb.ule", "jb.cp", "jb.uce", "jb.tr", "jb.tt", "jb.lns", "jb.cbf", "jb.dtr", "jb.sils", "jb.a", "jb.ulp", "jb.cp-ule");
-        List<String> defaultBTList = Arrays.asList("jb.tt", "jb.dtr", "jb.uce", "jb.ls", "jb.sils", "jb.a", "jb.ule", "jb.tr", "jb.lns", "jb.cp", "jb.dae", "jb.cp-ule", "jb.lp", "jb.ne", "jb.uce");
+        // List<String> allBTList = Arrays.asList("jb.ls", "jb.lp", "jb.ese", "jb.ne", "jb.dae", "jb.ule", "jb.cp", "jb.uce", "jb.tr", "jb.tt", "jb.lns", "jb.cbf", "jb.dtr", "jb.sils", "jb.a", "jb.ulp", "jb.cp-ule");
+        // List<String> defaultBTList = Arrays.asList("jb.tt", "jb.dtr", "jb.uce", "jb.ls", "jb.sils", "jb.a", "jb.ule", "jb.tr", "jb.lns", "jb.cp", "jb.dae", "jb.cp-ule", "jb.lp", "jb.ne", "jb.uce");
         // actually it is Enable List, if present in list then enabled = true, jb.ls, jb.tr should be enabled always else at soot.jimple.toolkits.callgraph.CallGraphPack.internalApply
-        Options.v().setDisableBTList(Arrays.asList("jb.ls", "jb.tr"));
+        LinkedList<String> manualDisableBTList = new LinkedList<>();
+        manualDisableBTList.add("jb.ls");
+        manualDisableBTList.add("jb.tr");
+        Options.v().setDisableBTList(manualDisableBTList);
         //Options.v().setPhaseOption("jb.tr", "use-older-type-assigner:true");
         /*
         Options.v().setPhaseOption("bb", "enabled:false"); //bafBody bb bydefault calls bb.lp, bb.ule, bb.ne so disabled
@@ -77,8 +81,7 @@ public class Main {
         } else {
             List<String> disableBTList1 = Options.v().getDisableBTList();
             if (disableBTList1 != null) {
-                Set<String> disableBTList = new HashSet<>(disableBTList1);
-                String appliedBTList = String.join(",", disableBTList);
+                String appliedBTList = String.join(",", disableBTList1);
                 try {
                     List<BodyTransformer> var6 = parseBodyTransformer(appliedBTList);
                     EvalHelper.setBodyTransformers(var6);
@@ -103,6 +106,19 @@ public class Main {
 
         long elapsed = stopwatch.elapsed(TimeUnit.MILLISECONDS);
         EvalHelper.setTotalDuration(elapsed);
+
+        // after all the jb packs are applied
+        AtomicInteger stmtCountAfterApplyingBI = new AtomicInteger();
+        for (SootClass sc : Scene.v().getApplicationClasses()) {
+            Scene.v().forceResolve(sc.getName(), SootClass.BODIES);
+            for (SootMethod sm: sc.getMethods()){
+                if (sm.hasActiveBody()){
+                    stmtCountAfterApplyingBI.addAndGet(sm.getActiveBody().getUnits().size());
+                }
+            }
+        }
+        EvalHelper.setStmtCountAfterApplyingBI(stmtCountAfterApplyingBI.get());
+
         (new EvalPrinter(solver)).generate();
 
         /*
@@ -120,7 +136,7 @@ public class Main {
     }
 
     private static List<BodyTransformer> parseBodyTransformer(String s) throws Exception {
-        List<BodyTransformer> listOfApplyingBodyTransformers = new ArrayList<>();
+        List<BodyTransformer> listOfApplyingBodyTransformers = new LinkedList<>();
         String[] bodytransformer = s.split(",");
         for (String x : bodytransformer) {
             //jb.ls,jb.lp,jb.ese,jb.ne,jb.dae,jb.ule,jb.cp,jb.uce,jb.tr,jb.tt,jb.lns,jb.cbf,jb.dtr,jb.sils,jb.a,jb.ulp,jb.cp-ule

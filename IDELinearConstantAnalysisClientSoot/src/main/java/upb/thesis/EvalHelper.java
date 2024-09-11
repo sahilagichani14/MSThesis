@@ -16,8 +16,26 @@ public class EvalHelper {
     private static int number_of_cg_Edges;
     private static long number_of_methods_propagated = 0L;
     private static int number_of_reachable_methods = 0;
+    private static int initialStmtCount = 0;
+    private static int stmtCountAfterApplyingBI = 0;
 
     public EvalHelper() {
+    }
+
+    public static int getInitialStmtCount() {
+        return initialStmtCount;
+    }
+
+    public static void setInitialStmtCount(int initialStmtCount) {
+        EvalHelper.initialStmtCount = initialStmtCount;
+    }
+
+    public static int getStmtCountAfterApplyingBI() {
+        return stmtCountAfterApplyingBI;
+    }
+
+    public static void setStmtCountAfterApplyingBI(int stmtCountAfterApplyingBI) {
+        EvalHelper.stmtCountAfterApplyingBI = stmtCountAfterApplyingBI;
     }
 
     public static int getThreadCount() {
