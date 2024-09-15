@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 public class EvalPrinter {
     private static final String OUT_PUT_DIR = "./IDELinearConstantAnalysisClientSoot/results";
@@ -24,6 +25,7 @@ public class EvalPrinter {
     private String callgraphAlgo;
 
     private List<Main.BodyTransformer> bodyTransformers;
+    private Map<String, List<Long>> bodyTransformersMetrics;
 
 
     public EvalPrinter(String solver) {
@@ -40,6 +42,7 @@ public class EvalPrinter {
         this.callGraphReachableNodes = EvalHelper.getNumber_of_reachable_methods();
         this.initialStmtCount = EvalHelper.getInitialStmtCount();
         this.stmtCountAfterApplyingBI = EvalHelper.getStmtCountAfterApplyingBI();
+        this.bodyTransformersMetrics = EvalHelper.getBodyTransformersMetrics();
     }
 
     public void generate() {
@@ -78,6 +81,8 @@ public class EvalPrinter {
                 str.append("stmtCountAfterApplyingBI");
                 str.append(",");
                 str.append("BodyTransformers");
+                str.append(",");
+                str.append("BodyTransformersMetrics");
                 str.append(System.lineSeparator());
                 writer.write(str.toString());
             } catch (IOException e) {
@@ -113,6 +118,8 @@ public class EvalPrinter {
             str.append(stmtCountAfterApplyingBI);
             str.append(",");
             str.append(bodyTransformers);
+            str.append(",");
+            str.append(bodyTransformersMetrics);
             str.append(System.lineSeparator());
             writer.write(str.toString());
         } catch (IOException e) {

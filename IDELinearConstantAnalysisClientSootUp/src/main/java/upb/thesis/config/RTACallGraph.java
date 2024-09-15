@@ -15,8 +15,8 @@ public class RTACallGraph extends AbstractCallGraphConstructor {
 
     CallGraph generateCallGraph(View view) {
         RapidTypeAnalysisAlgorithm rtaAlgorithm = new RapidTypeAnalysisAlgorithm(view);
-        List<SootMethod> entryPointMethods = SetUp.getEntryPointMethods(view);
-        List<MethodSignature> entryPoints = entryPointMethods.stream().map(sootMethod -> sootMethod.getSignature()).toList();
+        List<SootMethod> cgEntryPointMethods = SetUp.getCGEntryPointMethods(view);
+        List<MethodSignature> entryPoints = cgEntryPointMethods.stream().map(sootMethod -> sootMethod.getSignature()).toList();
         CallGraph rtaCG = rtaAlgorithm.initialize(entryPoints); // or entryPoints
         //CallGraph rtaCG = rtaAlgorithm.initialize();
         return rtaCG;

@@ -1,6 +1,8 @@
 package upb.thesis;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class EvalHelper {
     private static String targetName;
@@ -18,8 +20,17 @@ public class EvalHelper {
     private static int number_of_reachable_methods = 0;
     private static int initialStmtCount = 0;
     private static int stmtCountAfterApplyingBI = 0;
+    private static Map<String, List<Long>> bodyInterceptorMetrics = new HashMap<>();
 
     public EvalHelper() {
+    }
+
+    public static Map<String, List<Long>> getBodyInterceptorMetrics() {
+        return bodyInterceptorMetrics;
+    }
+
+    public static void setBodyInterceptorMetrics(Map<String, List<Long>> bodyInterceptorMetrics) {
+        EvalHelper.bodyInterceptorMetrics = bodyInterceptorMetrics;
     }
 
     public static int getThreadCount() {

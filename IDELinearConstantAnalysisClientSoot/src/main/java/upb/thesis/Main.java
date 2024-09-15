@@ -28,11 +28,18 @@ public class Main {
 
         // List<String> allBTList = Arrays.asList("jb.ls", "jb.lp", "jb.ese", "jb.ne", "jb.dae", "jb.ule", "jb.cp", "jb.uce", "jb.tr", "jb.tt", "jb.lns", "jb.cbf", "jb.dtr", "jb.sils", "jb.a", "jb.ulp", "jb.cp-ule");
         // List<String> defaultBTList = Arrays.asList("jb.tt", "jb.dtr", "jb.uce", "jb.ls", "jb.sils", "jb.a", "jb.ule", "jb.tr", "jb.lns", "jb.cp", "jb.dae", "jb.cp-ule", "jb.lp", "jb.ne", "jb.uce");
-        // actually it is Enable List, if present in list then enabled = true, jb.ls, jb.tr should be enabled always else at soot.jimple.toolkits.callgraph.CallGraphPack.internalApply
-        LinkedList<String> manualDisableBTList = new LinkedList<>();
-        manualDisableBTList.add("jb.ls");
-        manualDisableBTList.add("jb.tr");
-        Options.v().setDisableBTList(manualDisableBTList);
+        // actually it is Enable List, if present in list then enabled = true, jb.ls, jb.tr should be enabled always for RTA else at soot.jimple.toolkits.callgraph.CallGraphPack.internalApply
+        LinkedList<String> manualEnableBTList = new LinkedList<>();
+        manualEnableBTList.add("jb.ls");
+        manualEnableBTList.add("jb.tr");
+        manualEnableBTList.add("jb.lp");
+        manualEnableBTList.add("jb.cp");
+        manualEnableBTList.add("jb.dae");
+        manualEnableBTList.add("jb.ese");
+        manualEnableBTList.add("jb.cbf");
+        manualEnableBTList.add("jb.uce");
+
+        Options.v().setEnableBTList(manualEnableBTList);
         //Options.v().setPhaseOption("jb.tr", "use-older-type-assigner:true");
         /*
         Options.v().setPhaseOption("bb", "enabled:false"); //bafBody bb bydefault calls bb.lp, bb.ule, bb.ne so disabled
@@ -71,7 +78,7 @@ public class Main {
             try {
                 List<String> appliedBTList = Arrays.asList(args[5].split(","));
                 // to set in Soot
-                Options.v().setDisableBTList(appliedBTList);
+                Options.v().setEnableBTList(appliedBTList);
                 String cmdLineBT = String.join(",", appliedBTList);
                 List<BodyTransformer> var6 = parseBodyTransformer(cmdLineBT);
                 EvalHelper.setBodyTransformers(var6);
@@ -79,9 +86,9 @@ public class Main {
                 throw new RuntimeException(exception);
             }
         } else {
-            List<String> disableBTList1 = Options.v().getDisableBTList();
-            if (disableBTList1 != null) {
-                String appliedBTList = String.join(",", disableBTList1);
+            List<String> enableBTList1 = Options.v().getEnableBTList();
+            if (enableBTList1 != null) {
+                String appliedBTList = String.join(",", enableBTList1);
                 try {
                     List<BodyTransformer> var6 = parseBodyTransformer(appliedBTList);
                     EvalHelper.setBodyTransformers(var6);
@@ -118,6 +125,9 @@ public class Main {
             }
         }
         EvalHelper.setStmtCountAfterApplyingBI(stmtCountAfterApplyingBI.get());
+
+        //Options.getBodyTransformerMetric().forEach((k, v) -> System.out.printf("%s : %s ", k, v)); // [runtime, memoryUsage]
+        EvalHelper.setBodyTransformersMetrics(Options.getBodyTransformerMetric());
 
         (new EvalPrinter(solver)).generate();
 

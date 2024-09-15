@@ -1,5 +1,9 @@
 package soot.RQ1.jb_cbf;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
+
 public class JB_CBF {
 //    void tc1() {
 //        boolean bool = true;
@@ -162,6 +166,24 @@ public class JB_CBF {
         }
         if (bool) {
             System.out.println("False 2");
+        }
+    }
+
+    private String test0(File storedResults) throws Exception {
+        try {
+            FileInputStream file = new FileInputStream(storedResults);
+            try {
+                ObjectInputStream stream = new ObjectInputStream(file);
+                try {
+                    return (String) stream.readObject();
+                } finally {
+                    stream.close();
+                }
+            } finally {
+                file.close();
+            }
+        } catch (Exception e) {
+            throw new Exception(e);
         }
     }
 

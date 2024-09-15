@@ -1,7 +1,6 @@
 package upb.thesis;
 
 import com.google.common.base.Stopwatch;
-import heros.InterproceduralCFG;
 import heros.solver.Pair;
 import sootup.analysis.interprocedural.icfg.JimpleBasedInterproceduralCFG;
 import sootup.callgraph.CallGraph;
@@ -16,10 +15,11 @@ import sootup.core.model.SootMethod;
 import sootup.core.model.SourceType;
 import sootup.core.signatures.MethodSignature;
 import sootup.core.transform.BodyInterceptor;
+import sootup.core.transform.BodyInterceptorMetric;
+import sootup.core.transform.RunTimeBodyInterceptor;
 import sootup.core.views.View;
-import sootup.java.bytecode.inputlocation.DefaultRTJarAnalysisInputLocation;
-import sootup.java.bytecode.inputlocation.JavaClassPathAnalysisInputLocation;
-import sootup.java.core.interceptors.*;
+import sootup.interceptors.*;
+import sootup.java.bytecode.frontend.inputlocation.JavaClassPathAnalysisInputLocation;
 import sootup.java.core.views.JavaView;
 import upb.thesis.config.*;
 import upb.thesis.constantpropagation.ConstantValue;
@@ -35,7 +35,8 @@ public class SetUp {
 
     private static upb.thesis.solver.JimpleIDESolver<?, ?, ?> solver;
 
-    private static List<SootMethod> entryMethods;
+    private static List<SootMethod> ideCPEntryMethods;
+    private static List<SootMethod> cgEntryMethods;
 
     public static long defaultPropCount = 0;
 
@@ -169,7 +170,12 @@ public class SetUp {
                 appliedBIList.add(bodyInterceptor);
             }
         }
-        AnalysisInputLocation inputLocation = new JavaClassPathAnalysisInputLocation(jarPath, SourceType.Application, appliedBIList);
+        List<RunTimeBodyInterceptor> runTimeBodyInterceptorsList = new ArrayList<>();
+        for (BodyInterceptor bodyInterceptor : appliedBIList) {
+            RunTimeBodyInterceptor runTimeBodyInterceptor = new RunTimeBodyInterceptor(bodyInterceptor);
+            runTimeBodyInterceptorsList.add(runTimeBodyInterceptor);
+        }
+        AnalysisInputLocation inputLocation = new JavaClassPathAnalysisInputLocation(jarPath, SourceType.Application, Collections.unmodifiableList(runTimeBodyInterceptorsList));
         View view = new JavaView(List.of(inputLocation));
         AtomicInteger stmtCountAfterApplyingBI = new AtomicInteger();
         view.getClasses().forEach(clazz -> {
@@ -179,10 +185,33 @@ public class SetUp {
                 }
             });
         });
+
+        Map<String, List<Long>> bodyInterceptorMetrics = EvalHelper.getBodyInterceptorMetrics();
+        runTimeBodyInterceptorsList.forEach(
+                runTimeBodyInterceptor -> {
+                    BodyInterceptorMetric biMetric = runTimeBodyInterceptor.getBiMetric();
+                    List<Long> runtimeBIList = new LinkedList<>();
+                    runtimeBIList.add(0, biMetric.getRuntime());
+                    runtimeBIList.add(1, biMetric.getMemoryUsage());
+                    bodyInterceptorMetrics.putIfAbsent(runTimeBodyInterceptor.getBodyInterceptor().toString(), runtimeBIList);
+                    System.out.println(
+                            runTimeBodyInterceptor.getBodyInterceptor()
+                                    + " took "
+                                    + biMetric.getRuntime()
+                                    + " ms.");
+                    System.out.println(
+                            runTimeBodyInterceptor.getBodyInterceptor()
+                                    + " consumed "
+                                    + biMetric.getMemoryUsage()
+                                    + " MB.");
+                });
+        EvalHelper.setBodyInterceptorMetrics(bodyInterceptorMetrics);
+
         EvalHelper.setStmtCountAfterApplyingBI(stmtCountAfterApplyingBI.get());
 
-        entryMethods = getEntryPointMethods(view);
-        System.out.println(entryMethods);
+        ideCPEntryMethods = getIDECPEntryPointMethods(view);
+        cgEntryMethods = getCGEntryPointMethods(view);
+        System.out.println(ideCPEntryMethods);
 
         try {
             Stopwatch var1 = Stopwatch.createStarted();
@@ -220,11 +249,9 @@ public class SetUp {
         });
          */
 
-        for (SootMethod method : entryMethods) {
-            //JimpleBasedInterproceduralCFG icfg = new JimpleBasedInterproceduralCFG(view, method.getSignature(), false, false);
-            List<MethodSignature> entryPointsMethodSignatures = entryMethods.stream().map(sootMethod -> method.getSignature()).toList();
-            //JimpleBasedInterproceduralCFG icfg = new JimpleBasedInterproceduralCFG(EvalHelper.getCallgraphAlgorithm().name(), view, method.getSignature(), entryPointsMethodSignatures,false, false);
-            JimpleBasedInterproceduralCFG icfg = new JimpleBasedInterproceduralCFG(EvalHelper.getCallgraphAlgorithm().name(), view, method.getSignature(), null,false, false);
+        List<MethodSignature> cgEntryPointsMethodSignatures = cgEntryMethods.stream().map(sootMethod -> sootMethod.getSignature()).toList();
+        JimpleBasedInterproceduralCFG icfg = new JimpleBasedInterproceduralCFG(generatedcallGraph, view, cgEntryPointsMethodSignatures, false, false);
+        for (SootMethod method : ideCPEntryMethods) {
             System.out.println("started solving from: " + method.getSignature());
             IDEConstantPropagationProblem problem = new IDEConstantPropagationProblem(icfg, method);
             upb.thesis.solver.JimpleIDESolver<?, ?, ?> mSolver = new upb.thesis.solver.JimpleIDESolver<>(problem);
@@ -276,14 +303,14 @@ public class SetUp {
         return !method.isStatic() && method.isPublic() && !method.isAbstract() && !method.isNative();
     }
 
-    public static List<SootMethod> getEntryPointMethods(View view) {
+    public static List<SootMethod> getIDECPEntryPointMethods(View view) {
         List<SootMethod> methods = new ArrayList<>();
         Set<SootClass> classes = new HashSet<>();
         classes.addAll(view.getClasses().toList());
         l1:
         for (SootClass c : classes) {
             for (SootMethod m : c.getMethods()) {
-                if (m.isConcrete()){
+                if (m.isConcrete() && m.isPublic() && !m.isNative() && !m.isAbstract()){
                     Body body = m.getBody();
                     List<Stmt> stmts = m.getBody().getStmts();
                     for (Stmt stmt: stmts) {
@@ -302,7 +329,31 @@ public class SetUp {
             }
         }
         if (!methods.isEmpty()) {
-            System.out.println(methods.size() + " methods will be used as entry points");
+            System.out.println(methods.size() + " methods will be used as entry points for IDE LCP");
+            Main.maxMethodSize = methods.size();
+            return methods;
+        }
+        System.out.println("no entry methods found to start");
+        return Collections.EMPTY_LIST;
+    }
+
+    public static List<SootMethod> getCGEntryPointMethods(View view) {
+        List<SootMethod> methods = new ArrayList<>();
+        Set<SootClass> classes = new HashSet<>();
+        classes.addAll(view.getClasses().toList());
+        l1:
+        for (SootClass c : classes) {
+            for (SootMethod m : c.getMethods()) {
+                if (m.isConcrete() && m.isPublic()){
+                    methods.add(m);
+                    if (methods.size() == Main.maxMethodSize) {
+                        break l1;
+                    }
+                }
+            }
+        }
+        if (!methods.isEmpty()) {
+            System.out.println(methods.size() + " methods will be used as entry points for cg");
             Main.maxMethodSize = methods.size();
             return methods;
         }

@@ -45,8 +45,9 @@ public class SetUp {
 
     private void executeSootTransformers() {
         try {
-            PackManager.v().getPack("cg").apply();
-            Scene.v().releaseCallGraph();
+            // PackManager.v().getPack("cg").apply();
+            // Scene.v().releaseCallGraph();
+
             Stopwatch var1 = Stopwatch.createStarted();
             CallGraphMetricsWrapper var2 = CallGraphApplication.generateCallGraph(Scene.v(), this.constructCallGraphConfig());
             EvalHelper.setCg_construction_duration(var1.elapsed(TimeUnit.MILLISECONDS));
@@ -57,7 +58,7 @@ public class SetUp {
             PackManager.v().getPack("wjtp").apply();
             // Before 1st BT initialStmtCount
             System.out.println(Options.internallyAppliedBT);
-            System.out.println(Options.getFirstBodyTransformer() + " " + Options.initialStmtCount);
+            //System.out.println(Options.getFirstBodyTransformer() + " " + Options.initialStmtCount);
             EvalHelper.setInitialStmtCount(Options.initialStmtCount);
         } catch (Exception var3) {
             var3.printStackTrace();

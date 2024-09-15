@@ -1,6 +1,7 @@
 package upb.thesis;
 
 import java.util.List;
+import java.util.Map;
 
 public class EvalHelper {
     private static String targetName;
@@ -18,8 +19,17 @@ public class EvalHelper {
     private static int number_of_reachable_methods = 0;
     private static int initialStmtCount = 0;
     private static int stmtCountAfterApplyingBI = 0;
+    private static Map<String, List<Long>> bodyTransformersMetrics;
 
     public EvalHelper() {
+    }
+
+    public static Map<String, List<Long>> getBodyTransformersMetrics() {
+        return bodyTransformersMetrics;
+    }
+
+    public static void setBodyTransformersMetrics(Map<String, List<Long>> bodyTransformersMetrics) {
+        EvalHelper.bodyTransformersMetrics = bodyTransformersMetrics;
     }
 
     public static int getInitialStmtCount() {
