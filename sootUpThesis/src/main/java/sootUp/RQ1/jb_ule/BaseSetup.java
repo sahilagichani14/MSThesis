@@ -6,10 +6,9 @@ import sootup.core.model.SootClass;
 import sootup.core.model.SootMethod;
 import sootup.core.types.ClassType;
 import sootup.core.util.printer.JimplePrinter;
-import sootup.java.bytecode.inputlocation.JavaClassPathAnalysisInputLocation;
+import sootup.interceptors.UnusedLocalEliminator;
+import sootup.java.bytecode.frontend.inputlocation.JavaClassPathAnalysisInputLocation;
 import sootup.java.core.JavaSootClass;
-import sootup.java.core.interceptors.LocalSplitter;
-import sootup.java.core.interceptors.UnusedLocalEliminator;
 import sootup.java.core.views.JavaView;
 
 import java.io.*;
