@@ -20,6 +20,7 @@ public class Main {
     public static void main(String[] args) {
         Path pathToJar = Paths.get(System.getProperty("user.dir") + "/IDELinearConstantAnalysisClientSoot/src/test/resources/latest/");
         String jarPath = pathToJar + File.separator + args[0];
+        // String jarPath = args[0];
         String solver = args[1];
         int maxMethods = Integer.parseInt(args[2]);
         String algorithm = args[3];

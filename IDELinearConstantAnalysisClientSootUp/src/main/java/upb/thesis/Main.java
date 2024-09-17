@@ -17,33 +17,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class Main {
 
-    public static int maxMethodSize = 10;
-
-    /*
-    public static void main(String[] args) {
-        String classPath = System.getProperty("user.dir") + File.separator + "IDELinearConstantAnalysisClientSootUp" + File.separator + "target" + File.separator + "classes";
-        AnalysisInputLocation inputLocation = new JavaClassPathAnalysisInputLocation(classPath, SourceType.Application, Collections.emptyList());
-        JavaView view = new JavaView(inputLocation);
-        ClassType classType =
-                view.getIdentifierFactory().getClassType("upb.thesis.StmtIteratorTest");
-        System.out.println(classType);
-        JavaSootClass sootClass = view.getClass(classType).get();
-        sootClass.getMethods().forEach(javaSootMethod -> {
-            System.out.println(javaSootMethod.getBody());
-        });
-
-        Path path = Paths.get("./IDELinearConstantAnalysisClientSootUp/src/test/resources/latest/commons-io-2.11.0.jar");
-        AnalysisInputLocation inputLocation1 = new JavaClassPathAnalysisInputLocation(path.toString(), SourceType.Application);
-        View view1 = new JavaView(List.of(inputLocation1));
-        view1.getClasses().forEach(sootClass1 -> {
-            sootClass1.getMethods().forEach(sootMethod1 -> {
-                if (sootMethod1.isConcrete()) {
-                    sootMethod1.getBody();
-                }
-            });
-        });
-    }
-     */
+    public static int maxMethodSize = 100;
 
     public static void main(String[] args) {
         Path pathToJar = Paths.get(System.getProperty("user.dir") + "/IDELinearConstantAnalysisClientSootUp/src/test/resources/latest/");
