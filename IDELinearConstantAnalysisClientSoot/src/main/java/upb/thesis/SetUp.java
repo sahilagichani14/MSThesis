@@ -24,6 +24,10 @@ import upb.thesis.constantpropagation.data.DFF;
 import upb.thesis.solver.JimpleIDESolver;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -52,6 +56,27 @@ public class SetUp {
             CallGraphMetricsWrapper var2 = CallGraphApplication.generateCallGraph(Scene.v(), this.constructCallGraphConfig());
             EvalHelper.setCg_construction_duration(var1.elapsed(TimeUnit.MILLISECONDS));
             Scene.v().setCallGraph(var2.getCallGraph());
+            List<SootMethod> entryPoints = Scene.v().getEntryPoints();
+            System.out.println(entryPoints.size());
+            System.out.println(var2.getCallGraph().size());
+
+            /*
+            File file = new File("./IDELinearConstantAnalysisClientSoot/results/test.csv");
+            if(!file.exists()){
+                try (FileWriter writer = new FileWriter(file, true)) {
+                    StringBuilder str = new StringBuilder();
+                    for (Iterator<MethodOrMethodContext> it = var2.getCallGraph().sourceMethods(); it.hasNext(); ) {
+                        SootMethod sm = (SootMethod) it.next();
+                        str.append(sm.getSignature());
+                        str.append(System.lineSeparator());
+                    }
+                    writer.write(str.toString());
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+             */
+
             EvalHelper.setNumber_of_cg_Edges(Scene.v().getCallGraph().size());
             EvalHelper.setNumber_of_reachable_methods(Scene.v().getReachableMethods().size());
             System.out.println("Number of CallGraph edges: " + Scene.v().getCallGraph().size());
@@ -178,6 +203,7 @@ public class SetUp {
         if (bodyTransformers!=null){
             for (Main.BodyTransformer x : bodyTransformers) {
                 Transform transform1 = new Transform("jb." + x.name(), createAnalysisTransformer1(x));
+                // no use as jb pack can't be modified externally, added directly in jb pack in soot
                 PackManager.v().getPack("jb").add(transform1);
             }
         }
@@ -217,7 +243,6 @@ public class SetUp {
      */
     private void setupSoot(String jarPath) {
         G.reset();
-        String userdir = System.getProperty("user.dir");
         String sootCp = jarPath + File.pathSeparator + "lib" + File.separator + "rt.jar";
         Options.v().set_soot_classpath(sootCp);
         Options.v().set_process_dir(Collections.singletonList(jarPath));
@@ -225,7 +250,7 @@ public class SetUp {
         // We want to perform a whole program, i.e. an interprocedural analysis.
         // We construct a basic CHA call graph for the program
         Options.v().set_whole_program(true);
-        Options.v().setPhaseOption("cg.spark", "on");
+        // Options.v().setPhaseOption("cg.spark", "on");
         Options.v().setPhaseOption("cg", "all-reachable:true");
 
         Options.v().set_no_bodies_for_excluded(true);

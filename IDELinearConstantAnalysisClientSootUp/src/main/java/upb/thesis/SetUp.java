@@ -20,6 +20,7 @@ import sootup.core.transform.RunTimeBodyInterceptor;
 import sootup.core.views.View;
 import sootup.interceptors.*;
 import sootup.java.bytecode.frontend.inputlocation.JavaClassPathAnalysisInputLocation;
+import sootup.java.core.JavaIdentifierFactory;
 import sootup.java.core.views.JavaView;
 import upb.thesis.config.*;
 import upb.thesis.constantpropagation.ConstantValue;
@@ -27,6 +28,8 @@ import upb.thesis.constantpropagation.IDEConstantPropagationProblem;
 import upb.thesis.solver.JimpleIDESolver;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -175,7 +178,7 @@ public class SetUp {
             RunTimeBodyInterceptor runTimeBodyInterceptor = new RunTimeBodyInterceptor(bodyInterceptor);
             runTimeBodyInterceptorsList.add(runTimeBodyInterceptor);
         }
-        AnalysisInputLocation inputLocation = new JavaClassPathAnalysisInputLocation(jarPath, SourceType.Application, Collections.unmodifiableList(runTimeBodyInterceptorsList));
+        AnalysisInputLocation inputLocation = new JavaClassPathAnalysisInputLocation(jarPath, SourceType.Library, Collections.unmodifiableList(runTimeBodyInterceptorsList));
         View view = new JavaView(List.of(inputLocation));
         AtomicInteger stmtCountAfterApplyingBI = new AtomicInteger();
         view.getClasses().forEach(clazz -> {
@@ -211,7 +214,24 @@ public class SetUp {
 
         ideCPEntryMethods = getIDECPEntryPointMethods(view);
         cgEntryMethods = getCGEntryPointMethods(view);
-        System.out.println(ideCPEntryMethods);
+
+        /*
+        File file = new File("./IDELinearConstantAnalysisClientSootUp/results/test.csv");
+        if(!file.exists()){
+            try (FileWriter writer = new FileWriter(file, true)) {
+                StringBuilder str = new StringBuilder();
+                for (SootMethod sm: cgEntryMethods){
+                    str.append(sm.getSignature());
+                    str.append(System.lineSeparator());
+                }
+                writer.write(str.toString());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+         */
+
+        //System.out.println(ideCPEntryMethods);
 
         try {
             Stopwatch var1 = Stopwatch.createStarted();
@@ -341,10 +361,14 @@ public class SetUp {
         List<SootMethod> methods = new ArrayList<>();
         Set<SootClass> classes = new HashSet<>();
         classes.addAll(view.getClasses().toList());
+        JavaIdentifierFactory identifierFactory = JavaIdentifierFactory.getInstance();
         l1:
         for (SootClass c : classes) {
             for (SootMethod m : c.getMethods()) {
-                if (m.isConcrete() && m.isPublic()){
+//                if (m.isMain(identifierFactory)){
+//                    methods.add(m);
+//                }
+                if (m.isConcrete()){
                     methods.add(m);
                     if (methods.size() == Main.maxMethodSize) {
                         break l1;

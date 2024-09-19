@@ -54,6 +54,7 @@ def get_permutations_combinations(items):
 
     # Create a comma-separated string from the mandatory list
     mandatory_str = ','.join(mandatorybodyinterceptors)
+    bodyinterceptors.append([mandatory_str])
     # Combine mandatory_str with each item from otheritems
     for item in allbodyinterceptors:
         bodyinterceptors.append([f"{mandatory_str},{item}"])
@@ -119,7 +120,8 @@ def run_evaluation(jars, specific_cg_algo, number_of_iterations):
 def find_file(directory, file_name):
     for root, dirs, files in os.walk(directory):
         if file_name in files:
-            return os.path.join(root, file_name)
+            return file_name
+            # return os.path.join(root, file_name)
 
     return None
 

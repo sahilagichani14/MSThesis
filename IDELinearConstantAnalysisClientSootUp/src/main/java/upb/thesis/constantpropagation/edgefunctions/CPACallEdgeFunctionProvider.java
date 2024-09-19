@@ -1,6 +1,5 @@
 package upb.thesis.constantpropagation.edgefunctions;
 
-import com.googlecode.dex2jar.ir.expr.InvokeExpr;
 import heros.EdgeFunction;
 import heros.edgefunc.AllBottom;
 import heros.edgefunc.EdgeIdentity;

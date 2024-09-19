@@ -33,12 +33,12 @@ public class Main {
         LinkedList<String> manualEnableBTList = new LinkedList<>();
         manualEnableBTList.add("jb.ls");
         manualEnableBTList.add("jb.tr");
-        manualEnableBTList.add("jb.lp");
-        manualEnableBTList.add("jb.cp");
-        manualEnableBTList.add("jb.dae");
-        manualEnableBTList.add("jb.ese");
-        manualEnableBTList.add("jb.cbf");
-        manualEnableBTList.add("jb.uce");
+//        manualEnableBTList.add("jb.lp");
+//        manualEnableBTList.add("jb.cp");
+//        manualEnableBTList.add("jb.dae");
+//        manualEnableBTList.add("jb.ese");
+//        manualEnableBTList.add("jb.cbf");
+//        manualEnableBTList.add("jb.uce");
 
         Options.v().setEnableBTList(manualEnableBTList);
         //Options.v().setPhaseOption("jb.tr", "use-older-type-assigner:true");

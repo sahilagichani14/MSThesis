@@ -1,15 +1,5 @@
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import heros.InterproceduralCFG;
 import heros.solver.Pair;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import sootup.analysis.interprocedural.icfg.JimpleBasedInterproceduralCFG;
@@ -21,12 +11,19 @@ import sootup.core.model.SootClass;
 import sootup.core.model.SootMethod;
 import sootup.core.model.SourceType;
 import sootup.core.signatures.MethodSignature;
-import sootup.java.bytecode.inputlocation.JavaClassPathAnalysisInputLocation;
+import sootup.java.bytecode.frontend.inputlocation.JavaClassPathAnalysisInputLocation;
 import sootup.java.core.types.JavaClassType;
 import sootup.java.core.views.JavaView;
 import upb.thesis.Utils;
 import upb.thesis.constantpropagation.ConstantValue;
 import upb.thesis.constantpropagation.IDEConstantPropagationProblem;
+
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.*;
+
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /** Constant propagation analysis using the Heros and SootUp frameworks. */
 public class ConstantPropagationAnalysisTest {
@@ -85,7 +82,7 @@ public class ConstantPropagationAnalysisTest {
   private void runAnalysis(SootMethod method) {
     MethodSignature methodSignature = method.getSignature();
     JimpleBasedInterproceduralCFG icfg =
-        new JimpleBasedInterproceduralCFG(view, methodSignature, false, false);
+        new JimpleBasedInterproceduralCFG(view, Collections.singletonList(methodSignature), false, false);
     IDEConstantPropagationProblem problem1 = new IDEConstantPropagationProblem(icfg, method);
     JimpleIDESolver<?, InterproceduralCFG<Stmt, SootMethod>, ?> solver1 =
         new JimpleIDESolver(problem1);
