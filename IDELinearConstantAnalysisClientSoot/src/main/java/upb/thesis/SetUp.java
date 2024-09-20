@@ -1,6 +1,7 @@
 package upb.thesis;
 
 import com.google.common.base.Stopwatch;
+import com.google.common.collect.Lists;
 import heros.solver.Pair;
 import soot.*;
 import soot.jimple.DefinitionStmt;
@@ -39,7 +40,6 @@ public class SetUp {
     private static List<SootMethod> entryMethods;
 
     public long defaultPropCount = 0;
-    public long sparsePropCount = 0;
 
     protected void executeStaticAnalysis(String jarPath) {
         setupSoot(jarPath);
@@ -57,8 +57,10 @@ public class SetUp {
             EvalHelper.setCg_construction_duration(var1.elapsed(TimeUnit.MILLISECONDS));
             Scene.v().setCallGraph(var2.getCallGraph());
             List<SootMethod> entryPoints = Scene.v().getEntryPoints();
-            System.out.println(entryPoints.size());
-            System.out.println(var2.getCallGraph().size());
+            System.out.println("cg source methods: " + Lists.newArrayList(var2.getCallGraph().sourceMethods()).size());
+            System.out.println("cg reachable methods: " + Scene.v().getReachableMethods().size());
+            System.out.println("Entry points for cg: " + entryPoints.size());
+            System.out.println("Edges for cg: " + var2.getCallGraph().size());
 
             /*
             File file = new File("./IDELinearConstantAnalysisClientSoot/results/test.csv");
@@ -113,7 +115,6 @@ public class SetUp {
             default:
                 throw new RuntimeException("Invalid callgraph algorithm");
         }
-
         return var2;
     }
 
@@ -197,8 +198,9 @@ public class SetUp {
     }
 
     private void registerSootTransformers() {
-        Transform transform = new Transform("wjtp.ifds", createAnalysisTransformer());
+        Transform transform = new Transform("wjtp.ide", createAnalysisTransformer());
         PackManager.v().getPack("wjtp").add(transform);
+        /*
         List<Main.BodyTransformer> bodyTransformers = EvalHelper.getBodyTransformers();
         if (bodyTransformers!=null){
             for (Main.BodyTransformer x : bodyTransformers) {
@@ -207,6 +209,7 @@ public class SetUp {
                 PackManager.v().getPack("jb").add(transform1);
             }
         }
+         */
     }
 
     private Transformer createAnalysisTransformer1(Main.BodyTransformer bodyTransformer) {
@@ -250,7 +253,6 @@ public class SetUp {
         // We want to perform a whole program, i.e. an interprocedural analysis.
         // We construct a basic CHA call graph for the program
         Options.v().set_whole_program(true);
-        // Options.v().setPhaseOption("cg.spark", "on");
         Options.v().setPhaseOption("cg", "all-reachable:true");
 
         Options.v().set_no_bodies_for_excluded(true);
@@ -307,7 +309,7 @@ public class SetUp {
                 }
             }
         }
-        System.out.println(methods);
+        // System.out.println(methods);
         if (!methods.isEmpty()) {
             System.out.println(methods.size() + " methods will be used as entry points");
             EvalHelper.setActualMethodCount(methods.size());

@@ -45,3 +45,5 @@ build/
 /IDELinearConstantAnalysisClientSoot/results/
 /IDELinearConstantAnalysisClientSootUp/out/
 /IDELinearConstantAnalysisClientSootUp/results/
+/IDELinearConstantAnalysisClientSoot/src/test/resources/ignore/
+/IDELinearConstantAnalysisClientSootUp/src/test/resources/ignore/

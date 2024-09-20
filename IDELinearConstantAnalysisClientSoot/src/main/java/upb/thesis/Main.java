@@ -33,12 +33,21 @@ public class Main {
         LinkedList<String> manualEnableBTList = new LinkedList<>();
         manualEnableBTList.add("jb.ls");
         manualEnableBTList.add("jb.tr");
-//        manualEnableBTList.add("jb.lp");
+
+//        manualEnableBTList.add("jb.tt");
+//        manualEnableBTList.add("jb.dtr");
+//        manualEnableBTList.add("jb.uce");
+//        manualEnableBTList.add("jb.ls");
+//        manualEnableBTList.add("jb.sils");
+//        manualEnableBTList.add("jb.a");
+//        manualEnableBTList.add("jb.ule");
+//        manualEnableBTList.add("jb.tr");
+//        manualEnableBTList.add("jb.lns");
 //        manualEnableBTList.add("jb.cp");
 //        manualEnableBTList.add("jb.dae");
-//        manualEnableBTList.add("jb.ese");
-//        manualEnableBTList.add("jb.cbf");
-//        manualEnableBTList.add("jb.uce");
+//        manualEnableBTList.add("jb.cp-ule");
+//        manualEnableBTList.add("jb.lp");
+//        manualEnableBTList.add("jb.ne");
 
         Options.v().setEnableBTList(manualEnableBTList);
         //Options.v().setPhaseOption("jb.tr", "use-older-type-assigner:true");
@@ -77,7 +86,7 @@ public class Main {
 
         if (args.length > 5) {
             try {
-                List<String> appliedBTList = Arrays.asList(args[5].split(","));
+                List<String> appliedBTList = new LinkedList<>(Arrays.stream(args[5].split(",")).toList());
                 // to set in Soot
                 Options.v().setEnableBTList(appliedBTList);
                 String cmdLineBT = String.join(",", appliedBTList);

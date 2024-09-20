@@ -28,7 +28,7 @@ bodyinterceptors = []
 # defaultbodyinterceptors = ["jb.tt", "jb.dtr", "jb.uce", "jb.ls", "jb.sils", "jb.a", "jb.ule", "jb.tr", "jb.lns", "jb.cp", "jb.dae", "jb.cp-ule", "jb.lp", "jb.ne", "jb.uce"]
 
 # testng-7.7.1.jar default 100 RTA 1 jb.ls,jb.tr
-command = ["java", "-Xmx512m", "-Xss512m", "-jar", executable, "inputjar" , "solver", max_method, "cg_algo", "thread", "bodyinterceptors"]  # to be set programmatically
+command = ["java", "-Xmx1024m", "-Xss1024m", "-jar", executable, "inputjar" , "solver", max_method, "cg_algo", "thread", "bodyinterceptors"]  # to be set programmatically
 
 # jar,solver,thread,totalRuntime,cgConstructionTime,prop,method,mem,CallGraphAlgo,callGraphEdges,callGraphReachableNodes,initialStmtCount,stmtCountAfterApplyingBI,BodyTransformers,BodyTransformersMetrics
 # testng-7.7.1,default,1,186237,15568,7992782,100,962,RTA,42422,6343,68170,56616,[JB_LS, JB_TR, JB_LP, JB_CP, JB_DAE, JB_ESE, JB_CBF, JB_UCE],{jb.cp=[270, -22], jb.tr=[1241, -124], jb.uce=[683, 41], jb.ls=[415, 54], jb.dae=[276, -162]}
