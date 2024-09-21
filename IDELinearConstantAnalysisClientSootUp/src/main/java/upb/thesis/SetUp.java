@@ -9,7 +9,6 @@ import sootup.core.jimple.basic.Value;
 import sootup.core.jimple.common.constant.IntConstant;
 import sootup.core.jimple.common.stmt.JAssignStmt;
 import sootup.core.jimple.common.stmt.Stmt;
-import sootup.core.model.Body;
 import sootup.core.model.SootClass;
 import sootup.core.model.SootMethod;
 import sootup.core.model.SourceType;
@@ -39,7 +38,7 @@ public class SetUp {
     private static upb.thesis.solver.JimpleIDESolver<?, ?, ?> solver;
 
     private static List<SootMethod> ideCPEntryMethods;
-    private static List<SootMethod> cgEntryMethods;
+    public static List<SootMethod> cgEntryMethods;
 
     public static long defaultPropCount = 0;
 
@@ -51,7 +50,7 @@ public class SetUp {
 
     private CallGraphConfig constructCallGraphConfig() {
         CallGraphConfig var1 = CallGraphConfig.getInstance();
-        var1.setAppPath(EvalHelper.getJarPath());
+        var1.setJAR_PATH(EvalHelper.getJarPath());
         CallGraphAlgorithm var2 = this.configureCallgraph(EvalHelper.getCallgraphAlgorithm());
         var1.setCallGraphAlgorithm(var2);
         var1.setIsSootSceneProvided(true);
@@ -162,7 +161,7 @@ public class SetUp {
      * classes.
      */
     private void setupSootUp(String jarPath) {
-        String sootCp = jarPath + File.pathSeparator + "lib" + File.separator + "rt.jar";
+        // String sootCp = jarPath + File.pathSeparator + "lib" + File.separator + "rt.jar";
         List<Main.BodyInterceptor> bodyInterceptors = EvalHelper.getBodyInterceptors();
         List<BodyInterceptor> appliedBIList = new ArrayList<>();
         if (bodyInterceptors == null || bodyInterceptors.isEmpty()){
@@ -178,8 +177,12 @@ public class SetUp {
             RunTimeBodyInterceptor runTimeBodyInterceptor = new RunTimeBodyInterceptor(bodyInterceptor);
             runTimeBodyInterceptorsList.add(runTimeBodyInterceptor);
         }
-        AnalysisInputLocation inputLocation = new JavaClassPathAnalysisInputLocation(jarPath, SourceType.Library, Collections.unmodifiableList(runTimeBodyInterceptorsList));
+        AnalysisInputLocation inputLocation = new JavaClassPathAnalysisInputLocation(jarPath, SourceType.Application, Collections.unmodifiableList(runTimeBodyInterceptorsList));
         View view = new JavaView(List.of(inputLocation));
+
+        ideCPEntryMethods = getIDECPEntryPointMethods(view);
+        cgEntryMethods = getCGEntryPointMethods(view);
+
         AtomicInteger stmtCountAfterApplyingBI = new AtomicInteger();
         view.getClasses().forEach(clazz -> {
             clazz.getMethods().forEach(method -> {
@@ -209,11 +212,7 @@ public class SetUp {
                                     + " MB.");
                 });
         EvalHelper.setBodyInterceptorMetrics(bodyInterceptorMetrics);
-
         EvalHelper.setStmtCountAfterApplyingBI(stmtCountAfterApplyingBI.get());
-
-        ideCPEntryMethods = getIDECPEntryPointMethods(view);
-        cgEntryMethods = getCGEntryPointMethods(view);
 
         /*
         File file = new File("./IDELinearConstantAnalysisClientSootUp/results/test.csv");
@@ -231,17 +230,14 @@ public class SetUp {
         }
          */
 
-        //System.out.println(ideCPEntryMethods);
-
         try {
             Stopwatch var1 = Stopwatch.createStarted();
             CallGraphMetricsWrapper var2 = CallGraphApplication.generateCallGraph(view, this.constructCallGraphConfig());
             EvalHelper.setCg_construction_duration(var1.elapsed(TimeUnit.MILLISECONDS));
             generatedcallGraph = var2.getCallGraph();
-            // int noOfReachableNodes = calNumOfReachableNodes(generatedcallGraph);
-            int noOfReachableNodes = 0;
+
             EvalHelper.setNumber_of_cg_Edges(var2.getCallGraph().callCount());
-            EvalHelper.setNumber_of_reachable_methods(noOfReachableNodes);
+            EvalHelper.setNumber_of_reachable_methods(var2.getCallGraph().getReachableMethods().size());
             System.out.println("Number of CallGraph edges: " + var2.getCallGraph().callCount());
         } catch (Exception var3) {
             var3.printStackTrace();
@@ -269,8 +265,7 @@ public class SetUp {
         });
          */
 
-        List<MethodSignature> cgEntryPointsMethodSignatures = cgEntryMethods.stream().map(sootMethod -> sootMethod.getSignature()).toList();
-        JimpleBasedInterproceduralCFG icfg = new JimpleBasedInterproceduralCFG(generatedcallGraph, view, cgEntryPointsMethodSignatures, false, false);
+        JimpleBasedInterproceduralCFG icfg = new JimpleBasedInterproceduralCFG(generatedcallGraph, view, generatedcallGraph.getEntryMethods(), false, false);
         for (SootMethod method : ideCPEntryMethods) {
             System.out.println("started solving from: " + method.getSignature());
             IDEConstantPropagationProblem problem = new IDEConstantPropagationProblem(icfg, method);
@@ -287,40 +282,11 @@ public class SetUp {
 
     }
 
-    private int calNumOfReachableNodes(CallGraph generatedcallGraph) {
-        Set<MethodSignature> reachableNodes = new HashSet<>();
-        List<MethodSignature> entryMethods = generatedcallGraph.getEntryMethods();
-
-        for (MethodSignature startingNode: entryMethods){
-            // Stack to implement DFS
-            Deque<MethodSignature> stack = new ArrayDeque<>();
-            // add all entryMethods as reachableNodes
-            stack.push(startingNode);
-            // Traverse the call graph using DFS
-            while (!stack.isEmpty()) {
-                MethodSignature currentMethod = stack.pop();
-                // If the method has already been visited, skip it
-                if (!reachableNodes.add(currentMethod)) {
-                    continue;
-                }
-                // Get the successors (i.e., called methods) of the current method
-                // Set<MethodSignature> successors = generatedcallGraph.callTargetsFrom(currentMethod);
-                Set<CallGraph.Call> successors = generatedcallGraph.callsFrom(currentMethod);
-
-                // Push the successors into the stack
-                for (CallGraph.Call successor : successors) {
-                    if (!reachableNodes.contains(successor.getTargetMethodSignature())) {
-                        stack.push(successor.getTargetMethodSignature());
-                    }
-                }
-            }
-        }
-        return reachableNodes.size();
-    }
-
-
-    private boolean isPublicAPI(SootMethod method) {
-        return !method.isStatic() && method.isPublic() && !method.isAbstract() && !method.isNative();
+    private static boolean isPublicAPI(SootMethod method) {
+        JavaIdentifierFactory identifierFactory = JavaIdentifierFactory.getInstance();
+        boolean isConstructor = identifierFactory.isConstructorSignature(method.getSignature());
+        boolean isStaticInitializer = identifierFactory.isStaticInitializerSubSignature(method.getSignature().getSubSignature());
+        return !method.isStatic() && method.isPublic() && !method.isAbstract() && !isConstructor && !method.isNative() && !isStaticInitializer;
     }
 
     public static List<SootMethod> getIDECPEntryPointMethods(View view) {
@@ -330,8 +296,7 @@ public class SetUp {
         l1:
         for (SootClass c : classes) {
             for (SootMethod m : c.getMethods()) {
-                if (m.isConcrete() && m.isPublic() && !m.isNative() && !m.isAbstract()){
-                    Body body = m.getBody();
+                if (isPublicAPI(m)){
                     List<Stmt> stmts = m.getBody().getStmts();
                     for (Stmt stmt: stmts) {
                         if (stmt instanceof JAssignStmt) {
@@ -361,29 +326,167 @@ public class SetUp {
         List<SootMethod> methods = new ArrayList<>();
         Set<SootClass> classes = new HashSet<>();
         classes.addAll(view.getClasses().toList());
-        JavaIdentifierFactory identifierFactory = JavaIdentifierFactory.getInstance();
+        // methods.addAll(getAll(view));
         l1:
         for (SootClass c : classes) {
             for (SootMethod m : c.getMethods()) {
-//                if (m.isMain(identifierFactory)){
-//                    methods.add(m);
-//                }
+                JavaIdentifierFactory javaIdentifierFactory = JavaIdentifierFactory.getInstance();
+                if (m.isMain(javaIdentifierFactory)) {
+                    System.out.println("Main method found in a jar " + m.getSignature());
+                }
                 if (m.isConcrete()){
                     methods.add(m);
-                    if (methods.size() == Main.maxMethodSize) {
-                        break l1;
-                    }
                 }
             }
         }
         if (!methods.isEmpty()) {
             System.out.println(methods.size() + " methods will be used as entry points for cg");
-            Main.maxMethodSize = methods.size();
             return methods;
         }
         System.out.println("no entry methods found to start");
         return Collections.EMPTY_LIST;
     }
+
+    private static Collection<? extends SootMethod> getAll(View view) {
+        List<SootMethod> ret = new ArrayList<SootMethod>();
+        ret.addAll(application(view));
+        ret.addAll(implicit(view));
+        return ret;
+    }
+
+    private static Collection<? extends SootMethod> implicit(View view) {
+        List<SootMethod> ret = new ArrayList<SootMethod>();
+        /*
+        addMethod(view, ret, "<java.lang.System: void initializeSystemClass()>");
+        addMethod(view, ret, "<java.lang.ThreadGroup: void <init>()>");
+        addMethod(view, ret, "<java.lang.Thread: void exit()>");
+        addMethod(view, ret, "<java.lang.ThreadGroup: void uncaughtException(java.lang.Thread,java.lang.Throwable)>");
+        addMethod(view, ret, "<java.lang.ClassLoader: void <init>()>");
+        addMethod(view, ret, "<java.lang.ClassLoader: java.lang.Class loadClassInternal(java.lang.String)>");
+        addMethod(view, ret, "<java.lang.ClassLoader: void checkPackageAccess(java.lang.Class,java.security.ProtectionDomain)>");
+        addMethod(view, ret, "<java.lang.ClassLoader: void addClass(java.lang.Class)>");
+        addMethod(view, ret, "<java.lang.ClassLoader: long findNative(java.lang.ClassLoader,java.lang.String)>");
+        addMethod(view, ret, "<java.security.PrivilegedActionException: void <init>(java.lang.Exception)>");
+        addMethod(view, ret, "<java.lang.ref.Finalizer: void runFinalizer()>");
+        addMethod(view, ret, "<java.lang.Thread: void <init>(java.lang.ThreadGroup,java.lang.Runnable)>");
+        addMethod(view, ret, "<java.lang.Thread: void <init>(java.lang.ThreadGroup,java.lang.String)>");
+         */
+
+        addMethod(view, ret, "java.lang.System", "initializeSystemClass", "void", Collections.emptyList());
+        addMethod(view, ret, "java.lang.ThreadGroup", "<init>", "void", Collections.emptyList());
+        addMethod(view, ret, "java.lang.Thread", "exit", "void", Collections.emptyList());
+        addMethod(view, ret, "java.lang.ThreadGroup", "uncaughtException", "void", List.of("java.lang.Thread", "java.lang.Throwable"));
+        addMethod(view, ret, "java.lang.ClassLoader", "<init>", "void" , Collections.emptyList());
+        addMethod(view, ret, "java.lang.ClassLoader","loadClassInternal", "java.lang.Class", List.of("java.lang.String"));
+        addMethod(view, ret, "java.lang.ClassLoader", "checkPackageAccess", "void", List.of("java.lang.Class" , "java.security.ProtectionDomain"));
+        addMethod(view, ret, "java.lang.ClassLoader", "addClass", "void", List.of("java.lang.Class"));
+        addMethod(view, ret, "java.lang.ClassLoader", "findNative", "long", List.of("java.lang.ClassLoader", "java.lang.String"));
+        addMethod(view, ret, "java.security.PrivilegedActionException", "<init>", "void",  List.of("java.lang.Exception"));
+        addMethod(view, ret, "java.lang.ref.Finalizer", "runFinalizer", "void", Collections.emptyList());
+        addMethod(view, ret, "java.lang.Thread", "<init>", "void", List.of("java.lang.ThreadGroup", "java.lang.Runnable"));
+        addMethod(view, ret, "java.lang.Thread", "<init>", "void", List.of("java.lang.ThreadGroup" , "java.lang.String"));
+        return ret;
+    }
+
+    private static void addMethod(View view, List<SootMethod> ret, String fullyQualifiedNameDeclClass, String methodName, String fqReturnType, List<String> parameters) {
+        JavaIdentifierFactory identifierFactory = JavaIdentifierFactory.getInstance();
+        MethodSignature methodSignature = identifierFactory.getMethodSignature(fullyQualifiedNameDeclClass, methodName, fqReturnType, parameters);
+        Optional<? extends SootMethod> method = view.getMethod(methodSignature);
+        method.ifPresent(ret::add);
+    }
+
+    private static void addMethod(List<SootMethod> set, SootClass cls, MethodSignature methodSubSig) {
+        Optional<? extends SootMethod> sm = cls.getMethod(methodSubSig.getSubSignature());
+        sm.ifPresent(set::add);
+    }
+
+    private static Collection<? extends SootMethod> application(View view) {
+        List<SootMethod> ret = new ArrayList<SootMethod>();
+        List<SootClass> mainMethodClasses = new ArrayList<>();
+        List<SootMethod> mainMethods = new ArrayList<>();
+        JavaIdentifierFactory identifierFactory = JavaIdentifierFactory.getInstance();
+        view.getClasses().forEach(clazz -> {
+            clazz.getMethods().forEach(sootMethod -> {
+                boolean hasMainMethod = sootMethod.isMain(identifierFactory);
+                if (hasMainMethod) {
+                    mainMethods.add(sootMethod);
+                    mainMethodClasses.add(clazz);
+                }
+            });
+        });
+        if (!mainMethodClasses.isEmpty() && !mainMethods.isEmpty()){
+            if (mainMethodClasses.size()==1 && mainMethods.size()==1) {
+                SootClass mainClass = mainMethodClasses.get(0);
+                addMethod(ret, mainClass, mainMethods.get(0).getSignature());
+//                for (SootMethod clinit : clinitsOf(mainClass)) {
+//                    ret.add(clinit);
+//                }
+            }
+        } else {
+            System.out.println("No main methods found in a jar");
+        }
+        return Collections.emptyList();
+    }
+
+    /** Returns a list of all clinits of class cl and its superclasses.
+    public Iterable<SootMethod> clinitsOf(SootClass cl) {
+        // Do not create an actual list, since this method gets called quite often
+        // Instead, callers usually just want to iterate over the result.
+        SootMethod init = cl.getMethod();
+        ClassType superclass = cl.getSuperclass().isPresent()? cl.getSuperclass().get(): null;
+
+        // check super classes until finds a constructor or no super class there anymore.
+        while (init == null && superClass != null) {
+            init = superClass.getMethodUnsafe(sigClinit);
+            superClass = superClass.getSuperclassUnsafe();
+        }
+        if (init == null) {
+            return Collections.emptyList();
+        }
+        SootMethod initStart = init;
+        return new Iterable<SootMethod>() {
+
+            @Override
+            public Iterator<SootMethod> iterator() {
+                return new Iterator<SootMethod>() {
+                    SootMethod current = initStart;
+
+                    @Override
+                    public SootMethod next() {
+                        if (!hasNext()) {
+                            throw new NoSuchElementException();
+                        }
+                        SootMethod n = current;
+
+                        // Pre-fetch the next element
+                        current = null;
+                        SootClass currentClass = n.getDeclaringClass();
+                        while (true) {
+                            SootClass superClass = currentClass.getSuperclassUnsafe();
+                            if (superClass == null) {
+                                break;
+                            }
+
+                            SootMethod m = superClass.getMethodUnsafe(sigClinit);
+                            if (m != null) {
+                                current = m;
+                                break;
+                            }
+
+                            currentClass = superClass;
+                        }
+
+                        return n;
+                    }
+
+                    @Override
+                    public boolean hasNext() {
+                        return current != null;
+                    }
+                };
+            }
+        };
+    }*/
 
     public static Set<Pair<String, String>> getResult(Object analysis, SootMethod entryMethod) {
         Map<Value, ConstantValue> res = null;
