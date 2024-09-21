@@ -113,7 +113,7 @@ public class SetUp {
                 break;
             case JB_TT:
                 //Trap Tightener
-                var2 = new TrapTightener();
+                // var2 = new TrapTightener();
                 break;
             case JB_LNS:
                 //LocalName Standardizer
@@ -267,7 +267,7 @@ public class SetUp {
 
         JimpleBasedInterproceduralCFG icfg = new JimpleBasedInterproceduralCFG(generatedcallGraph, view, generatedcallGraph.getEntryMethods(), false, false);
         for (SootMethod method : ideCPEntryMethods) {
-            System.out.println("started solving from: " + method.getSignature());
+            // System.out.println("started solving from: " + method.getSignature());
             IDEConstantPropagationProblem problem = new IDEConstantPropagationProblem(icfg, method);
             upb.thesis.solver.JimpleIDESolver<?, ?, ?> mSolver = new upb.thesis.solver.JimpleIDESolver<>(problem);
             mSolver.solve();
