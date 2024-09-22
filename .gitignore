@@ -39,8 +39,6 @@ build/
 
 ### Mac OS ###
 .DS_Store
-/IDELinearConstantAnalysisClientSoot/src/test/resources/latest/
-/IDELinearConstantAnalysisClientSootUp/src/test/resources/latest/
 /IDELinearConstantAnalysisClientSoot/out/
 /IDELinearConstantAnalysisClientSoot/results/
 /IDELinearConstantAnalysisClientSootUp/out/
