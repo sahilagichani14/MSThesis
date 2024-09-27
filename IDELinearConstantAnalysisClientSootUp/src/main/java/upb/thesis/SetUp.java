@@ -10,6 +10,7 @@ import sootup.core.jimple.common.constant.IntConstant;
 import sootup.core.jimple.common.stmt.JAssignStmt;
 import sootup.core.jimple.common.stmt.Stmt;
 import sootup.core.model.SootClass;
+import sootup.core.model.SootClassMember;
 import sootup.core.model.SootMethod;
 import sootup.core.model.SourceType;
 import sootup.core.signatures.MethodSignature;
@@ -265,6 +266,7 @@ public class SetUp {
         });
          */
 
+        List<MethodSignature> cgEntryMethodsSignatures = cgEntryMethods.stream().map(SootClassMember::getSignature).toList();
         JimpleBasedInterproceduralCFG icfg = new JimpleBasedInterproceduralCFG(generatedcallGraph, view, generatedcallGraph.getEntryMethods(), false, false);
         for (SootMethod method : ideCPEntryMethods) {
             // System.out.println("started solving from: " + method.getSignature());
