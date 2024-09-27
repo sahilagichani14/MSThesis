@@ -7,6 +7,8 @@ import soot.*;
 import soot.jimple.DefinitionStmt;
 import soot.jimple.IntConstant;
 import soot.jimple.toolkits.base.Aggregator;
+import soot.jimple.toolkits.callgraph.Edge;
+import soot.jimple.toolkits.callgraph.ReachableMethods;
 import soot.jimple.toolkits.ide.icfg.JimpleBasedInterproceduralCFG;
 import soot.jimple.toolkits.scalar.*;
 import soot.jimple.toolkits.typing.TypeAssigner;
@@ -57,6 +59,21 @@ public class SetUp {
             EvalHelper.setCg_construction_duration(var1.elapsed(TimeUnit.MILLISECONDS));
             Scene.v().setCallGraph(var2.getCallGraph());
             List<SootMethod> entryPoints = Scene.v().getEntryPoints();
+//            Set<MethodOrMethodContext> reachableMethods = new HashSet<>();
+//            while (Scene.v().getReachableMethods().listener().hasNext()){
+//                MethodOrMethodContext next = Scene.v().getReachableMethods().listener().next();
+//                reachableMethods.add(next);
+//            }
+            ArrayList<MethodOrMethodContext> cgSrcNodes = Lists.newArrayList(var2.getCallGraph().sourceMethods());
+            Set<MethodOrMethodContext> cgNodes = new HashSet<>(cgSrcNodes);
+            cgSrcNodes.forEach(node -> {
+                ArrayList<Edge> edges = Lists.newArrayList(var2.getCallGraph().edgesOutOf(node));
+                edges.stream().forEach(edge -> {
+                    MethodOrMethodContext tgtNode = edge.getTgt();
+                    cgNodes.add(tgtNode);
+                });
+            });
+
             System.out.println("cg source methods: " + Lists.newArrayList(var2.getCallGraph().sourceMethods()).size());
             System.out.println("cg reachable methods: " + Scene.v().getReachableMethods().size());
             System.out.println("Entry points for cg: " + entryPoints.size());

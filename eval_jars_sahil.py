@@ -42,6 +42,27 @@ header_index = {"jar": 0, "solver": 1, "thread": 2, "totalRuntime": 3,
 
 allowed_configurations = ['CHA', 'RTA']
 
+def generate_permutations():
+    fixed_items = [
+        ["jb.ls,jb.tr"], # fixed
+        ["jb.lp,jb.ule"],  # fixed
+        ["jb.cp", "jb.cp,jb.dae", "jb.cp,jb.ese", "jb.cp,jb.dae,jb.ese"],  # variable choices
+        ["jb.cbf,jb.uce"],  # fixed
+        ["jb.lns"],  # fixed
+        ["jb.ne"],  # fixed
+        ["jb.a"]  # fixed
+    ]
+    all_permutations = []
+    product_of_options = list(itertools.product(*fixed_items))
+
+    # For each combination, generate permutations of all items
+    for combo in product_of_options:
+        permutations = itertools.permutations(combo)
+        # Join each permutation as a string with commas and store it
+        for perm in permutations:
+            all_permutations.append(','.join(perm))
+    return all_permutations
+
 def get_permutations_combinations(items):
 
     '''
@@ -174,5 +195,13 @@ def main():
 
 if __name__ == '__main__':
     appliedbodyinterceptors = get_permutations_combinations(allbodyinterceptors)
+    # print(appliedbodyinterceptors)
+    # print(".........")
+    
+    all_permutations = generate_permutations()
+    print(f"Total permutations: {len(all_permutations)}")
+    # print(all_permutations)
+    # print("\n".join(all_permutations[:10]))
+
     main()
     # process_data(eval_csv_file, avg_file)
