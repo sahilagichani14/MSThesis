@@ -5,6 +5,7 @@ import subprocess
 import sys
 import csv
 import itertools
+import concurrent.futures
 
 # Get the current directory of eval_jars.py
 k_configuration = 2
@@ -26,7 +27,7 @@ mandatorybodyinterceptors = ["jb.ls", "jb.tr"]
 allbodyinterceptors = ["jb.lp", "jb.ese", "jb.ne", "jb.dae", "jb.ule", "jb.cp", "jb.uce", "jb.tt", "jb.lns", "jb.cbf", "jb.dtr", "jb.sils", "jb.a", "jb.ulp", "jb.cp-ule"] 
 # allbodyinterceptors = ["jb.lp", "jb.ese", "jb.ne", "jb.dae", "jb.ule", "jb.cp", "jb.uce", "jb.lns", "jb.cbf", "jb.a"]
 # allbodyinterceptors = ["jb.lp"]
-bodyinterceptors = []
+
 # allbodyinterceptors = ["jb.ls", "jb.lp", "jb.ese", "jb.ne", "jb.dae", "jb.ule", "jb.cp", "jb.uce", "jb.tr", "jb.tt", "jb.lns", "jb.cbf", "jb.dtr", "jb.sils", "jb.a", "jb.ulp", "jb.cp-ule"]
 # defaultbodyinterceptors = ["jb.tt", "jb.dtr", "jb.uce", "jb.ls", "jb.sils", "jb.a", "jb.ule", "jb.tr", "jb.lns", "jb.cp", "jb.dae", "jb.cp-ule", "jb.lp", "jb.ne", "jb.uce"]
 
@@ -42,6 +43,10 @@ header_index = {"jar": 0, "solver": 1, "thread": 2, "totalRuntime": 3,
                 "stmtCountAfterApplyingBI": 11, 'BodyTransformers': 12, 'BodyTransformersMetrics': 13}
 
 allowed_configurations = ['CHA', 'RTA']
+
+bodyinterceptors = None
+specific_cg_algo = None
+number_of_iterations = None
 
 def generate_permutations():
     fixed_items = [
@@ -97,7 +102,6 @@ def construct_callgraph_algorithms_list(specific_cg_algo):
             callgraph_algorithm_list.append(algo)
     return callgraph_algorithm_list
 
-
 def setup():
     input_jars = []
     for f in listdir(input_dir):
@@ -105,7 +109,6 @@ def setup():
             input_jars.append(f)
     input_jars.sort()
     return input_jars
-
 
 def set_command(cmd, jar, solver, cg_algo, thread, appliedbodyinterceptors):
     cmd[7] = jar #replace "inputjar" in cmd
@@ -116,14 +119,13 @@ def set_command(cmd, jar, solver, cg_algo, thread, appliedbodyinterceptors):
     print(f'RUN:', cmd)
     return cmd
 
-
 def is_soot_algorithm(algorithm_to_check):
     for algorithm in ('CHA', 'RTA'):
         if algorithm == algorithm_to_check:
             return True
     return False
 
-def run_evaluation(jars, specific_cg_algo, number_of_iterations):
+def run_evaluation(jars, specific_cg_algo, number_of_iterations, bodyinterceptors):
     for index in range(len(jars)):
         jar = find_file(input_dir, jars[index])
         print("running: " + str(index) + " " + jars[index])
@@ -143,15 +145,13 @@ def run_evaluation(jars, specific_cg_algo, number_of_iterations):
                             except Exception as e:
                                 print(f"An unexpected error occurred: {e}")
 
-
 def find_file(directory, file_name):
     for root, dirs, files in os.walk(directory):
         if file_name in files:
             return file_name
             # return os.path.join(root, file_name)
 
-    return None
-
+    return None        
 
 def main():
     # Ask whether to execute all files or just one
@@ -174,38 +174,52 @@ def main():
         if not selected_files:
             print("No valid file numbers provided. Exiting.")
             exit()
+    global number_of_iterations
     number_of_iterations = int(input("Enter the number of iterations of the experiment: "))
-
+    
     specific = input('\nDo you need to use any specific CG Algorithm? (y/n): ').lower()
-
-    specific_cg_algo = None
 
     if specific == 'y':
         allowed_configurations_input = input("\n Do you need to use all the allowed configurations? (y/n): ").lower()
+        global specific_cg_algo
         if allowed_configurations_input == 'y':
             specific_cg_algo = allowed_configurations
         else:
             specific_cg_algos_input = input("\nEnter the specific CG algorithms you want to use (comma-separated): ")
             # Split the input string into a list of CG algorithms
             specific_cg_algo = [algo.strip() for algo in specific_cg_algos_input.split(',')]
+    else:
+        specific_cg_algo = allowed_configurations
 
     print("1. Default")
     number = int(input("Enter your choice(the number): "))
 
-    if number == 1:
-        run_evaluation(selected_files, specific_cg_algo, number_of_iterations)
-
-
-if __name__ == '__main__':
-    appliedbodyinterceptors = get_permutations_combinations(allbodyinterceptors)
-    # print(appliedbodyinterceptors)
-    # print(".........")
-    
     all_permutations = generate_permutations()
     print(f"Total permutations: {len(all_permutations)}")
-    # bodyinterceptors = all_permutations[0:1]
+    global bodyinterceptors
+    # bodyinterceptors = all_permutations[0:3]
+    bodyinterceptors = all_permutations
     # print(all_permutations)
     # print("\n".join(all_permutations[:10]))
+
+    if number == 1:
+        # Function to execute run_evaluation in parallel for each selected file
+        tasks = [(file, specific_cg_algo, number_of_iterations, bodyinterceptors) for file in selected_files]
+        with concurrent.futures.ProcessPoolExecutor() as executor:
+            future_to_file = executor.map(helper, tasks)
+            
+        # run_evaluation(selected_files, specific_cg_algo, number_of_iterations)
+
+def helper(numbers):
+    evaluate_file(numbers[0], numbers[1], numbers[2], numbers[3])
+
+def evaluate_file(file, specific_cg_algo, number_of_iterations, bodyinterceptors):
+    run_evaluation([file], specific_cg_algo, number_of_iterations, bodyinterceptors)
+
+if __name__ == '__main__':
+    # appliedbodyinterceptors = get_permutations_combinations(allbodyinterceptors)
+    # print(appliedbodyinterceptors)
+    # print(".........")
 
     main()
     # process_data(eval_csv_file, avg_file)
