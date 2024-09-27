@@ -9,11 +9,11 @@ import itertools
 # Get the current directory of eval_jars.py
 k_configuration = 2
 input_dir = join(getcwd(), 'IDELinearConstantAnalysisClientSoot\\src\\test\\resources\\latest')
-input_dir = join(getcwd(), 'IDELinearConstantAnalysisClientSootUp\\src\\test\\resources\\latest')
+# input_dir = join(getcwd(), 'IDELinearConstantAnalysisClientSootUp\\src\\test\\resources\\latest')
 output_directory = join(getcwd(), 'evalresults')
 
 executable = join(getcwd(), "IDELinearConstantAnalysisClientSoot/target/IDELinearConstantAnalysisClientSoot-1.0-SNAPSHOT-jar-with-dependencies.jar")
-executable = join(getcwd(), "IDELinearConstantAnalysisClientSootUp/target/IDELinearConstantAnalysisClientSootUp-1.0-SNAPSHOT-jar-with-dependencies.jar")
+# executable = join(getcwd(), "IDELinearConstantAnalysisClientSootUp/target/IDELinearConstantAnalysisClientSootUp-1.0-SNAPSHOT-jar-with-dependencies.jar")
 
 eval_csv_file = join(getcwd(), "evalresults", "max_heap_ide_default.csv")
 
@@ -24,7 +24,7 @@ threads = ["1"]
 solvers = ["default"]
 mandatorybodyinterceptors = ["jb.ls", "jb.tr"]
 allbodyinterceptors = ["jb.lp", "jb.ese", "jb.ne", "jb.dae", "jb.ule", "jb.cp", "jb.uce", "jb.tt", "jb.lns", "jb.cbf", "jb.dtr", "jb.sils", "jb.a", "jb.ulp", "jb.cp-ule"] 
-allbodyinterceptors = ["jb.lp", "jb.ese", "jb.ne", "jb.dae", "jb.ule", "jb.cp", "jb.uce", "jb.lns", "jb.cbf", "jb.a"]
+# allbodyinterceptors = ["jb.lp", "jb.ese", "jb.ne", "jb.dae", "jb.ule", "jb.cp", "jb.uce", "jb.lns", "jb.cbf", "jb.a"]
 # allbodyinterceptors = ["jb.lp"]
 bodyinterceptors = []
 # allbodyinterceptors = ["jb.ls", "jb.lp", "jb.ese", "jb.ne", "jb.dae", "jb.ule", "jb.cp", "jb.uce", "jb.tr", "jb.tt", "jb.lns", "jb.cbf", "jb.dtr", "jb.sils", "jb.a", "jb.ulp", "jb.cp-ule"]
@@ -32,6 +32,7 @@ bodyinterceptors = []
 
 # testng-7.7.1.jar default 100 RTA 1 jb.ls,jb.tr
 command = ["java", "-Xmx1024m", "-Xss1024m", "-jar", executable, "inputjar" , "solver", max_method, "cg_algo", "thread", "bodyinterceptors"]  # to be set programmatically
+command = ["java", "-XX:+UseG1GC", "-XX:+UseAdaptiveSizePolicy", "-Xmx1024m", "-Xss1024m", "-jar", executable, "inputjar" , "solver", max_method, "cg_algo", "thread", "bodyinterceptors"]  # to be set programmatically
 
 # jar,solver,thread,totalRuntime,cgConstructionTime,prop,method,mem,CallGraphAlgo,callGraphEdges,callGraphReachableNodes,initialStmtCount,stmtCountAfterApplyingBI,BodyTransformers,BodyTransformersMetrics
 # testng-7.7.1,default,1,186237,15568,7992782,100,962,RTA,42422,6343,68170,56616,[JB_LS, JB_TR, JB_LP, JB_CP, JB_DAE, JB_ESE, JB_CBF, JB_UCE],{jb.cp=[270, -22], jb.tr=[1241, -124], jb.uce=[683, 41], jb.ls=[415, 54], jb.dae=[276, -162]}
@@ -46,10 +47,12 @@ def generate_permutations():
     fixed_items = [
         ["jb.ls,jb.tr"], # fixed
         ["jb.lp,jb.ule"],  # fixed
-        ["jb.cp", "jb.cp,jb.dae", "jb.cp,jb.ese", "jb.cp,jb.dae,jb.ese"],  # variable choices
-        ["jb.cbf,jb.uce"],  # fixed
-        ["jb.lns"],  # fixed
-        ["jb.ne"],  # fixed
+        # ["jb.cp", "jb.cp,jb.dae", "jb.cp,jb.ese", "jb.cp,jb.dae,jb.ese"],  # variable choices
+        ["jb.cp", "jb.dae", "jb.cbf,jb.uce" ,"jb.cp,jb.dae", "jb.cp,jb.cbf,jb.uce", "jb.cp,jb.dae,jb.cbf,jb.uce"],  # variable choices
+        ["jb.ese"],
+        # ["jb.cbf,jb.uce"],  # fixed
+        # ["jb.lns"],  # fixed
+        # ["jb.ne"],  # fixed
         ["jb.a"]  # fixed
     ]
     all_permutations = []
@@ -105,11 +108,11 @@ def setup():
 
 
 def set_command(cmd, jar, solver, cg_algo, thread, appliedbodyinterceptors):
-    cmd[5] = jar #replace "inputjar" in cmd
-    cmd[6] = solver #replace "solver" in cmd
-    cmd[8] = cg_algo  #replace "cg_algo" in cmd
-    cmd[9] = thread #replace "thread" in cmd
-    cmd[10] = appliedbodyinterceptors[0] #replace "bodyinterceptors" in cmd
+    cmd[7] = jar #replace "inputjar" in cmd
+    cmd[8] = solver #replace "solver" in cmd
+    cmd[10] = cg_algo  #replace "cg_algo" in cmd
+    cmd[11] = thread #replace "thread" in cmd
+    cmd[12] = appliedbodyinterceptors #replace "bodyinterceptors" in cmd
     print(f'RUN:', cmd)
     return cmd
 
@@ -200,6 +203,7 @@ if __name__ == '__main__':
     
     all_permutations = generate_permutations()
     print(f"Total permutations: {len(all_permutations)}")
+    # bodyinterceptors = all_permutations[0:1]
     # print(all_permutations)
     # print("\n".join(all_permutations[:10]))
 
