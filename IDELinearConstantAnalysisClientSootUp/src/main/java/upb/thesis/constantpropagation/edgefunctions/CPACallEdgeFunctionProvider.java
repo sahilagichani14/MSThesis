@@ -1,11 +1,11 @@
 package upb.thesis.constantpropagation.edgefunctions;
 
 import heros.EdgeFunction;
-import heros.edgefunc.AllBottom;
 import heros.edgefunc.EdgeIdentity;
 import sootup.core.jimple.basic.Local;
 import sootup.core.jimple.basic.Value;
 import sootup.core.jimple.common.constant.NumericConstant;
+import sootup.core.jimple.common.expr.AbstractBinopExpr;
 import sootup.core.jimple.common.expr.JSpecialInvokeExpr;
 import sootup.core.jimple.common.expr.JVirtualInvokeExpr;
 import sootup.core.jimple.common.stmt.JAssignStmt;
@@ -15,6 +15,7 @@ import sootup.core.model.SootMethod;
 import upb.thesis.constantpropagation.ConstantValue;
 import upb.thesis.constantpropagation.IDEConstantPropagationProblem;
 import upb.thesis.constantpropagation.edgefunctions.normal.ConstantAssign;
+import upb.thesis.constantpropagation.edgefunctions.normal.ConstantBinop;
 
 /**
  * Provides the appropriate edge function for method calls in constant propagation analysis. This
@@ -27,7 +28,7 @@ public class CPACallEdgeFunctionProvider {
 
   /** Singleton instance representing the "bottom" value in the lattice. */
   public static final EdgeFunction<ConstantValue> ALL_BOTTOM =
-      new AllBottom<>(IDEConstantPropagationProblem.BOTTOM);
+      new ConstantAllBottom(IDEConstantPropagationProblem.BOTTOM);
 
   /**
    * Constructs a new CPACallEdgeFunctionProvider to determine the appropriate edge function for a
@@ -47,7 +48,7 @@ public class CPACallEdgeFunctionProvider {
     if (currNode == zeroValue && succNode == zeroValue) {
       edgeFunction = ALL_BOTTOM;
     } else if (curr instanceof JAssignStmt) {
-      handleAssignStmt((JAssignStmt) curr, destinationMethod, succNode);
+      handleAssignStmt((JAssignStmt) curr, destinationMethod, succNode, currNode);
     } else if (curr instanceof JInvokeStmt) {
       handleInvokeStmt((JInvokeStmt) curr, destinationMethod, succNode);
     }
@@ -60,18 +61,39 @@ public class CPACallEdgeFunctionProvider {
    * @param destinationMethod The method being called.
    * @param succNode The successor node in the CFG.
    */
-  private void handleAssignStmt(
-      JAssignStmt assignment, SootMethod destinationMethod, Value succNode) {
+  private void handleAssignStmt(JAssignStmt assignment, SootMethod destinationMethod, Value succNode, Value currNode) {
+    Value lhs = assignment.getLeftOp();
     Value rhs = assignment.getRightOp();
+    if (lhs == succNode){
+      if (rhs instanceof ConstantValue){
+        ConstantValue intConstant = (ConstantValue) rhs;
+        edgeFunction = new ConstantAssign(intConstant);
+      } else if (rhs instanceof AbstractBinopExpr) {
+        AbstractBinopExpr binopExpr = (AbstractBinopExpr) rhs;
+        if (isLinearBinop(binopExpr)){
+          edgeFunction = new ConstantBinop(binopExpr, currNode);
+        }
+      }
+    }
     if (rhs instanceof JVirtualInvokeExpr) {
       for (int i = 0; i < destinationMethod.getParameterCount(); i++) {
         processJVirtualInvokeExpr((JVirtualInvokeExpr) rhs, destinationMethod, succNode, i, assignment);
       }
-    } else if (rhs instanceof JSpecialInvokeExpr) {
+    }
+    else if (rhs instanceof JSpecialInvokeExpr) {
       for (int i = 0; i < destinationMethod.getParameterCount(); i++) {
         processJSpecialInvokeExpr((JSpecialInvokeExpr) rhs, destinationMethod, succNode, i, assignment);
       }
     }
+  }
+
+  private boolean isLinearBinop(AbstractBinopExpr binopExpr) {
+    Value op1 = binopExpr.getOp1();
+    Value op2 = binopExpr.getOp2();
+    if(op1 instanceof NumericConstant || op2 instanceof NumericConstant){
+      return true;
+    }
+    return false;
   }
 
   /**

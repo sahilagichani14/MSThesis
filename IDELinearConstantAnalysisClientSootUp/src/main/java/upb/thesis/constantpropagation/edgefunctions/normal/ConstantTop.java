@@ -59,9 +59,6 @@ public class ConstantTop implements EdgeFunction<ConstantValue> {
    */
   @Override
   public EdgeFunction<ConstantValue> meetWith(EdgeFunction<ConstantValue> otherFunction) {
-    if (otherFunction instanceof ConstantAssign || otherFunction instanceof ConstantBinop) {
-      return this;
-    }
     return otherFunction;
   }
 
