@@ -6,6 +6,7 @@ import sootup.core.model.SootClass;
 import sootup.core.model.SootMethod;
 import sootup.core.types.ClassType;
 import sootup.core.util.printer.JimplePrinter;
+import sootup.interceptors.Aggregator;
 import sootup.interceptors.LocalSplitter;
 import sootup.java.bytecode.frontend.inputlocation.JavaClassPathAnalysisInputLocation;
 import sootup.java.core.JavaSootClass;
@@ -31,7 +32,7 @@ public class BaseSetup {
         Collection<JavaSootClass> viewClasses = view.getClasses().toList();
         System.out.println(viewClasses);
         ClassType classType =
-                view.getIdentifierFactory().getClassType("sootUp.RQ1.jb_ls.JB_LS");
+                view.getIdentifierFactory().getClassType("sootUp.RQ1.jb_a.JB_A");
         System.out.println(classType);
         JavaSootClass sootClass = view.getClass(classType).get();
         System.out.println(sootClass);
@@ -85,7 +86,7 @@ public class BaseSetup {
 
             String input = sootClassMethod.getBody().toString();
             Body.BodyBuilder builder = Body.builder(sootClassMethod.getBody(), Collections.emptySet());
-            new LocalSplitter().interceptBody(builder, view);
+            new Aggregator().interceptBody(builder, view);
 
             String output = builder.getStmtGraph().toString();
 
