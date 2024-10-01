@@ -1,6 +1,15 @@
 package sootUp.RQ1.jb_lp;
 
 public class JB_LP {
+    public void tc0(int l1, int l2) {
+        int l3,l4,l5;
+        l3 = 10;
+        l4 = 0;
+        for (l5 = l4 + 1; l5 > l3; ) {
+            // do something
+        }
+    }
+
     private int a;
 
     public void tc1() {
