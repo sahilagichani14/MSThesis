@@ -238,7 +238,7 @@ public class SetUp {
             generatedcallGraph = var2.getCallGraph();
 
             EvalHelper.setNumber_of_cg_Edges(var2.getCallGraph().callCount());
-            EvalHelper.setNumber_of_reachable_methods(var2.getCallGraph().getReachableMethods().size());
+            EvalHelper.setNumber_of_reachable_methods(var2.getCallGraph().getMethodSignatures().size());
             System.out.println("Number of CallGraph edges: " + var2.getCallGraph().callCount());
         } catch (Exception var3) {
             var3.printStackTrace();
@@ -267,7 +267,7 @@ public class SetUp {
          */
 
         List<MethodSignature> cgEntryMethodsSignatures = cgEntryMethods.stream().map(SootClassMember::getSignature).toList();
-        JimpleBasedInterproceduralCFG icfg = new JimpleBasedInterproceduralCFG(generatedcallGraph, view, generatedcallGraph.getEntryMethods(), false, false);
+        JimpleBasedInterproceduralCFG icfg = new JimpleBasedInterproceduralCFG(generatedcallGraph, view, false, false);
         for (SootMethod method : ideCPEntryMethods) {
             // System.out.println("started solving from: " + method.getSignature());
             IDEConstantPropagationProblem problem = new IDEConstantPropagationProblem(icfg, method);
