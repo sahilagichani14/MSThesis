@@ -74,7 +74,7 @@ public class ConstantAssign implements EdgeFunction<ConstantValue> {
       if (valueFromOtherBranch.getConstant() == valueFromThisBranch.getConstant()) {
         return this;
       } else {
-        return CPANormalEdgeFunctionProvider.ALL_BOTTOM;
+        return ConstantTop.v();
       }
     } else if ((otherFunction instanceof ConstantBinop) || ((otherFunction instanceof AllBottom))) {
       return CPANormalEdgeFunctionProvider.ALL_BOTTOM;
