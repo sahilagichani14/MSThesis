@@ -10,7 +10,6 @@ public class EvalHelper {
     private static int maxMethod = -1;
     private static long totalDuration = 0L;
     private static long totalPropagationCount = 0L;
-    private static int actualMethodCount = 0;
     private static String jarPath;
     private static Main.CallgraphAlgorithm callgraphAlgorithm;
     private static List<Main.BodyInterceptor> bodyInterceptors;
@@ -71,14 +70,6 @@ public class EvalHelper {
 
     public static void setTotalPropagationCount(long totalPropagationCount) {
         EvalHelper.totalPropagationCount = totalPropagationCount;
-    }
-
-    public static int getActualMethodCount() {
-        return actualMethodCount;
-    }
-
-    public static void setActualMethodCount(int actualMethodCount) {
-        EvalHelper.actualMethodCount = actualMethodCount;
     }
 
     public static int getMaxMethod() {

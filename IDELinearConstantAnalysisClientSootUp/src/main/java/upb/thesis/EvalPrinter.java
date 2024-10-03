@@ -34,7 +34,7 @@ public class EvalPrinter {
         this.threadCount = EvalHelper.getThreadCount();
         this.totalDuration = EvalHelper.getTotalDuration();
         this.totalPropagationCount = EvalHelper.getTotalPropagationCount();
-        this.methodCount = EvalHelper.getActualMethodCount();
+        this.methodCount = EvalHelper.getMaxMethod();
         this.callgraphAlgo = EvalHelper.getCallgraphAlgorithm().name();
         this.bodyInterceptors = EvalHelper.getBodyInterceptors();
         this.callGraphConstructionTime = EvalHelper.getCg_construction_duration();
