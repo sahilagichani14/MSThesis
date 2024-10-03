@@ -17,13 +17,14 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class Main {
 
-    public static int maxMethodSize = 100;
+    public static int maxMethodSize = -1;
 
     public static void main(String[] args) {
         Path pathToJar = Paths.get(System.getProperty("user.dir") + "/IDELinearConstantAnalysisClientSootUp/src/test/resources/latest/");
         String jarPath = pathToJar + File.separator + args[0];
         String solver = args[1];
         int maxMethods = Integer.parseInt(args[2]);
+        maxMethodSize = maxMethods;
         String algorithm = args[3];
         String numberOfThreads = args[4];
         int numThreads = Runtime.getRuntime().availableProcessors();
