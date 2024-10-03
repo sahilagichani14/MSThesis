@@ -10,11 +10,11 @@ import concurrent.futures
 # Get the current directory of eval_jars.py
 k_configuration = 2
 input_dir = join(getcwd(), 'IDELinearConstantAnalysisClientSoot/src/test/resources/latest')
-# input_dir = join(getcwd(), 'IDELinearConstantAnalysisClientSootUp/src/test/resources/latest')
+input_dir = join(getcwd(), 'IDELinearConstantAnalysisClientSootUp/src/test/resources/latest')
 output_directory = join(getcwd(), 'evalresults')
 
 executable = join(getcwd(), "eval_results/IDELinearConstantAnalysisClientSoot-1.0-SNAPSHOT-jar-with-dependencies.jar")
-# executable = join(getcwd(), "eval_results/IDELinearConstantAnalysisClientSootUp-1.0-SNAPSHOT-jar-with-dependencies.jar")
+executable = join(getcwd(), "eval_results/IDELinearConstantAnalysisClientSootUp-1.0-SNAPSHOT-jar-with-dependencies.jar")
 
 eval_csv_file = join(getcwd(), "evalresults", "max_heap_ide_default.csv")
 
@@ -54,6 +54,17 @@ def generate_permutations():
         ["jb.lp,jb.ule"],  # fixed
         # ["jb.cp", "jb.cp,jb.dae", "jb.cp,jb.ese", "jb.cp,jb.dae,jb.ese"],  # variable choices
         ["jb.cp", "jb.dae", "jb.cbf,jb.uce" ,"jb.cp,jb.dae", "jb.cp,jb.cbf,jb.uce", "jb.cp,jb.dae,jb.cbf,jb.uce"],  # variable choices
+        ["jb.ese"],
+        # ["jb.cbf,jb.uce"],  # fixed
+        # ["jb.lns"],  # fixed
+        # ["jb.ne"],  # fixed
+        ["jb.a"]  # fixed
+    ]
+    fixed_items = [
+        ["jb.ls,jb.tr"], # fixed
+        ["jb.lp,jb.ule"],  # fixed
+        # ["jb.cp", "jb.cp,jb.dae", "jb.cp,jb.ese", "jb.cp,jb.dae,jb.ese"],  # variable choices
+        ["jb.cp", "jb.dae", "jb.cbf" ,"jb.cp,jb.dae", "jb.cp,jb.cbf", "jb.cp,jb.dae,jb.cbf"],  # variable choices
         ["jb.ese"],
         # ["jb.cbf,jb.uce"],  # fixed
         # ["jb.lns"],  # fixed
