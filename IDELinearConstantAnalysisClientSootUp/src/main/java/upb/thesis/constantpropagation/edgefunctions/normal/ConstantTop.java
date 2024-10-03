@@ -47,7 +47,7 @@ public class ConstantTop implements EdgeFunction<ConstantValue> {
    */
   @Override
   public EdgeFunction<ConstantValue> composeWith(EdgeFunction<ConstantValue> secondFunction) {
-    return secondFunction;
+    return this;
   }
 
   /**
@@ -59,7 +59,7 @@ public class ConstantTop implements EdgeFunction<ConstantValue> {
    */
   @Override
   public EdgeFunction<ConstantValue> meetWith(EdgeFunction<ConstantValue> otherFunction) {
-    return otherFunction;
+    return this;
   }
 
   /**

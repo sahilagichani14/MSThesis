@@ -13,6 +13,7 @@ import sootup.core.types.NullType;
 import upb.thesis.constantpropagation.edgefunctions.CPACallEdgeFunctionProvider;
 import upb.thesis.constantpropagation.edgefunctions.CPANormalEdgeFunctionProvider;
 import upb.thesis.constantpropagation.edgefunctions.CPAReturnEdgeFunctionProvider;
+import upb.thesis.constantpropagation.edgefunctions.ConstantTOP;
 import upb.thesis.constantpropagation.edgefunctions.normal.ConstantTop;
 import upb.thesis.constantpropagation.flowfunctions.CPACallFlowFunctionProvider;
 import upb.thesis.constantpropagation.flowfunctions.CPANormalFlowFunctionProvider;
@@ -122,7 +123,7 @@ public class IDEConstantPropagationProblem
    */
   @Override
   protected EdgeFunction<ConstantValue> createAllTopFunction() {
-    return ConstantTop.v();
+    return ConstantTOP.v();
   }
 
   /**
