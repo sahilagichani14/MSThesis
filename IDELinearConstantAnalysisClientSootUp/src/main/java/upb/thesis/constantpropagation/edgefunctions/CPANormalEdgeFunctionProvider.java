@@ -29,7 +29,7 @@ public class CPANormalEdgeFunctionProvider {
 
   /** Singleton instance representing the "bottom" value in the lattice. */
   public static final EdgeFunction<ConstantValue> ALL_BOTTOM =
-      new AllBottom<>(IDEConstantPropagationProblem.BOTTOM);
+      new ConstantAllBottom(IDEConstantPropagationProblem.BOTTOM);
 
   /**
    * Constructs a new CPANormalEdgeFunctionProvider to determine the appropriate edge function for a
