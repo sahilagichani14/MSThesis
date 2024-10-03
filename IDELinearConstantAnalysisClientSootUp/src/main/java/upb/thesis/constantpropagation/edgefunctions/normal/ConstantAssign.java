@@ -8,6 +8,7 @@ import sootup.core.jimple.common.expr.AbstractBinopExpr;
 import upb.thesis.constantpropagation.ConstantValue;
 import upb.thesis.constantpropagation.ExprEvaluator;
 import upb.thesis.constantpropagation.edgefunctions.CPANormalEdgeFunctionProvider;
+import upb.thesis.constantpropagation.edgefunctions.ConstantAllBottom;
 
 /** Assignment Resolver for Edge function */
 public class ConstantAssign implements EdgeFunction<ConstantValue> {
@@ -76,7 +77,7 @@ public class ConstantAssign implements EdgeFunction<ConstantValue> {
       } else {
         return ConstantTop.v();
       }
-    } else if ((otherFunction instanceof ConstantBinop) || ((otherFunction instanceof AllBottom))) {
+    } else if ((otherFunction instanceof ConstantBinop) || ((otherFunction instanceof ConstantAllBottom))) {
       return CPANormalEdgeFunctionProvider.ALL_BOTTOM;
     } else if (otherFunction instanceof ConstantTop) {
       return otherFunction;
