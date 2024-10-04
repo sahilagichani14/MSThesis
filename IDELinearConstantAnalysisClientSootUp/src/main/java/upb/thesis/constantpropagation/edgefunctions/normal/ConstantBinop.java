@@ -72,6 +72,8 @@ public class ConstantBinop implements EdgeFunction<ConstantValue> {
       return CPANormalEdgeFunctionProvider.ALL_BOTTOM;
     } else if (otherFunction instanceof ConstantAllBottom) {
       return otherFunction;
+    } else if (otherFunction instanceof ConstantTop) {
+      return otherFunction;
     }
     throw new RuntimeException("can't meet: " + this + " and " + otherFunction.toString());
   }

@@ -201,16 +201,16 @@ public class SetUp {
                     runtimeBIList.add(0, biMetric.getRuntime());
                     runtimeBIList.add(1, biMetric.getMemoryUsage());
                     bodyInterceptorMetrics.putIfAbsent(runTimeBodyInterceptor.getBodyInterceptor().toString(), runtimeBIList);
-                    System.out.println(
-                            runTimeBodyInterceptor.getBodyInterceptor()
-                                    + " took "
-                                    + biMetric.getRuntime()
-                                    + " ms.");
-                    System.out.println(
-                            runTimeBodyInterceptor.getBodyInterceptor()
-                                    + " consumed "
-                                    + biMetric.getMemoryUsage()
-                                    + " MB.");
+//                    System.out.println(
+//                            runTimeBodyInterceptor.getBodyInterceptor()
+//                                    + " took "
+//                                    + biMetric.getRuntime()
+//                                    + " ms.");
+//                    System.out.println(
+//                            runTimeBodyInterceptor.getBodyInterceptor()
+//                                    + " consumed "
+//                                    + biMetric.getMemoryUsage()
+//                                    + " MB.");
                 });
         EvalHelper.setBodyInterceptorMetrics(bodyInterceptorMetrics);
         EvalHelper.setStmtCountAfterApplyingBI(stmtCountAfterApplyingBI.get());
