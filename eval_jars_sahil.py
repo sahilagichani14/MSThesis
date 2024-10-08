@@ -25,7 +25,7 @@ threads = ["1"]
 solvers = ["default"]
 mandatorybodyinterceptors = ["jb.ls", "jb.tr"]
 allbodyinterceptors = ["jb.lp", "jb.ese", "jb.ne", "jb.dae", "jb.ule", "jb.cp", "jb.uce", "jb.tt", "jb.lns", "jb.cbf", "jb.dtr", "jb.sils", "jb.a", "jb.ulp", "jb.cp-ule"] 
-# allbodyinterceptors = ["jb.lp", "jb.ese", "jb.ne", "jb.dae", "jb.ule", "jb.cp", "jb.uce", "jb.lns", "jb.cbf", "jb.a"]
+allbodyinterceptors = ["jb.lp", "jb.ese", "jb.ne", "jb.dae", "jb.ule", "jb.cp", "jb.uce", "jb.lns", "jb.cbf", "jb.a"]
 # allbodyinterceptors = ["jb.lp"]
 
 # allbodyinterceptors = ["jb.ls", "jb.lp", "jb.ese", "jb.ne", "jb.dae", "jb.ule", "jb.cp", "jb.uce", "jb.tr", "jb.tt", "jb.lns", "jb.cbf", "jb.dtr", "jb.sils", "jb.a", "jb.ulp", "jb.cp-ule"]
@@ -96,12 +96,15 @@ def get_permutations_combinations(items):
     '''
 
     # Create a comma-separated string from the mandatory list
+    global mandatorybodyinterceptors
     mandatory_str = ','.join(mandatorybodyinterceptors)
-    bodyinterceptors.append([mandatory_str])
+    newList = []
+    newList.append([mandatory_str])
+    global allbodyinterceptors
     # Combine mandatory_str with each item from otheritems
     for item in allbodyinterceptors:
-        bodyinterceptors.append([f"{mandatory_str},{item}"])
-    return bodyinterceptors
+        newList.append([f"{mandatory_str},{item}"])
+    return newList
 
 def construct_callgraph_algorithms_list(specific_cg_algo):
     callgraph_algorithm_list = []
@@ -205,7 +208,9 @@ def main():
     print("1. Default")
     number = int(input("Enter your choice(the number): "))
 
-    all_permutations = generate_permutations()
+    # all_permutations = generate_permutations()
+    global allbodyinterceptors
+    all_permutations = get_permutations_combinations(allbodyinterceptors)
     print(f"Total permutations: {len(all_permutations)}")
     global bodyinterceptors
     # bodyinterceptors = all_permutations[0:2]
@@ -228,8 +233,8 @@ def evaluate_file(file, specific_cg_algo, number_of_iterations, bodyinterceptors
     run_evaluation([file], specific_cg_algo, number_of_iterations, bodyinterceptors)
 
 if __name__ == '__main__':
-    # appliedbodyinterceptors = get_permutations_combinations(allbodyinterceptors)
-    # print(appliedbodyinterceptors)
+    # appliedindividualbodyinterceptors = get_permutations_combinations(allbodyinterceptors)
+    # print(appliedindividualbodyinterceptors)
     # print(".........")
 
     main()
