@@ -99,11 +99,11 @@ def get_permutations_combinations(items):
     global mandatorybodyinterceptors
     mandatory_str = ','.join(mandatorybodyinterceptors)
     newList = []
-    newList.append([mandatory_str])
+    newList.append(mandatory_str)
     global allbodyinterceptors
     # Combine mandatory_str with each item from otheritems
     for item in allbodyinterceptors:
-        newList.append([f"{mandatory_str},{item}"])
+        newList.append(f"{mandatory_str},{item}")
     return newList
 
 def construct_callgraph_algorithms_list(specific_cg_algo):
