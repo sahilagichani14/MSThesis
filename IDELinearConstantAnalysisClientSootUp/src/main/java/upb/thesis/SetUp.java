@@ -233,8 +233,11 @@ public class SetUp {
 
         try {
             Stopwatch var1 = Stopwatch.createStarted();
+            long cgStart = System.currentTimeMillis();
             CallGraphMetricsWrapper var2 = CallGraphApplication.generateCallGraph(view, this.constructCallGraphConfig());
             EvalHelper.setCg_construction_duration(var1.elapsed(TimeUnit.MILLISECONDS));
+            long cgTime = System.currentTimeMillis() - cgStart;
+            System.out.println("CG TIME " + cgTime);
             generatedcallGraph = var2.getCallGraph();
 
             EvalHelper.setNumber_of_cg_Edges(var2.getCallGraph().callCount());
