@@ -1,0 +1,1258 @@
+public class sootUp.RQ1.jb_cp.JB_CP extends java.lang.Object
+{
+    private static int field1;
+
+    private int field;
+
+    int tc20_1()
+    {
+        byte b0, b1;
+        int i0;
+        java.io.PrintStream r0;
+        sootUp.RQ1.jb_cp.JB_CP r1;
+
+
+        r1 := @this: sootUp.RQ1.jb_cp.JB_CP;
+        b0 = 5;
+        b1 = 10;
+
+        lookupswitch(b0)
+            {
+            case 5: goto label1;
+            default: goto label2;
+        };
+
+      label1:
+        b1 = b1;
+
+      label2:
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(int)>(b1);
+        i0 = b0 + b1;
+
+        return i0;
+    }
+
+    public void <init>()
+    {
+        sootUp.RQ1.jb_cp.JB_CP r0;
+
+
+        r0 := @this: sootUp.RQ1.jb_cp.JB_CP;
+        specialinvoke r0.<java.lang.Object: void <init>()>();
+        r0.<sootUp.RQ1.jb_cp.JB_CP: int field> = 5;
+
+        return;
+    }
+
+    int tc24()
+    {
+        byte b0, b1;
+        int i0;
+        sootUp.RQ1.jb_cp.JB_CP r0;
+
+
+        r0 := @this: sootUp.RQ1.jb_cp.JB_CP;
+        b0 = 5;
+        b1 = b0;
+        i0 = virtualinvoke r0.<sootUp.RQ1.jb_cp.JB_CP: int methodWith4Parameters(int,int,int,int)>(4, b1, b1, b1);
+
+        return i0;
+    }
+
+    int tc5_2(int)
+    {
+        byte b0, b1, b2;
+        int i0, i1;
+        java.io.PrintStream r0;
+        sootUp.RQ1.jb_cp.JB_CP r1;
+
+
+        r1 := @this: sootUp.RQ1.jb_cp.JB_CP;
+        i0 := @parameter0: int;
+        b0 = 5;
+        b1 = 12;
+
+        if i0 <= 6 goto label1;
+        b0 = 10;
+        b1 = 25;
+
+      label1:
+        i1 = b0 + b1;
+
+        if i1 >= 3 goto label2;
+        b2 = b0;
+
+        goto label3;
+
+      label2:
+        b2 = 2;
+
+      label3:
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(int)>(b2);
+
+        return b2;
+    }
+
+    int tc5_3()
+    {
+        byte b0, b1, b2;
+        int i0;
+        java.io.PrintStream r0;
+        sootUp.RQ1.jb_cp.JB_CP r1;
+
+
+        r1 := @this: sootUp.RQ1.jb_cp.JB_CP;
+        b0 = 5;
+        b1 = 3;
+        i0 = b0 + b1;
+
+        if i0 <= 30 goto label1;
+        b2 = b0;
+
+        goto label2;
+
+      label1:
+        b2 = 2;
+
+      label2:
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(int)>(b2);
+
+        return b2;
+    }
+
+    java.lang.Integer tc29()
+    {
+        byte b0, b1;
+        int i0, i1, i2;
+        java.lang.Integer r0, r1, r2;
+        sootUp.RQ1.jb_cp.JB_CP r3;
+
+
+        r3 := @this: sootUp.RQ1.jb_cp.JB_CP;
+        b0 = 1;
+        r0 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(b0);
+        i0 = virtualinvoke r0.<java.lang.Integer: int intValue()>();
+        b1 = 2;
+        i1 = i0;
+        r1 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(i1);
+        i2 = virtualinvoke r1.<java.lang.Integer: int intValue()>();
+        r2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(i2);
+
+        return r2;
+    }
+
+    int tc1()
+    {
+        byte b0, b1;
+        java.io.PrintStream r0;
+        sootUp.RQ1.jb_cp.JB_CP r1;
+
+
+        r1 := @this: sootUp.RQ1.jb_cp.JB_CP;
+        b0 = 5;
+        b1 = b0;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(int)>(b1);
+
+        return b1;
+    }
+
+    int tc14()
+    {
+        int i0, i1;
+        int[] r0, r1;
+        java.io.PrintStream r2;
+        sootUp.RQ1.jb_cp.JB_CP r3;
+
+
+        r3 := @this: sootUp.RQ1.jb_cp.JB_CP;
+        r0 = newarray (int)[3];
+        r0[0] = 1;
+        r0[1] = 2;
+        r0[2] = 3;
+        r1 = r0;
+        i0 = r1[0];
+        i1 = i0;
+        r2 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r2.<java.io.PrintStream: void println(int)>(i1);
+
+        return i1;
+    }
+
+    int tc3()
+    {
+        byte b0;
+        int i0;
+        java.io.PrintStream r0;
+        sootUp.RQ1.jb_cp.JB_CP r1;
+
+
+        r1 := @this: sootUp.RQ1.jb_cp.JB_CP;
+        b0 = 5;
+        i0 = b0 + 1;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(int)>(i0);
+
+        return i0;
+    }
+
+    int tc11()
+    {
+        byte b0, b1, b2;
+        java.io.PrintStream r0;
+        sootUp.RQ1.jb_cp.JB_CP r1;
+
+
+        r1 := @this: sootUp.RQ1.jb_cp.JB_CP;
+        b0 = 5;
+        b1 = b0;
+        b2 = 6;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(int)>(b1);
+
+        return b1;
+    }
+
+    private int getValue()
+    {
+        sootUp.RQ1.jb_cp.JB_CP r0;
+
+
+        r0 := @this: sootUp.RQ1.jb_cp.JB_CP;
+
+        return 5;
+    }
+
+    long tc12()
+    {
+        byte b0;
+        java.io.PrintStream r0;
+        long l0;
+        sootUp.RQ1.jb_cp.JB_CP r1;
+
+
+        r1 := @this: sootUp.RQ1.jb_cp.JB_CP;
+        b0 = 5;
+        l0 = (long) b0;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(long)>(l0);
+
+        return l0;
+    }
+
+    int tc16()
+    {
+        int i0, i1;
+        java.io.PrintStream r0;
+        sootUp.RQ1.jb_cp.JB_CP r1, r2, r3;
+
+
+        r1 := @this: sootUp.RQ1.jb_cp.JB_CP;
+        r2 = new sootUp.RQ1.jb_cp.JB_CP;
+        specialinvoke r2.<sootUp.RQ1.jb_cp.JB_CP: void <init>()>();
+        r3 = r2;
+        i0 = r3.<sootUp.RQ1.jb_cp.JB_CP: int field>;
+        i1 = i0;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(int)>(i1);
+
+        return i1;
+    }
+
+    int tc17_2()
+    {
+        byte b0, b1;
+        int i0, i1, i2, i3, i4;
+        java.io.PrintStream r0, r1;
+        sootUp.RQ1.jb_cp.JB_CP r2;
+
+
+        r2 := @this: sootUp.RQ1.jb_cp.JB_CP;
+        b0 = 5;
+        b1 = 6;
+        i0 = 10 + b0;
+        i1 = i0 + b1;
+        i2 = b0 + b1;
+
+        if i2 != 11 goto label1;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(int)>(i1);
+
+      label1:
+        r1 = <java.lang.System: java.io.PrintStream out>;
+        i3 = i1 + b1;
+        virtualinvoke r1.<java.io.PrintStream: void println(int)>(i3);
+        i4 = i1 + b1;
+
+        return i4;
+    }
+
+    long tc13_1()
+    {
+        int i0;
+        java.io.PrintStream r0;
+        long l0;
+        sootUp.RQ1.jb_cp.JB_CP r1;
+
+
+        r1 := @this: sootUp.RQ1.jb_cp.JB_CP;
+        i0 = r1.<sootUp.RQ1.jb_cp.JB_CP: int field>;
+        l0 = (long) i0;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(long)>(l0);
+
+        return l0;
+    }
+
+    int tc17()
+    {
+        byte b0, b1;
+        java.io.PrintStream r0;
+        sootUp.RQ1.jb_cp.JB_CP r1;
+
+
+        r1 := @this: sootUp.RQ1.jb_cp.JB_CP;
+        b0 = 5;
+        b1 = 5;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(int)>(b1);
+
+        return b1;
+    }
+
+    private int anotherMethod(int)
+    {
+        int i0, i1;
+        sootUp.RQ1.jb_cp.JB_CP r0;
+
+
+        r0 := @this: sootUp.RQ1.jb_cp.JB_CP;
+        i0 := @parameter0: int;
+        i1 = i0 + 1;
+
+        return i1;
+    }
+
+    int tc18()
+    {
+        byte b0, b1;
+        java.io.PrintStream r0;
+        java.lang.Exception r1;
+        java.lang.Object r2;
+        java.lang.Throwable r3;
+        sootUp.RQ1.jb_cp.JB_CP r4;
+
+
+        r4 := @this: sootUp.RQ1.jb_cp.JB_CP;
+        b0 = 5;
+
+      label1:
+        b1 = b0;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(int)>(b1);
+
+      label2:
+        goto label4;
+
+      label3:
+        r3 := @caughtexception;
+        r2 = r3;
+        r1 = (java.lang.Exception) r2;
+        virtualinvoke r1.<java.lang.Exception: void printStackTrace()>();
+
+      label4:
+        return b0;
+
+ catch java.lang.Exception from label1 to label2 with label3;
+    }
+
+    int tc21_1()
+    {
+        byte b0, b1;
+        int i0;
+        java.io.PrintStream r0, r1;
+        sootUp.RQ1.jb_cp.JB_CP r2;
+
+
+        r2 := @this: sootUp.RQ1.jb_cp.JB_CP;
+        b0 = 5;
+        b1 = 10;
+        i0 = b0 + b1;
+
+        lookupswitch(i0)
+            {
+            case 4: goto label1;
+            case 5: goto label2;
+            default: goto label3;
+        };
+
+      label1:
+        b0 = 20;
+
+      label2:
+        b1 = b0;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(int)>(b1);
+
+      label3:
+        r1 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r1.<java.io.PrintStream: void println(int)>(b1);
+
+        return b1;
+    }
+
+    int tc26()
+    {
+        byte b0;
+        int i0, i1, i2;
+        java.io.PrintStream r0;
+        java.lang.Integer r1, r2;
+        sootUp.RQ1.jb_cp.JB_CP r3;
+
+
+        r3 := @this: sootUp.RQ1.jb_cp.JB_CP;
+        r1 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(6);
+        i0 = virtualinvoke r1.<java.lang.Integer: int intValue()>();
+        b0 = 10;
+        r2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(b0);
+        i1 = virtualinvoke r2.<java.lang.Integer: int intValue()>();
+        i2 = i0;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(int)>(i1);
+
+        return i2;
+    }
+
+    java.lang.String tc1_1(java.lang.String)
+    {
+        byte b0, b1, b2, b3;
+        int i0;
+        java.io.PrintStream r0, r1;
+        java.lang.String r2;
+        sootUp.RQ1.jb_cp.JB_CP r3;
+
+
+        r3 := @this: sootUp.RQ1.jb_cp.JB_CP;
+        r2 := @parameter0: java.lang.String;
+        b0 = 6;
+        b1 = b0;
+        i0 = virtualinvoke r2.<java.lang.String: int length()>();
+
+        if i0 <= 10 goto label1;
+        b1 = 10;
+
+      label1:
+        b2 = 10;
+        b3 = b1;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(int)>(b3);
+        r1 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r1.<java.io.PrintStream: void println(int)>(b1);
+
+        return r2;
+    }
+
+    int tc25()
+    {
+        byte b0, b1, b2;
+        int i0;
+        int[] r0, r1;
+        sootUp.RQ1.jb_cp.JB_CP r2;
+
+
+        r2 := @this: sootUp.RQ1.jb_cp.JB_CP;
+        b0 = 1;
+        b1 = 5;
+        r0 = newarray (int)[3];
+        r0[0] = 9;
+        r0[1] = 8;
+        r0[2] = 7;
+        r1 = r0;
+        r1[0] = b0;
+        b2 = b1;
+        r1[b2] = b1;
+        i0 = r1[b1];
+
+        return i0;
+    }
+
+    java.lang.Boolean tc22()
+    {
+        boolean z0, z1, z2, z3;
+        java.io.PrintStream r0, r1, r2;
+        java.lang.Boolean r3;
+        sootUp.RQ1.jb_cp.JB_CP r4;
+
+
+        r4 := @this: sootUp.RQ1.jb_cp.JB_CP;
+        z0 = 1;
+        z1 = z0;
+
+        if z1 == 0 goto label1;
+
+        if z0 == 0 goto label1;
+        z2 = 1;
+
+        goto label2;
+
+      label1:
+        z2 = 0;
+
+      label2:
+        r3 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>(z2);
+        z3 = virtualinvoke r3.<java.lang.Boolean: boolean booleanValue()>();
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(boolean)>(z1);
+        r1 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r1.<java.io.PrintStream: void println(java.lang.Object)>(r3);
+        r2 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r2.<java.io.PrintStream: void println(boolean)>(z3);
+
+        return r3;
+    }
+
+    int tc2()
+    {
+        byte b0, b1, b2;
+        java.io.PrintStream r0, r1;
+        sootUp.RQ1.jb_cp.JB_CP r2;
+
+
+        r2 := @this: sootUp.RQ1.jb_cp.JB_CP;
+        b0 = 5;
+        b1 = b0;
+        b2 = b1;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(int)>(b2);
+        r1 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r1.<java.io.PrintStream: void println(int)>(b1);
+
+        return b2;
+    }
+
+    int tc5()
+    {
+        byte b0, b1;
+        java.io.PrintStream r0;
+        sootUp.RQ1.jb_cp.JB_CP r1;
+
+
+        r1 := @this: sootUp.RQ1.jb_cp.JB_CP;
+        b0 = 5;
+
+        if b0 <= 3 goto label1;
+        b1 = b0;
+
+        goto label2;
+
+      label1:
+        b1 = 2;
+
+      label2:
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(int)>(b1);
+
+        return b1;
+    }
+
+    int tc15()
+    {
+        int i0, i1;
+        java.io.PrintStream r0;
+        sootUp.RQ1.jb_cp.JB_CP r1;
+
+
+        r1 := @this: sootUp.RQ1.jb_cp.JB_CP;
+        i0 = <sootUp.RQ1.jb_cp.JB_CP: int field1>;
+        i1 = i0;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(int)>(i1);
+
+        return i1;
+    }
+
+    int tc19()
+    {
+        int i0, i1, i2;
+        java.io.PrintStream r0;
+        sootUp.RQ1.jb_cp.JB_CP r1;
+
+
+        r1 := @this: sootUp.RQ1.jb_cp.JB_CP;
+        i0 = virtualinvoke r1.<sootUp.RQ1.jb_cp.JB_CP: int getValue()>();
+        i1 = i0;
+        i2 = virtualinvoke r1.<sootUp.RQ1.jb_cp.JB_CP: int anotherMethod(int)>(i1);
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(int)>(i2);
+
+        return i2;
+    }
+
+    int tc6()
+    {
+        byte b0, b1;
+        int i0;
+        java.io.PrintStream r0;
+        sootUp.RQ1.jb_cp.JB_CP r1;
+
+
+        r1 := @this: sootUp.RQ1.jb_cp.JB_CP;
+        b0 = 5;
+        i0 = 0;
+
+      label1:
+        if i0 >= 10 goto label2;
+        b1 = b0;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(int)>(b1);
+        i0 = i0 + 1;
+
+        goto label1;
+
+      label2:
+        return b0;
+    }
+
+    int tc20()
+    {
+        byte b0, b1;
+        java.io.PrintStream r0;
+        sootUp.RQ1.jb_cp.JB_CP r1;
+
+
+        r1 := @this: sootUp.RQ1.jb_cp.JB_CP;
+        b0 = 5;
+        b1 = 10;
+
+        lookupswitch(b0)
+            {
+            case 5: goto label1;
+            default: goto label2;
+        };
+
+      label1:
+        b1 = b0;
+
+      label2:
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(int)>(b1);
+
+        return b1;
+    }
+
+    int tc5_1(int)
+    {
+        byte b0, b1;
+        int i0;
+        java.io.PrintStream r0;
+        sootUp.RQ1.jb_cp.JB_CP r1;
+
+
+        r1 := @this: sootUp.RQ1.jb_cp.JB_CP;
+        i0 := @parameter0: int;
+        b0 = 5;
+
+        if i0 <= 6 goto label1;
+        b0 = 10;
+
+      label1:
+        if b0 <= 3 goto label2;
+        b1 = b0;
+
+        goto label3;
+
+      label2:
+        b1 = 2;
+
+      label3:
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(int)>(b1);
+
+        return b1;
+    }
+
+    int tc7_2(int)
+    {
+        byte b0, b1;
+        int i0, i1;
+        java.io.PrintStream r0, r1, r2, r3;
+        sootUp.RQ1.jb_cp.JB_CP r4;
+
+
+        r4 := @this: sootUp.RQ1.jb_cp.JB_CP;
+        i0 := @parameter0: int;
+        i1 = i0;
+        b0 = 10;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(int)>(i1);
+        r1 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r1.<java.io.PrintStream: void println(int)>(b0);
+        b1 = 10;
+        r2 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r2.<java.io.PrintStream: void println(int)>(b1);
+        r3 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r3.<java.io.PrintStream: void println(int)>(b0);
+
+        return b0;
+    }
+
+    int tc10()
+    {
+        byte b0, b1, b2;
+        java.io.PrintStream r0;
+        sootUp.RQ1.jb_cp.JB_CP r1;
+
+
+        r1 := @this: sootUp.RQ1.jb_cp.JB_CP;
+        b0 = 5;
+        b1 = 6;
+
+        if b0 <= b1 goto label1;
+        b2 = b0;
+
+        goto label2;
+
+      label1:
+        b2 = b1;
+
+      label2:
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(int)>(b2);
+
+        return b2;
+    }
+
+    int tc13()
+    {
+        int i0, i1;
+        java.io.PrintStream r0;
+        sootUp.RQ1.jb_cp.JB_CP r1;
+
+
+        r1 := @this: sootUp.RQ1.jb_cp.JB_CP;
+        i0 = r1.<sootUp.RQ1.jb_cp.JB_CP: int field>;
+        i1 = i0;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(int)>(i1);
+
+        return i1;
+    }
+
+    boolean tc23()
+    {
+        boolean z0, z1, z2, z3;
+        java.io.PrintStream r0, r1, r2;
+        java.lang.Boolean r3;
+        sootUp.RQ1.jb_cp.JB_CP r4;
+
+
+        r4 := @this: sootUp.RQ1.jb_cp.JB_CP;
+        z0 = 1;
+        z1 = z0;
+
+        if z1 != 1 goto label3;
+
+        if z1 == 0 goto label1;
+
+        if z0 == 0 goto label1;
+        z2 = 1;
+
+        goto label2;
+
+      label1:
+        z2 = 0;
+
+      label2:
+        r3 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>(z2);
+        z3 = virtualinvoke r3.<java.lang.Boolean: boolean booleanValue()>();
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(boolean)>(z1);
+        r1 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r1.<java.io.PrintStream: void println(java.lang.Object)>(r3);
+        r2 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r2.<java.io.PrintStream: void println(boolean)>(z3);
+
+      label3:
+        return z1;
+    }
+
+    double tc8()
+    {
+        byte b0;
+        double d0;
+        java.io.PrintStream r0;
+        sootUp.RQ1.jb_cp.JB_CP r1;
+
+
+        r1 := @this: sootUp.RQ1.jb_cp.JB_CP;
+        b0 = 5;
+        d0 = (double) b0;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(double)>(d0);
+
+        return d0;
+    }
+
+    int tc21()
+    {
+        byte b0, b1;
+        int i0, i1;
+        java.io.PrintStream r0, r1;
+        sootUp.RQ1.jb_cp.JB_CP r2;
+
+
+        r2 := @this: sootUp.RQ1.jb_cp.JB_CP;
+        b0 = 5;
+        b1 = 10;
+        i0 = b0 + b1;
+
+        lookupswitch(i0)
+            {
+            case 5: goto label1;
+            default: goto label2;
+        };
+
+      label1:
+        b1 = b0;
+        b0 = 15;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(int)>(b1);
+
+      label2:
+        r1 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r1.<java.io.PrintStream: void println(int)>(b1);
+        i1 = b0 + b1;
+
+        return i1;
+    }
+
+    int tc30(int)
+    {
+        boolean z0;
+        byte b0, b1;
+        int i0, i1, i2;
+        java.io.PrintStream r0;
+        sootUp.RQ1.jb_cp.JB_CP r1;
+
+
+        r1 := @this: sootUp.RQ1.jb_cp.JB_CP;
+        i0 := @parameter0: int;
+        z0 = 0;
+        i1 = i0;
+        b0 = 10;
+        b1 = 20;
+        i2 = i1 + b1;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(java.lang.String)>("if y changed to w at last step then value of x is diff");
+
+        return i2;
+    }
+
+    public static void main(java.lang.String[])
+    {
+        boolean z0;
+        double d0;
+        int i0, i1, i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i2, i20, i21, i22, i23, i24, i25, i26, i27, i28, i29, i3, i30, i31, i32, i4, i5, i6, i7, i8, i9;
+        java.io.PrintStream r0, r1, r10, r11, r12, r13, r14, r15, r16, r17, r18, r19, r2, r20, r21, r22, r23, r24, r25, r26, r27, r28, r29, r3, r30, r31, r32, r33, r34, r35, r36, r37, r38, r39, r4, r40, r41, r5, r6, r7, r8, r9;
+        java.lang.Boolean r42;
+        java.lang.Integer r43, r44;
+        java.lang.Object r45;
+        java.lang.String r46, r47, r48, r49, r50, r51, r52, r53, r54, r55, r56, r57, r58, r59, r60, r61, r62, r63, r64, r65, r66, r67, r68, r69, r70, r71, r72, r73, r74, r75, r76, r77, r78, r79, r80, r81, r82, r83, r84, r85, r86, r87, r88;
+        java.lang.String[] r89;
+        long l0, l1;
+        sootUp.RQ1.jb_cp.JB_CP r90, r91;
+
+
+        r89 := @parameter0: java.lang.String[];
+        r90 = new sootUp.RQ1.jb_cp.JB_CP;
+        specialinvoke r90.<sootUp.RQ1.jb_cp.JB_CP: void <init>()>();
+        r91 = r90;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        i0 = virtualinvoke r91.<sootUp.RQ1.jb_cp.JB_CP: int tc1()>();
+        r46 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (int)>(i0) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("tc1: \u0001");
+        virtualinvoke r0.<java.io.PrintStream: void println(java.lang.String)>(r46);
+        r1 = <java.lang.System: java.io.PrintStream out>;
+        r47 = virtualinvoke r91.<sootUp.RQ1.jb_cp.JB_CP: java.lang.String tc1_1(java.lang.String)>("example");
+        r48 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (java.lang.String)>(r47) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("tc1_1: \u0001");
+        virtualinvoke r1.<java.io.PrintStream: void println(java.lang.String)>(r48);
+        r2 = <java.lang.System: java.io.PrintStream out>;
+        i1 = virtualinvoke r91.<sootUp.RQ1.jb_cp.JB_CP: int tc2()>();
+        r49 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (int)>(i1) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("tc2: \u0001");
+        virtualinvoke r2.<java.io.PrintStream: void println(java.lang.String)>(r49);
+        r3 = <java.lang.System: java.io.PrintStream out>;
+        i2 = virtualinvoke r91.<sootUp.RQ1.jb_cp.JB_CP: int tc3()>();
+        r50 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (int)>(i2) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("tc3: \u0001");
+        virtualinvoke r3.<java.io.PrintStream: void println(java.lang.String)>(r50);
+        r4 = <java.lang.System: java.io.PrintStream out>;
+        i3 = virtualinvoke r91.<sootUp.RQ1.jb_cp.JB_CP: int tc4()>();
+        r51 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (int)>(i3) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("tc4: \u0001");
+        virtualinvoke r4.<java.io.PrintStream: void println(java.lang.String)>(r51);
+        r5 = <java.lang.System: java.io.PrintStream out>;
+        i4 = virtualinvoke r91.<sootUp.RQ1.jb_cp.JB_CP: int tc5()>();
+        r52 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (int)>(i4) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("tc5: \u0001");
+        virtualinvoke r5.<java.io.PrintStream: void println(java.lang.String)>(r52);
+        r6 = <java.lang.System: java.io.PrintStream out>;
+        i5 = virtualinvoke r91.<sootUp.RQ1.jb_cp.JB_CP: int tc5_1(int)>(7);
+        r53 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (int)>(i5) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("tc5_1: \u0001");
+        virtualinvoke r6.<java.io.PrintStream: void println(java.lang.String)>(r53);
+        r7 = <java.lang.System: java.io.PrintStream out>;
+        i6 = virtualinvoke r91.<sootUp.RQ1.jb_cp.JB_CP: int tc5_2(int)>(7);
+        r54 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (int)>(i6) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("tc5_2: \u0001");
+        virtualinvoke r7.<java.io.PrintStream: void println(java.lang.String)>(r54);
+        r8 = <java.lang.System: java.io.PrintStream out>;
+        i7 = virtualinvoke r91.<sootUp.RQ1.jb_cp.JB_CP: int tc5_3()>();
+        r55 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (int)>(i7) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("tc5_3: \u0001");
+        virtualinvoke r8.<java.io.PrintStream: void println(java.lang.String)>(r55);
+        r9 = <java.lang.System: java.io.PrintStream out>;
+        i8 = virtualinvoke r91.<sootUp.RQ1.jb_cp.JB_CP: int tc6()>();
+        r56 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (int)>(i8) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("tc6: \u0001");
+        virtualinvoke r9.<java.io.PrintStream: void println(java.lang.String)>(r56);
+        r10 = <java.lang.System: java.io.PrintStream out>;
+        i9 = virtualinvoke r91.<sootUp.RQ1.jb_cp.JB_CP: int tc7()>();
+        r57 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (int)>(i9) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("tc7: \u0001");
+        virtualinvoke r10.<java.io.PrintStream: void println(java.lang.String)>(r57);
+        r11 = <java.lang.System: java.io.PrintStream out>;
+        i10 = virtualinvoke r91.<sootUp.RQ1.jb_cp.JB_CP: int tc7_1()>();
+        r58 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (int)>(i10) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("tc7_1: \u0001");
+        virtualinvoke r11.<java.io.PrintStream: void println(java.lang.String)>(r58);
+        r12 = <java.lang.System: java.io.PrintStream out>;
+        i11 = virtualinvoke r91.<sootUp.RQ1.jb_cp.JB_CP: int tc7_2(int)>(10);
+        r59 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (int)>(i11) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("tc7_2: \u0001");
+        virtualinvoke r12.<java.io.PrintStream: void println(java.lang.String)>(r59);
+        r13 = <java.lang.System: java.io.PrintStream out>;
+        d0 = virtualinvoke r91.<sootUp.RQ1.jb_cp.JB_CP: double tc8()>();
+        r60 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (double)>(d0) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("tc8: \u0001");
+        virtualinvoke r13.<java.io.PrintStream: void println(java.lang.String)>(r60);
+        r14 = <java.lang.System: java.io.PrintStream out>;
+        r45 = virtualinvoke r91.<sootUp.RQ1.jb_cp.JB_CP: java.lang.Object tc9()>();
+        r61 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (java.lang.Object)>(r45) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("tc9: \u0001");
+        virtualinvoke r14.<java.io.PrintStream: void println(java.lang.String)>(r61);
+        r15 = <java.lang.System: java.io.PrintStream out>;
+        i12 = virtualinvoke r91.<sootUp.RQ1.jb_cp.JB_CP: int tc10()>();
+        r62 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (int)>(i12) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("tc10: \u0001");
+        virtualinvoke r15.<java.io.PrintStream: void println(java.lang.String)>(r62);
+        r16 = <java.lang.System: java.io.PrintStream out>;
+        i13 = virtualinvoke r91.<sootUp.RQ1.jb_cp.JB_CP: int tc11()>();
+        r63 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (int)>(i13) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("tc11: \u0001");
+        virtualinvoke r16.<java.io.PrintStream: void println(java.lang.String)>(r63);
+        r17 = <java.lang.System: java.io.PrintStream out>;
+        l0 = virtualinvoke r91.<sootUp.RQ1.jb_cp.JB_CP: long tc12()>();
+        r64 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (long)>(l0) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("tc12: \u0001");
+        virtualinvoke r17.<java.io.PrintStream: void println(java.lang.String)>(r64);
+        r18 = <java.lang.System: java.io.PrintStream out>;
+        i14 = virtualinvoke r91.<sootUp.RQ1.jb_cp.JB_CP: int tc13()>();
+        r65 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (int)>(i14) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("tc13: \u0001");
+        virtualinvoke r18.<java.io.PrintStream: void println(java.lang.String)>(r65);
+        r19 = <java.lang.System: java.io.PrintStream out>;
+        l1 = virtualinvoke r91.<sootUp.RQ1.jb_cp.JB_CP: long tc13_1()>();
+        r66 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (long)>(l1) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("tc13_1: \u0001");
+        virtualinvoke r19.<java.io.PrintStream: void println(java.lang.String)>(r66);
+        r20 = <java.lang.System: java.io.PrintStream out>;
+        i15 = virtualinvoke r91.<sootUp.RQ1.jb_cp.JB_CP: int tc14()>();
+        r67 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (int)>(i15) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("tc14: \u0001");
+        virtualinvoke r20.<java.io.PrintStream: void println(java.lang.String)>(r67);
+        r21 = <java.lang.System: java.io.PrintStream out>;
+        i16 = virtualinvoke r91.<sootUp.RQ1.jb_cp.JB_CP: int tc15()>();
+        r68 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (int)>(i16) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("tc15: \u0001");
+        virtualinvoke r21.<java.io.PrintStream: void println(java.lang.String)>(r68);
+        r22 = <java.lang.System: java.io.PrintStream out>;
+        i17 = virtualinvoke r91.<sootUp.RQ1.jb_cp.JB_CP: int tc16()>();
+        r69 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (int)>(i17) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("tc16: \u0001");
+        virtualinvoke r22.<java.io.PrintStream: void println(java.lang.String)>(r69);
+        r23 = <java.lang.System: java.io.PrintStream out>;
+        i18 = virtualinvoke r91.<sootUp.RQ1.jb_cp.JB_CP: int tc17()>();
+        r70 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (int)>(i18) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("tc17: \u0001");
+        virtualinvoke r23.<java.io.PrintStream: void println(java.lang.String)>(r70);
+        r24 = <java.lang.System: java.io.PrintStream out>;
+        i19 = virtualinvoke r91.<sootUp.RQ1.jb_cp.JB_CP: int tc17_1()>();
+        r71 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (int)>(i19) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("tc17_1: \u0001");
+        virtualinvoke r24.<java.io.PrintStream: void println(java.lang.String)>(r71);
+        r25 = <java.lang.System: java.io.PrintStream out>;
+        i20 = virtualinvoke r91.<sootUp.RQ1.jb_cp.JB_CP: int tc17_2()>();
+        r72 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (int)>(i20) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("tc17_2: \u0001");
+        virtualinvoke r25.<java.io.PrintStream: void println(java.lang.String)>(r72);
+        r26 = <java.lang.System: java.io.PrintStream out>;
+        i21 = virtualinvoke r91.<sootUp.RQ1.jb_cp.JB_CP: int tc18()>();
+        r73 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (int)>(i21) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("tc18: \u0001");
+        virtualinvoke r26.<java.io.PrintStream: void println(java.lang.String)>(r73);
+        r27 = <java.lang.System: java.io.PrintStream out>;
+        i22 = virtualinvoke r91.<sootUp.RQ1.jb_cp.JB_CP: int tc18_1()>();
+        r74 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (int)>(i22) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("tc18_1: \u0001");
+        virtualinvoke r27.<java.io.PrintStream: void println(java.lang.String)>(r74);
+        r28 = <java.lang.System: java.io.PrintStream out>;
+        i23 = virtualinvoke r91.<sootUp.RQ1.jb_cp.JB_CP: int tc19()>();
+        r75 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (int)>(i23) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("tc19: \u0001");
+        virtualinvoke r28.<java.io.PrintStream: void println(java.lang.String)>(r75);
+        r29 = <java.lang.System: java.io.PrintStream out>;
+        i24 = virtualinvoke r91.<sootUp.RQ1.jb_cp.JB_CP: int tc20()>();
+        r76 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (int)>(i24) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("tc20: \u0001");
+        virtualinvoke r29.<java.io.PrintStream: void println(java.lang.String)>(r76);
+        r30 = <java.lang.System: java.io.PrintStream out>;
+        i25 = virtualinvoke r91.<sootUp.RQ1.jb_cp.JB_CP: int tc20_1()>();
+        r77 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (int)>(i25) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("tc20_1: \u0001");
+        virtualinvoke r30.<java.io.PrintStream: void println(java.lang.String)>(r77);
+        r31 = <java.lang.System: java.io.PrintStream out>;
+        i26 = virtualinvoke r91.<sootUp.RQ1.jb_cp.JB_CP: int tc21()>();
+        r78 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (int)>(i26) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("tc21: \u0001");
+        virtualinvoke r31.<java.io.PrintStream: void println(java.lang.String)>(r78);
+        r32 = <java.lang.System: java.io.PrintStream out>;
+        i27 = virtualinvoke r91.<sootUp.RQ1.jb_cp.JB_CP: int tc21_1()>();
+        r79 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (int)>(i27) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("tc21_1: \u0001");
+        virtualinvoke r32.<java.io.PrintStream: void println(java.lang.String)>(r79);
+        r33 = <java.lang.System: java.io.PrintStream out>;
+        r42 = virtualinvoke r91.<sootUp.RQ1.jb_cp.JB_CP: java.lang.Boolean tc22()>();
+        r80 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (java.lang.Boolean)>(r42) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("tc22: \u0001");
+        virtualinvoke r33.<java.io.PrintStream: void println(java.lang.String)>(r80);
+        r34 = <java.lang.System: java.io.PrintStream out>;
+        z0 = virtualinvoke r91.<sootUp.RQ1.jb_cp.JB_CP: boolean tc23()>();
+        r81 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (boolean)>(z0) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("tc23: \u0001");
+        virtualinvoke r34.<java.io.PrintStream: void println(java.lang.String)>(r81);
+        r35 = <java.lang.System: java.io.PrintStream out>;
+        i28 = virtualinvoke r91.<sootUp.RQ1.jb_cp.JB_CP: int tc24()>();
+        r82 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (int)>(i28) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("tc24: \u0001");
+        virtualinvoke r35.<java.io.PrintStream: void println(java.lang.String)>(r82);
+        r36 = <java.lang.System: java.io.PrintStream out>;
+        i29 = virtualinvoke r91.<sootUp.RQ1.jb_cp.JB_CP: int tc25()>();
+        r83 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (int)>(i29) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("tc25: \u0001");
+        virtualinvoke r36.<java.io.PrintStream: void println(java.lang.String)>(r83);
+        r37 = <java.lang.System: java.io.PrintStream out>;
+        i30 = virtualinvoke r91.<sootUp.RQ1.jb_cp.JB_CP: int tc26()>();
+        r84 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (int)>(i30) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("tc26: \u0001");
+        virtualinvoke r37.<java.io.PrintStream: void println(java.lang.String)>(r84);
+        r38 = <java.lang.System: java.io.PrintStream out>;
+        i31 = virtualinvoke r91.<sootUp.RQ1.jb_cp.JB_CP: int tc27()>();
+        r85 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (int)>(i31) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("tc27: \u0001");
+        virtualinvoke r38.<java.io.PrintStream: void println(java.lang.String)>(r85);
+        r39 = <java.lang.System: java.io.PrintStream out>;
+        r43 = virtualinvoke r91.<sootUp.RQ1.jb_cp.JB_CP: java.lang.Integer tc28(int)>(5);
+        r86 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (java.lang.Integer)>(r43) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("tc28: \u0001");
+        virtualinvoke r39.<java.io.PrintStream: void println(java.lang.String)>(r86);
+        r40 = <java.lang.System: java.io.PrintStream out>;
+        r44 = virtualinvoke r91.<sootUp.RQ1.jb_cp.JB_CP: java.lang.Integer tc29()>();
+        r87 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (java.lang.Integer)>(r44) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("tc29: \u0001");
+        virtualinvoke r40.<java.io.PrintStream: void println(java.lang.String)>(r87);
+        r41 = <java.lang.System: java.io.PrintStream out>;
+        i32 = virtualinvoke r91.<sootUp.RQ1.jb_cp.JB_CP: int tc30(int)>(5);
+        r88 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (int)>(i32) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("tc30: \u0001");
+        virtualinvoke r41.<java.io.PrintStream: void println(java.lang.String)>(r88);
+
+        return;
+    }
+
+    int tc4()
+    {
+        int i0, i1;
+        java.io.PrintStream r0;
+        sootUp.RQ1.jb_cp.JB_CP r1;
+
+
+        r1 := @this: sootUp.RQ1.jb_cp.JB_CP;
+        i0 = virtualinvoke r1.<sootUp.RQ1.jb_cp.JB_CP: int getValue()>();
+        i1 = i0;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(int)>(i1);
+
+        return i1;
+    }
+
+    int tc17_1()
+    {
+        byte b0, b1;
+        int i0, i1, i2, i3;
+        java.io.PrintStream r0;
+        sootUp.RQ1.jb_cp.JB_CP r1;
+
+
+        r1 := @this: sootUp.RQ1.jb_cp.JB_CP;
+        b0 = 5;
+        b1 = 6;
+        i0 = 10 + b0;
+        i1 = i0 + b1;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        i2 = i1 + b1;
+        virtualinvoke r0.<java.io.PrintStream: void println(int)>(i2);
+        i3 = i1 + b1;
+
+        return i3;
+    }
+
+    int tc18_1()
+    {
+        byte b0, b1, b2, b3;
+        java.io.PrintStream r0, r1;
+        java.lang.Throwable r2, r3;
+        sootUp.RQ1.jb_cp.JB_CP r4;
+
+
+        r4 := @this: sootUp.RQ1.jb_cp.JB_CP;
+        b0 = 5;
+
+      label1:
+        b1 = b0;
+        b2 = 15;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(int)>(b1);
+
+      label2:
+        goto label4;
+
+      label3:
+        r2 := @caughtexception;
+        r3 = r2;
+        b3 = 5;
+        b2 = b3;
+
+      label4:
+        r1 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r1.<java.io.PrintStream: void println(int)>(b2);
+
+        return b2;
+
+ catch java.lang.Exception from label1 to label2 with label3;
+    }
+
+    int methodWith4Parameters(int,int,int,int)
+    {
+        int i0, i1, i2, i3, i4, i5, i6;
+        java.io.PrintStream r0;
+        java.lang.String r1;
+        sootUp.RQ1.jb_cp.JB_CP r2;
+
+
+        r2 := @this: sootUp.RQ1.jb_cp.JB_CP;
+        i0 := @parameter0: int;
+        i1 := @parameter1: int;
+        i2 := @parameter2: int;
+        i3 := @parameter3: int;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        r1 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (int,int,int,int)>(i0, i1, i2, i3) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("\u0001 \u0001 \u0001 \u0001 ");
+        virtualinvoke r0.<java.io.PrintStream: void println(java.lang.String)>(r1);
+        i4 = i0 + i1;
+        i5 = i4 + i2;
+        i6 = i5 + i3;
+
+        return i6;
+    }
+
+    static void <clinit>()
+    {
+
+        <sootUp.RQ1.jb_cp.JB_CP: int field1> = 5;
+
+        return;
+    }
+
+    int tc27()
+    {
+        byte b0;
+        int i0, i1, i2, i3, i4, i5;
+        java.lang.Integer r0, r1, r2, r3;
+        sootUp.RQ1.jb_cp.JB_CP r4;
+
+
+        r4 := @this: sootUp.RQ1.jb_cp.JB_CP;
+        r0 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(10);
+        i0 = virtualinvoke r0.<java.lang.Integer: int intValue()>();
+        r1 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(20);
+        i1 = virtualinvoke r1.<java.lang.Integer: int intValue()>();
+        i2 = i0;
+        r2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(i2);
+        i3 = virtualinvoke r2.<java.lang.Integer: int intValue()>();
+        i4 = i1;
+        b0 = 10;
+        r3 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(i4);
+        i5 = virtualinvoke r3.<java.lang.Integer: int intValue()>();
+
+        return i5;
+    }
+
+    int tc7_1()
+    {
+        byte b0, b1, b2;
+        int i0, i1;
+        java.io.PrintStream r0, r1, r2;
+        sootUp.RQ1.jb_cp.JB_CP r3;
+
+
+        r3 := @this: sootUp.RQ1.jb_cp.JB_CP;
+        b0 = 5;
+        b1 = 50;
+        b2 = b1;
+        i0 = b2 + b1;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(int)>(b2);
+        r1 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r1.<java.io.PrintStream: void println(int)>(i0);
+        r2 = <java.lang.System: java.io.PrintStream out>;
+        i1 = b1 + b2;
+        virtualinvoke r2.<java.io.PrintStream: void println(int)>(i1);
+
+        return b1;
+    }
+
+    java.lang.Object tc9()
+    {
+        java.io.PrintStream r0;
+        java.lang.Object r1, r2;
+        sootUp.RQ1.jb_cp.JB_CP r3;
+
+
+        r3 := @this: sootUp.RQ1.jb_cp.JB_CP;
+        r1 = null;
+        r2 = r1;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(java.lang.Object)>(r2);
+
+        return r2;
+    }
+
+    java.lang.Integer tc28(int)
+    {
+        byte b0;
+        int i0, i1, i2, i3, i4, i5, i6;
+        java.lang.Integer r0, r1, r2, r3, r4;
+        sootUp.RQ1.jb_cp.JB_CP r5;
+
+
+        r5 := @this: sootUp.RQ1.jb_cp.JB_CP;
+        i0 := @parameter0: int;
+        r0 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(10);
+        i1 = virtualinvoke r0.<java.lang.Integer: int intValue()>();
+        r1 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(20);
+        i2 = virtualinvoke r1.<java.lang.Integer: int intValue()>();
+        i3 = i1;
+        r2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(i3);
+        i4 = virtualinvoke r2.<java.lang.Integer: int intValue()>();
+        i5 = i2;
+
+        if i1 < i0 goto label1;
+        b0 = 10;
+
+      label1:
+        r3 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(i5);
+        i6 = virtualinvoke r3.<java.lang.Integer: int intValue()>();
+        r4 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(i6);
+
+        return r4;
+    }
+
+    int tc7()
+    {
+        byte b0, b1;
+        java.io.PrintStream r0;
+        sootUp.RQ1.jb_cp.JB_CP r1;
+
+
+        r1 := @this: sootUp.RQ1.jb_cp.JB_CP;
+        b0 = 5;
+        b1 = b0;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(int)>(b1);
+
+        return b0;
+    }
+}
+
