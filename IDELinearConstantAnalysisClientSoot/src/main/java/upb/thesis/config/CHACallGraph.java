@@ -11,6 +11,7 @@ public class CHACallGraph extends AbstractCallGraphConstructor {
     CallGraph generateCallGraph() {
         ParametrisedCallGraphConstructor.setSootOptions();
         Options.v().setPhaseOption("cg.cha", "on");
+        // Options.v().setPhaseOption("cg.cha", "apponly:true");
         PackManager.v().getPack("cg").apply();
         return SceneWrapper.v().getCallGraph();
     }
