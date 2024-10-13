@@ -7,6 +7,9 @@ import sootup.core.model.SootMethod;
 import sootup.core.types.ClassType;
 import sootup.core.util.printer.JimplePrinter;
 import sootup.interceptors.CopyPropagator;
+import sootup.interceptors.LocalNameStandardizer;
+import sootup.interceptors.LocalSplitter;
+import sootup.interceptors.TypeAssigner;
 import sootup.java.bytecode.frontend.inputlocation.JavaClassPathAnalysisInputLocation;
 import sootup.java.core.JavaSootClass;
 import sootup.java.core.views.JavaView;
@@ -14,6 +17,7 @@ import sootup.java.core.views.JavaView;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Set;
@@ -26,7 +30,7 @@ public class BaseSetup {
 //        AnalysisInputLocation inputLocation = new JavaClassPathAnalysisInputLocation(classPath, null,
 //                List.of(new ConditionalBranchFolder()));
         // if nothing passed then 8 by default BI are applied which are defined in ByteCodeBodyInterceptors
-        AnalysisInputLocation inputLocation = new JavaClassPathAnalysisInputLocation(classPath, null, Collections.emptyList());
+        AnalysisInputLocation inputLocation = new JavaClassPathAnalysisInputLocation(classPath, null, Arrays.asList(new LocalSplitter(), new TypeAssigner(), new LocalNameStandardizer()));
         JavaView view = new JavaView(inputLocation);
         Collection<JavaSootClass> viewClasses = view.getClasses().toList();
         System.out.println(viewClasses);
@@ -41,7 +45,7 @@ public class BaseSetup {
 //        System.out.println(methodSignature.getName());
 
         generateOutputDirs(sootClass, view);
-        //generateJimpleOutputClass(sootClass, targetClassName);
+        generateJimpleOutputClass(sootClass, targetClassName);
     }
 
     public void generateJimpleOutputClass(SootClass sootClass, String targetClassName) throws FileNotFoundException {

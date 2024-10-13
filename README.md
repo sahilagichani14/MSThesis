@@ -1,29 +1,23 @@
-# SootUp
-#### Issues:
-1. No Tutorials for beginners
-2. cannot find below dependency
+# README for Running RQ1, RQ2, and RQ3 Experiments
 
-    <dependency>
-      <groupId>com.github.soot-oss.SootUp</groupId>
-      <artifactId>sootup</artifactId>
-      <version>develop-SNAPSHOT</version>
-    </dependency>
+- If you want to run without building use jars in eval_results and run by:
+  - command = ["java", "-XX:+UseG1GC", "-XX:+UseAdaptiveSizePolicy", "-Xmx1024m", "-Xss1024m", "-jar", executable, "inputjar" , "solver", max_method, "cg_algo", "thread", "bodyinterceptors"]
+  - inputjar are present in IDELinearConstantAnalysisClientSoot/src/test/resources/latest
 
-3. Warning:(60, 5)  Provides transitive vulnerable dependency maven:org.eclipse.platform:org.eclipse.core.resources:3.14.0 CVE-2023-4218 5.0 Improper Restriction of XML External Entity Reference vulnerability with Medium severity found  Results powered by Checkmarx(c) 
+## RQ1: Generating Jimple and Verifying Body Transformers/Interceptors
 
-4. To get latest SootUp jar & add to project:
-   git clone https://github.com/secure-software-engineering/SootUp.git
-   cd SootUp (git bash or cmd)
-   mvn install  -Dmaven.test.skip.exec -Dmaven.test.skip=true
-   OR
-   mvn clean install -DskipTests
-   
+- Before generating Jimple file, ensure the following body interceptors are turned on: jb,ls,jb.tr
+- Generate Jimple File: 
+  - Uncomment the generateJimpleOutputClass() method in BaseSetUp
+  - This will generate the Jimple file located at sootupRes/sootUp.RQ1.jb_cp.JB_CP.jimple.
+- Copy Jimple File:
+  - Copy the generated Jimple file from sootupRes/sootUp.RQ1.jb_cp.JB_CP.jimple.
+  - Paste it into jimplesrc/sootupjimplesrc/sootUp.RQ1.jb_cp.JB_CP.jimple.
+- Run the Jimple-to-Bytecode Program:
+  - Run the program located at src/main/java/soot/sootupjimpletobytecode
+- Check Bytecode Output: The bytecode output will be located in sootOutput/RQ1/jb_ls.
 
-4. To get latest SootUp jar & add to project:
-   git clone https://github.com/secure-software-engineering/SootUp.git
-   cd SootUp (git bash or cmd)
-   mvn install  -Dmaven.test.skip.exec -Dmaven.test.skip=true
-   OR
-   mvn clean install -DskipTests
-   
-1_1_5, 1_5, 1_6 3, 3_1
+## RQ2 & RQ3: Performance Comparisons for Soot & SootUp
+
+- For both Soot and SootUp, use the following command-line arguments to run the experiments: 
+  - javapoet-1.13.0.jar default 50 CHA 1 jb.ls,jb.tr,jb.a

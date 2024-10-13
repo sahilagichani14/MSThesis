@@ -18,7 +18,7 @@ public class BaseSetup {
     protected static void setupSoot() throws IOException {
 
         String userdir = System.getProperty("user.dir");
-        String jimpleFilesSrcPath = userdir + File.separator + "jimplesrc" + File.separator + "sootjimplesrc";
+        String jimpleFilesSrcPath = userdir + File.separator + "jimplesrc" + File.separator + "sootupjimplesrc";
         String rtjarpath = userdir + File.separator + "sootThesis" + File.separator + "lib" + File.separator + "rt.jar";
 
         /*
@@ -99,7 +99,7 @@ public class BaseSetup {
 
         Scene.v().loadNecessaryClasses();
         PackManager.v().runPacks();
-        List<SootClass> sootClassList = Scene.v().getClasses().stream().filter(sootClass -> sootClass.getName().contains("RQ1.jb_ls")).collect(Collectors.toList());
+        List<SootClass> sootClassList = Scene.v().getClasses().stream().filter(sootClass -> sootClass.getName().contains("RQ1")).collect(Collectors.toList());
 
 //        Chain<SootClass> applicationClasses = Scene.v().getApplicationClasses();
 //        Chain<SootClass> phantomClasses = Scene.v().getPhantomClasses();
