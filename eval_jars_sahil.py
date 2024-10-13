@@ -10,11 +10,11 @@ import concurrent.futures
 # Get the current directory of eval_jars.py
 k_configuration = 2
 input_dir = join(getcwd(), 'IDELinearConstantAnalysisClientSoot/src/test/resources/latest')
-# input_dir = join(getcwd(), 'IDELinearConstantAnalysisClientSootUp/src/test/resources/latest')
+input_dir = join(getcwd(), 'IDELinearConstantAnalysisClientSootUp/src/test/resources/latest')
 output_directory = join(getcwd(), 'evalresults')
 
 executable = join(getcwd(), "eval_results/IDELinearConstantAnalysisClientSoot-1.0-SNAPSHOT-jar-with-dependencies.jar")
-# executable = join(getcwd(), "eval_results/IDELinearConstantAnalysisClientSootUp-1.0-SNAPSHOT-jar-with-dependencies.jar")
+executable = join(getcwd(), "eval_results/IDELinearConstantAnalysisClientSootUp-1.0-SNAPSHOT-jar-with-dependencies.jar")
 
 eval_csv_file = join(getcwd(), "evalresults", "max_heap_ide_default.csv")
 
@@ -26,7 +26,7 @@ solvers = ["default"]
 mandatorybodyinterceptors = ["jb.ls", "jb.tr"]
 allbodyinterceptors = ["jb.lp", "jb.ese", "jb.ne", "jb.dae", "jb.ule", "jb.cp", "jb.uce", "jb.tt", "jb.lns", "jb.cbf", "jb.dtr", "jb.sils", "jb.a", "jb.ulp", "jb.cp-ule"] 
 allbodyinterceptors = ["jb.lp", "jb.ese", "jb.ne", "jb.dae", "jb.ule", "jb.cp", "jb.uce", "jb.lns", "jb.cbf", "jb.a"]
-# allbodyinterceptors = ["jb.lp"]
+allbodyinterceptors = []
 
 # allbodyinterceptors = ["jb.ls", "jb.lp", "jb.ese", "jb.ne", "jb.dae", "jb.ule", "jb.cp", "jb.uce", "jb.tr", "jb.tt", "jb.lns", "jb.cbf", "jb.dtr", "jb.sils", "jb.a", "jb.ulp", "jb.cp-ule"]
 # defaultbodyinterceptors = ["jb.tt", "jb.dtr", "jb.uce", "jb.ls", "jb.sils", "jb.a", "jb.ule", "jb.tr", "jb.lns", "jb.cp", "jb.dae", "jb.cp-ule", "jb.lp", "jb.ne", "jb.uce"]
@@ -34,6 +34,7 @@ allbodyinterceptors = ["jb.lp", "jb.ese", "jb.ne", "jb.dae", "jb.ule", "jb.cp", 
 # testng-7.7.1.jar default 100 RTA 1 jb.ls,jb.tr
 command = ["java", "-Xmx1024m", "-Xss1024m", "-jar", executable, "inputjar" , "solver", max_method, "cg_algo", "thread", "bodyinterceptors"]  # to be set programmatically
 command = ["java", "-XX:+UseG1GC", "-XX:+UseAdaptiveSizePolicy", "-Xmx1024m", "-Xss1024m", "-jar", executable, "inputjar" , "solver", max_method, "cg_algo", "thread", "bodyinterceptors"]  # to be set programmatically
+command = ["java", "-XX:+UseG1GC", "-XX:+UseAdaptiveSizePolicy", "-Xmx1024m", "-Xss1024m", "-jar", executable, "inputjar" , "solver", max_method, "cg_algo", "thread"]
 
 # jar,solver,thread,totalRuntime,cgConstructionTime,prop,method,mem,CallGraphAlgo,callGraphEdges,callGraphReachableNodes,initialStmtCount,stmtCountAfterApplyingBI,BodyTransformers,BodyTransformersMetrics
 # testng-7.7.1,default,1,186237,15568,7992782,100,962,RTA,42422,6343,68170,56616,[JB_LS, JB_TR, JB_LP, JB_CP, JB_DAE, JB_ESE, JB_CBF, JB_UCE],{jb.cp=[270, -22], jb.tr=[1241, -124], jb.uce=[683, 41], jb.ls=[415, 54], jb.dae=[276, -162]}
@@ -129,7 +130,7 @@ def set_command(cmd, jar, solver, cg_algo, thread, appliedbodyinterceptors):
     cmd[8] = solver #replace "solver" in cmd
     cmd[10] = cg_algo  #replace "cg_algo" in cmd
     cmd[11] = thread #replace "thread" in cmd
-    cmd[12] = appliedbodyinterceptors #replace "bodyinterceptors" in cmd
+    # cmd[12] = appliedbodyinterceptors #replace "bodyinterceptors" in cmd
     print(f'RUN:', cmd)
     return cmd
 
@@ -215,7 +216,6 @@ def main():
     global bodyinterceptors
     # bodyinterceptors = all_permutations[0:2]
     bodyinterceptors = all_permutations
-    # print(all_permutations)
     # print("\n".join(all_permutations[:10]))
 
     if number == 1:
