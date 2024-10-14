@@ -269,6 +269,8 @@ public class SetUp {
         });
          */
 
+        long tempStart = System.currentTimeMillis();
+
         List<MethodSignature> cgEntryMethodsSignatures = cgEntryMethods.stream().map(SootClassMember::getSignature).toList();
         JimpleBasedInterproceduralCFG icfg = new JimpleBasedInterproceduralCFG(generatedcallGraph, view, false, false);
         for (SootMethod method : ideCPEntryMethods) {
@@ -281,6 +283,8 @@ public class SetUp {
             Set<Pair<String, String>> pairs = getResult(mSolver, method);
             //pairs.forEach(System.out::println);
         }
+        long tempEnd = System.currentTimeMillis() - tempStart;
+        System.out.println(tempEnd);
         if (solver != null) {
             solver.dumpResults(EvalHelper.getTargetName());
         }
@@ -298,16 +302,22 @@ public class SetUp {
         List<SootMethod> methods = new ArrayList<>();
         Set<SootClass> classes = new HashSet<>();
         classes.addAll(view.getClasses().toList());
+        Set<SootMethod> numberOfPublicMethods = new HashSet<>();
+        Set<Stmt> numberOfDefStmts = new HashSet<>();
+        Set<Stmt> numberOfIntStmts = new HashSet<>();
         l1:
         for (SootClass c : classes) {
             for (SootMethod m : c.getMethods()) {
                 if (isPublicAPI(m)){
+                    numberOfPublicMethods.add(m);
                     List<Stmt> stmts = m.getBody().getStmts();
                     for (Stmt stmt: stmts) {
                         if (stmt instanceof JAssignStmt) {
+                            numberOfDefStmts.add(stmt);
                             JAssignStmt definitionStmt = (JAssignStmt) stmt;
                             Value rightOp = definitionStmt.getRightOp();
                             if (rightOp instanceof IntConstant) {
+                                numberOfIntStmts.add(stmt);
                                 methods.add(m);
                                 if (methods.size() == Main.maxMethodSize) {
                                     break l1;
@@ -318,9 +328,13 @@ public class SetUp {
                 }
             }
         }
+        System.out.println("NumberOfPublicMethods: " + numberOfPublicMethods.size());
+        System.out.println("NumberOfDefStmts: " + numberOfDefStmts.size());
+        System.out.println("NumberOfIntStmts: " + numberOfIntStmts.size());
         if (!methods.isEmpty()) {
             System.out.println(methods.size() + " methods will be used as entry points for IDE LCP");
             Main.maxMethodSize = methods.size();
+            EvalHelper.setMaxMethod(Main.maxMethodSize);
             return methods;
         }
         System.out.println("no entry methods found to start");
