@@ -9,22 +9,22 @@ public class JB_CP {
         JB_CP obj = new JB_CP();
         System.out.println("tc1: " + obj.tc1());
         System.out.println("tc1_1: " + obj.tc1_1("example"));
-        System.out.println("tc2: " + obj.tc2());
-        System.out.println("tc3: " + obj.tc3());
+        System.out.println("tc2: " + obj.tc2(5));
+        System.out.println("tc3: " + obj.tc3(5));
         System.out.println("tc4: " + obj.tc4());
-        System.out.println("tc5: " + obj.tc5());
+        System.out.println("tc5: " + obj.tc5(5));
         System.out.println("tc5_1: " + obj.tc5_1(7));
         System.out.println("tc5_2: " + obj.tc5_2(7));
-        System.out.println("tc5_3: " + obj.tc5_3());
-        System.out.println("tc6: " + obj.tc6());
-        System.out.println("tc7: " + obj.tc7());
-        System.out.println("tc7_1: " + obj.tc7_1());
+        System.out.println("tc5_3: " + obj.tc5_3(6,7));
+        System.out.println("tc6: " + obj.tc6(19));
+        System.out.println("tc7: " + obj.tc7(12));
+        System.out.println("tc7_1: " + obj.tc7_1(22));
         System.out.println("tc7_2: " + obj.tc7_2(10));
-        System.out.println("tc8: " + obj.tc8());
+        System.out.println("tc8: " + obj.tc8(33));
         System.out.println("tc9: " + obj.tc9());
         System.out.println("tc10: " + obj.tc10());
-        System.out.println("tc11: " + obj.tc11());
-        System.out.println("tc12: " + obj.tc12());
+        System.out.println("tc11: " + obj.tc11(31));
+        System.out.println("tc12: " + obj.tc12(1));
         System.out.println("tc13: " + obj.tc13());
         System.out.println("tc13_1: " + obj.tc13_1());
         System.out.println("tc14: " + obj.tc14());
@@ -36,12 +36,12 @@ public class JB_CP {
         System.out.println("tc18: " + obj.tc18());
         System.out.println("tc18_1: " + obj.tc18_1());
         System.out.println("tc19: " + obj.tc19());
-        System.out.println("tc20: " + obj.tc20());
+        System.out.println("tc20: " + obj.tc20(4));
         System.out.println("tc20_1: " + obj.tc20_1());
         System.out.println("tc21: " + obj.tc21());
         System.out.println("tc21_1: " + obj.tc21_1());
-        System.out.println("tc22: " + obj.tc22());
-        System.out.println("tc23: " + obj.tc23());
+        System.out.println("tc22: " + obj.tc22(true));
+        System.out.println("tc23: " + obj.tc23(false));
         System.out.println("tc24: " + obj.tc24());
         System.out.println("tc25: " + obj.tc25());
         System.out.println("tc26: " + obj.tc26());
@@ -68,21 +68,21 @@ public class JB_CP {
         a = b;
         System.out.println(a);
         System.out.println(b);
-        return x;
+        return " " + a;
     }
 
-    int tc2() {
+    int tc2(int c) {
         int a = 5;
         int b = a;
-        int c = b;
+        c = c + b;
         System.out.println(c);
         System.out.println(b);
-        return c;
+        return c + a;
     }
 
-    int tc3() {
+    int tc3(int b) {
         int a = 5;
-        int b = a + 1;
+        b = a + 1;
         System.out.println(b);
         return b;
     }
@@ -93,12 +93,13 @@ public class JB_CP {
         System.out.println(b);
         return b;
     }
+
     private int getValue() {
         return 5;
     }
 
-    int tc5() {
-        int a = 5;
+    int tc5(int a) {
+        a = 5;
         int b;
         if (a > 3) {
             b = a;
@@ -106,12 +107,12 @@ public class JB_CP {
             b = 2;
         }
         System.out.println(b);
-        return b;
+        return b + a;
     }
 
     int tc5_1(int x) {
         int a = 5;
-        if (x > 6){
+        if (x > 6) {
             a = 10;
         }
         int b;
@@ -121,7 +122,7 @@ public class JB_CP {
             b = 2;
         }
         System.out.println(b);
-        return b;
+        return b + x;
     }
 
     int tc5_2(int x) {
@@ -137,11 +138,10 @@ public class JB_CP {
             b = 2;
         }
         System.out.println(b);
-        return b;
+        return a + b;
     }
 
-    int tc5_3() {
-        int a, b;
+    int tc5_3(int a, int b) {
         if (false) {
             a = 10;
             b = 25;
@@ -156,40 +156,40 @@ public class JB_CP {
             b = 2;
         }
         System.out.println(b);
+        return a + b;
+    }
+
+    int tc6(int b) {
+        int a = 5;
+        for (int i = 0; i < 10; i++) {
+            b = a;
+            System.out.println(b);
+        }
         return b;
     }
 
-    int tc6() {
-        int a = 5;
-        for (int i = 0; i < 10; i++) {
-            int b = a;
-            System.out.println(b);
-        }
-        return a;
-    }
-
-    int tc7() {
+    int tc7(int b) {
         int a = 5;
         {
-            int b = a;
+            b = a;
             System.out.println(b);
         }
-        return a;
+        return a + b;
     }
 
-    int tc7_1() {
+    int tc7_1(int x) {
         int a = 5;
         {
             a = 50;
         }
         {
             int b = a;
-            int c = b + a;
+            int c = b + a + x;
             System.out.println(b);
             System.out.println(c);
             System.out.println(a+b);
         }
-        return a;
+        return x;
     }
 
     int tc7_2(int a) {
@@ -209,9 +209,9 @@ public class JB_CP {
         return a;
     }
 
-    double tc8() {
+    double tc8(double b) {
         int a = 5;
-        double b = (double) a;
+        b = (double) a;
         System.out.println(b);
         return b;
     }
@@ -231,19 +231,19 @@ public class JB_CP {
         return c;
     }
 
-    int tc11() {
+    int tc11(int b) {
         int a = 5;
-        int b = a;
+        b = a;
         a = 6;
         System.out.println(b);
-        return b;
+        return a + b;
     }
 
-    long tc12() {
+    long tc12(long b) {
         int a = 5;
-        long b = a;
+        b = a;
         System.out.println(b);
-        return b;
+        return 5l + b;
     }
 
 
@@ -258,7 +258,7 @@ public class JB_CP {
         int a = field;
         long b = (long) a;
         System.out.println(b);
-        return b;
+        return a + b;
     }
 
     int tc14() {
@@ -295,7 +295,7 @@ public class JB_CP {
         int a = 5, c = 6;
         int b = 10 + a + c;
         System.out.println(b + c);
-        return b+c;
+        return b + c;
     }
 
     int tc17_2() {
@@ -346,9 +346,9 @@ public class JB_CP {
         return c;
     }
 
-    int tc20() {
+    int tc20(int b) {
         int a = 5;
-        int b = 10;
+        b = 10;
         switch (a){
             case 5: b = a;
         }
@@ -390,23 +390,24 @@ public class JB_CP {
         return b;
     }
 
-    Boolean tc22(){
+    Boolean tc22(boolean b){
         boolean a = true;
-        boolean b = a;
+        b = a;
         Boolean c = b && a;
         boolean d = c;
         System.out.println(b);
         System.out.println(c);
         System.out.println(d);
-        return c;
+        return b;
     }
 
-    boolean tc23(){
+    boolean tc23(boolean b){
         boolean a = true;
-        boolean b = a;
+        b = a;
         if (b == true? true:false){
             Boolean c = b && a;
             boolean d = c;
+            c = false;
             System.out.println(b);
             System.out.println(c);
             System.out.println(d);
@@ -428,8 +429,8 @@ public class JB_CP {
 
     int tc25(){
         int l1 = 1;
-        int l2 = 5;
-        int[] array = {9, 8, 7};
+        int l2 = 3;
+        int[] array = {9, 8, 7, 25};
         array [0] = l1;
         l1 = l2;
         array[l1] = l2;

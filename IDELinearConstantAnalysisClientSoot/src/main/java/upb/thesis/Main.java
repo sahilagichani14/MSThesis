@@ -1,10 +1,13 @@
 package upb.thesis;
 
 import com.google.common.base.Stopwatch;
+import com.google.common.collect.Lists;
+import soot.MethodOrMethodContext;
 import soot.Scene;
 import soot.SootClass;
 import soot.SootMethod;
 import soot.jimple.JimpleBody;
+import soot.jimple.toolkits.callgraph.Edge;
 import soot.options.Options;
 import soot.util.Chain;
 
@@ -136,6 +139,27 @@ public class Main {
         }
         EvalHelper.setStmtCountAfterApplyingBI(stmtCountAfterApplyingBI.get());
 
+        int totalStmtProp = 0;
+        int totalvarProp = 0;
+        ArrayList<MethodOrMethodContext> methodOrMethodContexts = Lists.newArrayList(Scene.v().getCallGraph().sourceMethods());
+        // List<SootMethod> methodOrMethodContexts = Scene.v().getEntryPoints();
+        for (MethodOrMethodContext m: methodOrMethodContexts) {
+            Scene.v().forceResolve(m.method().getDeclaringClass().getName(), SootClass.BODIES);
+            SootMethod method = Scene.v().getMethod(m.method().getSignature());
+            if (method.hasActiveBody()) {
+                totalStmtProp += method.getActiveBody().getUnits().size();
+                totalvarProp += method.getActiveBody().getLocals().size();
+            }
+            ArrayList<Edge> edgesOutOf = Lists.newArrayList(Scene.v().getCallGraph().edgesOutOf(m));
+            for (Edge e : edgesOutOf){
+                SootMethod sootMethod = Scene.v().getMethod(e.getSrc().method().getSignature());
+                if (sootMethod.hasActiveBody()){
+                    totalStmtProp += sootMethod.getActiveBody().getUnits().size();
+                    totalvarProp += sootMethod.getActiveBody().getLocals().size();
+                }
+            }
+        }
+        System.out.println(totalStmtProp + "  ---   " + totalvarProp);
         //Options.getBodyTransformerMetric().forEach((k, v) -> System.out.printf("%s : %s ", k, v)); // [runtime, memoryUsage]
         EvalHelper.setBodyTransformersMetrics(Options.getBodyTransformerMetric());
 

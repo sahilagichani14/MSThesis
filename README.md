@@ -6,7 +6,7 @@
 
 ## RQ1: Generating Jimple and Verifying Body Transformers/Interceptors
 
-- Before generating Jimple file, ensure the following body interceptors are turned on: jb,ls,jb.tr
+- Before generating Jimple file, ensure the following body interceptors are turned on: jb,ls,jb.tr,jb.lns (since parser cannot take unknown nodes & doesn't recognise # var created by ls)
 - Generate Jimple File: 
   - Uncomment the generateJimpleOutputClass() method in BaseSetUp
   - This will generate the Jimple file located at sootupRes/sootUp.RQ1.jb_cp.JB_CP.jimple.
@@ -15,7 +15,8 @@
   - Paste it into jimplesrc/sootupjimplesrc/sootUp.RQ1.jb_cp.JB_CP.jimple.
 - Run the Jimple-to-Bytecode Program:
   - Run the program located at src/main/java/soot/sootupjimpletobytecode
-- Check Bytecode Output: The bytecode output will be located in sootOutput/RQ1/jb_ls.
+- Check Bytecode Output: The bytecode output will be located in sootOutput/sootUp or with respective package structure
+- run by going to sootOutput/sootUp in cmd use "java sootUp.RQ1.jb_cp.JB_CP"
 
 ## RQ2 & RQ3: Performance Comparisons for Soot & SootUp
 

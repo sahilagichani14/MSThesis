@@ -6,6 +6,7 @@ import heros.solver.Pair;
 import soot.*;
 import soot.jimple.DefinitionStmt;
 import soot.jimple.IntConstant;
+import soot.jimple.Stmt;
 import soot.jimple.toolkits.base.Aggregator;
 import soot.jimple.toolkits.callgraph.Edge;
 import soot.jimple.toolkits.callgraph.ReachableMethods;
@@ -297,12 +298,16 @@ public class SetUp {
         for (SootClass c : Scene.v().getApplicationClasses()) {
             classes.add(c);
         }
+        Set<SootMethod> numberOfPublicMethods = new HashSet<>();
+        Set<Unit> numberOfDefStmts = new HashSet<>();
+        Set<Unit> numberOfIntStmts = new HashSet<>();
         l1:
         for (SootClass c : classes) {
             for (SootMethod m : c.getMethods()) {
                 MethodSource source = m.getSource();
                 if (source != null) {
                     if (isPublicAPI(m)) {
+                        numberOfPublicMethods.add(m);
                         m.retrieveActiveBody();
                         if (m.hasActiveBody()) {
                             //if(m.getSignature().contains("normalizeDocument")){
@@ -310,9 +315,11 @@ public class SetUp {
                             UnitPatchingChain units = m.getActiveBody().getUnits();
                             for (Unit unit : units) {
                                 if (unit instanceof DefinitionStmt) {
+                                    numberOfDefStmts.add(unit);
                                     DefinitionStmt assign = (DefinitionStmt) unit;
                                     Value rhs = assign.getRightOp();
                                     if (rhs instanceof IntConstant) {
+                                        numberOfIntStmts.add(unit);
                                         methods.add(m);
                                         if (methods.size() == EvalHelper.getMaxMethod()) {
                                             break l1;
@@ -327,6 +334,9 @@ public class SetUp {
             }
         }
         // System.out.println(methods);
+        System.out.println("NumberOfPublicMethods: " + numberOfPublicMethods.size());
+        System.out.println("NumberOfDefStmts: " + numberOfDefStmts.size());
+        System.out.println("NumberOfIntStmts: " + numberOfIntStmts.size());
         if (!methods.isEmpty()) {
             System.out.println(methods.size() + " methods will be used as entry points");
             EvalHelper.setActualMethodCount(methods.size());

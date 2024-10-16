@@ -58,7 +58,7 @@ public class Main {
 
         EvalHelper.setJarPath(jarPath);
         EvalHelper.setTargetName(getJarName(jarPath));
-        EvalHelper.setMaxMethod(maxMethods);
+        EvalHelper.setMaxMethod(maxMethodSize);
         EvalHelper.setThreadCount(numThreads);
         String msg = MessageFormat.format("Running {0} - {1} solver - {2} threads", EvalHelper.getTargetName(), solver, numThreads);
         System.out.println(msg);

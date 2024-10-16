@@ -1,0 +1,1259 @@
+public class sootUp.RQ1.jb_cbf.JB_CBF extends java.lang.Object
+{
+    boolean tc8_1()
+    {
+        boolean z0;
+        int i0;
+        java.io.PrintStream r0;
+        sootUp.RQ1.jb_cbf.JB_CBF r1;
+
+
+        r1 := @this: sootUp.RQ1.jb_cbf.JB_CBF;
+        z0 = 0;
+        i0 = 0;
+
+      label1:
+        if i0 >= 10 goto label4;
+
+        if z0 != 0 goto label2;
+
+        if i0 <= 1000 goto label3;
+
+      label2:
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(java.lang.String)>("False");
+
+      label3:
+        i0 = i0 + 1;
+
+        goto label1;
+
+      label4:
+        return z0;
+    }
+
+    boolean tc22()
+    {
+        boolean z0, z1;
+        sootUp.RQ1.jb_cbf.JB_CBF r0;
+
+
+        r0 := @this: sootUp.RQ1.jb_cbf.JB_CBF;
+
+      label1:
+        z0 = 1;
+
+        if z0 == 0 goto label2;
+        z1 = z0 & z0;
+
+        goto label1;
+
+      label2:
+        return 0;
+    }
+
+    boolean tc7_1()
+    {
+        boolean z0;
+        int i0;
+        java.io.PrintStream r0;
+        sootUp.RQ1.jb_cbf.JB_CBF r1;
+
+
+        r1 := @this: sootUp.RQ1.jb_cbf.JB_CBF;
+        z0 = 1;
+        i0 = 0;
+
+      label1:
+        if z0 == 0 goto label3;
+
+        if z0 == 0 goto label2;
+
+        if i0 <= 0 goto label2;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(java.lang.String)>("True");
+
+      label2:
+        i0 = i0 + 1;
+
+        goto label1;
+
+      label3:
+        return z0;
+    }
+
+    boolean tc21()
+    {
+        byte b0, b1;
+        sootUp.RQ1.jb_cbf.JB_CBF r0;
+
+
+        r0 := @this: sootUp.RQ1.jb_cbf.JB_CBF;
+
+      label1:
+        b0 = 10;
+        b1 = 20;
+
+        goto label1;
+    }
+
+    boolean tc2()
+    {
+        boolean z0;
+        java.io.PrintStream r0;
+        sootUp.RQ1.jb_cbf.JB_CBF r1;
+
+
+        r1 := @this: sootUp.RQ1.jb_cbf.JB_CBF;
+        z0 = 0;
+
+        if z0 == 0 goto label1;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(java.lang.String)>("False");
+
+      label1:
+        return z0;
+    }
+
+    boolean tc27()
+    {
+        byte b0;
+        java.io.PrintStream r0, r1, r2;
+        java.lang.String r3;
+        sootUp.RQ1.jb_cbf.JB_CBF r4;
+
+
+        r4 := @this: sootUp.RQ1.jb_cbf.JB_CBF;
+        b0 = 6;
+
+        if b0 != 6 goto label1;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(java.lang.String)>("test int");
+
+      label1:
+        r3 = "Str";
+
+        if r3 != "Str" goto label2;
+        r1 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r1.<java.io.PrintStream: void println(java.lang.String)>("str true");
+
+        goto label3;
+
+      label2:
+        r2 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r2.<java.io.PrintStream: void println(java.lang.String)>("str false");
+
+      label3:
+        return 0;
+    }
+
+    boolean tc3_2(java.lang.Integer)
+    {
+        boolean z0, z1;
+        java.io.PrintStream r0;
+        java.lang.Integer r1;
+        sootUp.RQ1.jb_cbf.JB_CBF r2;
+
+
+        r2 := @this: sootUp.RQ1.jb_cbf.JB_CBF;
+        r1 := @parameter0: java.lang.Integer;
+        z0 = 1;
+
+        if z0 == 0 goto label1;
+        z1 = r1 instanceof java.lang.Integer;
+
+        if z1 == 0 goto label1;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(java.lang.String)>("True");
+
+      label1:
+        return z0;
+    }
+
+    boolean tc26()
+    {
+        boolean z0, z1;
+        java.io.PrintStream r0, r1, r2;
+        sootUp.RQ1.jb_cbf.JB_CBF r3;
+
+
+        r3 := @this: sootUp.RQ1.jb_cbf.JB_CBF;
+        z0 = 0;
+
+        if z0 == 0 goto label3;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(java.lang.String)>("True");
+
+        goto label2;
+
+      label1:
+        r1 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r1.<java.io.PrintStream: void println(java.lang.String)>("last");
+
+      label2:
+        if z0 != 0 goto label5;
+        z1 = 1;
+
+        goto label6;
+
+      label3:
+        if z0 != 0 goto label4;
+
+        if z0 != 0 goto label1;
+
+      label4:
+        r2 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r2.<java.io.PrintStream: void println(java.lang.String)>("False");
+
+        goto label2;
+
+      label5:
+        z1 = 0;
+
+      label6:
+        return z1;
+    }
+
+    boolean tc4_1(java.lang.Object)
+    {
+        boolean z0, z1, z2;
+        java.io.PrintStream r0;
+        java.lang.Object r1;
+        sootUp.RQ1.jb_cbf.JB_CBF r2;
+
+
+        r2 := @this: sootUp.RQ1.jb_cbf.JB_CBF;
+        r1 := @parameter0: java.lang.Object;
+        z0 = 0;
+        z1 = r1 instanceof java.lang.Integer;
+
+        if z1 == 0 goto label1;
+
+        if z0 == 0 goto label1;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(java.lang.String)>("False");
+
+      label1:
+        z2 = r1 instanceof java.lang.Integer;
+
+        return z2;
+    }
+
+    boolean tc19()
+    {
+        boolean z0;
+        sootUp.RQ1.jb_cbf.JB_CBF r0;
+
+
+        r0 := @this: sootUp.RQ1.jb_cbf.JB_CBF;
+        z0 = 0;
+
+        if z0 == 0 goto label1;
+        virtualinvoke r0.<sootUp.RQ1.jb_cbf.JB_CBF: void someMethod1(boolean)>(z0);
+
+      label1:
+        return z0;
+    }
+
+    boolean tc12()
+    {
+        boolean z0;
+        byte b0;
+        java.io.PrintStream r0;
+        java.lang.String r1;
+        sootUp.RQ1.jb_cbf.JB_CBF r2;
+
+
+        r2 := @this: sootUp.RQ1.jb_cbf.JB_CBF;
+        z0 = 1;
+
+        if z0 == 0 goto label1;
+        b0 = 10;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        r1 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (int)>(b0) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("True: \u0001");
+        virtualinvoke r0.<java.io.PrintStream: void println(java.lang.String)>(r1);
+
+      label1:
+        return z0;
+    }
+
+    boolean tc23()
+    {
+        boolean z0;
+        java.io.PrintStream r0;
+        sootUp.RQ1.jb_cbf.JB_CBF r1;
+
+
+        r1 := @this: sootUp.RQ1.jb_cbf.JB_CBF;
+        z0 = 0;
+
+      label1:
+        if z0 != 0 goto label2;
+
+        if z0 == 0 goto label1;
+
+      label2:
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(java.lang.String)>("outer condition");
+
+        return z0;
+    }
+
+    boolean tc1_2()
+    {
+        boolean z0;
+        byte b0;
+        java.io.PrintStream r0;
+        sootUp.RQ1.jb_cbf.JB_CBF r1;
+
+
+        r1 := @this: sootUp.RQ1.jb_cbf.JB_CBF;
+        b0 = 10;
+        z0 = 1;
+
+        if z0 == 0 goto label1;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(java.lang.String)>("True");
+
+      label1:
+        return z0;
+    }
+
+    boolean tc17()
+    {
+        boolean z0;
+        java.lang.Exception r0, r1;
+        java.lang.Object r2, r3;
+        java.lang.Throwable r4, r5;
+        sootUp.RQ1.jb_cbf.JB_CBF r6;
+
+
+        r6 := @this: sootUp.RQ1.jb_cbf.JB_CBF;
+        z0 = 0;
+
+      label1:
+        if z0 == 0 goto label3;
+        r2 = new java.lang.Exception;
+        r0 = (java.lang.Exception) r2;
+
+      label2:
+        specialinvoke r0.<java.lang.Exception: void <init>(java.lang.String)>("False");
+        r4 = (java.lang.Throwable) r2;
+
+        throw r4;
+
+      label3:
+        goto label5;
+
+      label4:
+        r5 := @caughtexception;
+        r3 = r5;
+        r1 = (java.lang.Exception) r3;
+        virtualinvoke r1.<java.lang.Exception: void printStackTrace()>();
+
+      label5:
+        return z0;
+
+ catch java.lang.Exception from label1 to label2 with label4;
+    }
+
+    boolean tc24()
+    {
+        boolean z0;
+        java.io.PrintStream r0, r1;
+        sootUp.RQ1.jb_cbf.JB_CBF r2;
+
+
+        r2 := @this: sootUp.RQ1.jb_cbf.JB_CBF;
+        z0 = 1;
+
+      label1:
+        if z0 == 0 goto label2;
+
+        goto label3;
+
+      label2:
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(java.lang.String)>("Inner");
+
+        goto label4;
+
+      label3:
+        if z0 != 0 goto label1;
+
+      label4:
+        r1 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r1.<java.io.PrintStream: void println(java.lang.String)>("Outer");
+
+        return z0;
+    }
+
+    boolean tc5(boolean)
+    {
+        boolean z0, z1;
+        java.io.PrintStream r0, r1;
+        sootUp.RQ1.jb_cbf.JB_CBF r2;
+
+
+        r2 := @this: sootUp.RQ1.jb_cbf.JB_CBF;
+        z0 := @parameter0: boolean;
+        z1 = 1;
+
+        if z1 == 0 goto label1;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(java.lang.String)>("True");
+
+        return z1;
+
+      label1:
+        r1 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r1.<java.io.PrintStream: void println(java.lang.String)>("False");
+
+        return z1;
+    }
+
+    public static void main(java.lang.String[]) throws java.lang.Exception
+    {
+        boolean z0, z1, z10, z11, z12, z13, z14, z15, z16, z17, z18, z19, z2, z20, z21, z22, z23, z24, z25, z26, z27, z28, z29, z3, z30, z31, z32, z33, z34, z35, z36, z37, z4, z5, z6, z7, z8, z9;
+        java.io.File r0;
+        java.io.PrintStream r1, r10, r11, r12, r13, r14, r15, r16, r17, r18, r19, r2, r20, r21, r22, r23, r24, r25, r26, r27, r28, r29, r3, r30, r31, r32, r33, r34, r35, r36, r37, r38, r39, r4, r5, r6, r7, r8, r9;
+        java.lang.Integer r40, r41;
+        java.lang.String r42;
+        java.lang.String[] r43;
+        sootUp.RQ1.jb_cbf.JB_CBF r44, r45;
+
+
+        r43 := @parameter0: java.lang.String[];
+        r44 = new sootUp.RQ1.jb_cbf.JB_CBF;
+        specialinvoke r44.<sootUp.RQ1.jb_cbf.JB_CBF: void <init>()>();
+        r45 = r44;
+        r1 = <java.lang.System: java.io.PrintStream out>;
+        z0 = virtualinvoke r45.<sootUp.RQ1.jb_cbf.JB_CBF: boolean tc1(boolean)>(1);
+        virtualinvoke r1.<java.io.PrintStream: void println(boolean)>(z0);
+        r2 = <java.lang.System: java.io.PrintStream out>;
+        z1 = virtualinvoke r45.<sootUp.RQ1.jb_cbf.JB_CBF: boolean tc1_1(boolean)>(0);
+        virtualinvoke r2.<java.io.PrintStream: void println(boolean)>(z1);
+        r3 = <java.lang.System: java.io.PrintStream out>;
+        z2 = virtualinvoke r45.<sootUp.RQ1.jb_cbf.JB_CBF: boolean tc1_2()>();
+        virtualinvoke r3.<java.io.PrintStream: void println(boolean)>(z2);
+        r4 = <java.lang.System: java.io.PrintStream out>;
+        z3 = virtualinvoke r45.<sootUp.RQ1.jb_cbf.JB_CBF: boolean tc2()>();
+        virtualinvoke r4.<java.io.PrintStream: void println(boolean)>(z3);
+        r5 = <java.lang.System: java.io.PrintStream out>;
+        z4 = virtualinvoke r45.<sootUp.RQ1.jb_cbf.JB_CBF: boolean tc2_1()>();
+        virtualinvoke r5.<java.io.PrintStream: void println(boolean)>(z4);
+        r6 = <java.lang.System: java.io.PrintStream out>;
+        z5 = virtualinvoke r45.<sootUp.RQ1.jb_cbf.JB_CBF: boolean tc3()>();
+        virtualinvoke r6.<java.io.PrintStream: void println(boolean)>(z5);
+        r7 = <java.lang.System: java.io.PrintStream out>;
+        z6 = virtualinvoke r45.<sootUp.RQ1.jb_cbf.JB_CBF: boolean tc3_1()>();
+        virtualinvoke r7.<java.io.PrintStream: void println(boolean)>(z6);
+        r8 = <java.lang.System: java.io.PrintStream out>;
+        r40 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(10);
+        z7 = virtualinvoke r45.<sootUp.RQ1.jb_cbf.JB_CBF: boolean tc3_2(java.lang.Integer)>(r40);
+        virtualinvoke r8.<java.io.PrintStream: void println(boolean)>(z7);
+        r9 = <java.lang.System: java.io.PrintStream out>;
+        z8 = virtualinvoke r45.<sootUp.RQ1.jb_cbf.JB_CBF: boolean tc3_3()>();
+        virtualinvoke r9.<java.io.PrintStream: void println(boolean)>(z8);
+        r10 = <java.lang.System: java.io.PrintStream out>;
+        z9 = virtualinvoke r45.<sootUp.RQ1.jb_cbf.JB_CBF: boolean tc4()>();
+        virtualinvoke r10.<java.io.PrintStream: void println(boolean)>(z9);
+        r11 = <java.lang.System: java.io.PrintStream out>;
+        r41 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(7);
+        z10 = virtualinvoke r45.<sootUp.RQ1.jb_cbf.JB_CBF: boolean tc4_1(java.lang.Object)>(r41);
+        virtualinvoke r11.<java.io.PrintStream: void println(boolean)>(z10);
+        r12 = <java.lang.System: java.io.PrintStream out>;
+        z11 = virtualinvoke r45.<sootUp.RQ1.jb_cbf.JB_CBF: boolean tc5(boolean)>(0);
+        virtualinvoke r12.<java.io.PrintStream: void println(boolean)>(z11);
+        r13 = <java.lang.System: java.io.PrintStream out>;
+        z12 = virtualinvoke r45.<sootUp.RQ1.jb_cbf.JB_CBF: boolean tc6()>();
+        virtualinvoke r13.<java.io.PrintStream: void println(boolean)>(z12);
+        r14 = <java.lang.System: java.io.PrintStream out>;
+        z13 = virtualinvoke r45.<sootUp.RQ1.jb_cbf.JB_CBF: boolean tc7()>();
+        virtualinvoke r14.<java.io.PrintStream: void println(boolean)>(z13);
+        r15 = <java.lang.System: java.io.PrintStream out>;
+        z14 = virtualinvoke r45.<sootUp.RQ1.jb_cbf.JB_CBF: boolean tc7_1()>();
+        virtualinvoke r15.<java.io.PrintStream: void println(boolean)>(z14);
+        r16 = <java.lang.System: java.io.PrintStream out>;
+        z15 = virtualinvoke r45.<sootUp.RQ1.jb_cbf.JB_CBF: boolean tc8()>();
+        virtualinvoke r16.<java.io.PrintStream: void println(boolean)>(z15);
+        r17 = <java.lang.System: java.io.PrintStream out>;
+        z16 = virtualinvoke r45.<sootUp.RQ1.jb_cbf.JB_CBF: boolean tc8_1()>();
+        virtualinvoke r17.<java.io.PrintStream: void println(boolean)>(z16);
+        r18 = <java.lang.System: java.io.PrintStream out>;
+        z17 = virtualinvoke r45.<sootUp.RQ1.jb_cbf.JB_CBF: boolean tc9()>();
+        virtualinvoke r18.<java.io.PrintStream: void println(boolean)>(z17);
+        r19 = <java.lang.System: java.io.PrintStream out>;
+        z18 = virtualinvoke r45.<sootUp.RQ1.jb_cbf.JB_CBF: boolean tc10()>();
+        virtualinvoke r19.<java.io.PrintStream: void println(boolean)>(z18);
+        r20 = <java.lang.System: java.io.PrintStream out>;
+        r0 = new java.io.File;
+        specialinvoke r0.<java.io.File: void <init>(java.lang.String)>("test.txt");
+        r42 = virtualinvoke r45.<sootUp.RQ1.jb_cbf.JB_CBF: java.lang.String test0(java.io.File)>(r0);
+        virtualinvoke r20.<java.io.PrintStream: void println(java.lang.String)>(r42);
+        r21 = <java.lang.System: java.io.PrintStream out>;
+        z19 = virtualinvoke r45.<sootUp.RQ1.jb_cbf.JB_CBF: boolean tc11()>();
+        virtualinvoke r21.<java.io.PrintStream: void println(boolean)>(z19);
+        r22 = <java.lang.System: java.io.PrintStream out>;
+        z20 = virtualinvoke r45.<sootUp.RQ1.jb_cbf.JB_CBF: boolean tc12()>();
+        virtualinvoke r22.<java.io.PrintStream: void println(boolean)>(z20);
+        r23 = <java.lang.System: java.io.PrintStream out>;
+        z21 = virtualinvoke r45.<sootUp.RQ1.jb_cbf.JB_CBF: boolean tc13()>();
+        virtualinvoke r23.<java.io.PrintStream: void println(boolean)>(z21);
+        r24 = <java.lang.System: java.io.PrintStream out>;
+        z22 = virtualinvoke r45.<sootUp.RQ1.jb_cbf.JB_CBF: boolean tc14()>();
+        virtualinvoke r24.<java.io.PrintStream: void println(boolean)>(z22);
+        r25 = <java.lang.System: java.io.PrintStream out>;
+        z23 = virtualinvoke r45.<sootUp.RQ1.jb_cbf.JB_CBF: boolean tc15()>();
+        virtualinvoke r25.<java.io.PrintStream: void println(boolean)>(z23);
+        r26 = <java.lang.System: java.io.PrintStream out>;
+        z24 = virtualinvoke r45.<sootUp.RQ1.jb_cbf.JB_CBF: boolean tc16()>();
+        virtualinvoke r26.<java.io.PrintStream: void println(boolean)>(z24);
+        r27 = <java.lang.System: java.io.PrintStream out>;
+        z25 = virtualinvoke r45.<sootUp.RQ1.jb_cbf.JB_CBF: boolean tc16_1()>();
+        virtualinvoke r27.<java.io.PrintStream: void println(boolean)>(z25);
+        r28 = <java.lang.System: java.io.PrintStream out>;
+        z26 = virtualinvoke r45.<sootUp.RQ1.jb_cbf.JB_CBF: boolean tc17()>();
+        virtualinvoke r28.<java.io.PrintStream: void println(boolean)>(z26);
+        r29 = <java.lang.System: java.io.PrintStream out>;
+        z27 = virtualinvoke r45.<sootUp.RQ1.jb_cbf.JB_CBF: boolean tc18()>();
+        virtualinvoke r29.<java.io.PrintStream: void println(boolean)>(z27);
+        r30 = <java.lang.System: java.io.PrintStream out>;
+        z28 = virtualinvoke r45.<sootUp.RQ1.jb_cbf.JB_CBF: boolean tc19()>();
+        virtualinvoke r30.<java.io.PrintStream: void println(boolean)>(z28);
+        r31 = <java.lang.System: java.io.PrintStream out>;
+        z29 = virtualinvoke r45.<sootUp.RQ1.jb_cbf.JB_CBF: boolean tc20()>();
+        virtualinvoke r31.<java.io.PrintStream: void println(boolean)>(z29);
+        r32 = <java.lang.System: java.io.PrintStream out>;
+        z30 = virtualinvoke r45.<sootUp.RQ1.jb_cbf.JB_CBF: boolean tc21()>();
+        virtualinvoke r32.<java.io.PrintStream: void println(boolean)>(z30);
+        r33 = <java.lang.System: java.io.PrintStream out>;
+        z31 = virtualinvoke r45.<sootUp.RQ1.jb_cbf.JB_CBF: boolean tc21_1()>();
+        virtualinvoke r33.<java.io.PrintStream: void println(boolean)>(z31);
+        r34 = <java.lang.System: java.io.PrintStream out>;
+        z32 = virtualinvoke r45.<sootUp.RQ1.jb_cbf.JB_CBF: boolean tc22()>();
+        virtualinvoke r34.<java.io.PrintStream: void println(boolean)>(z32);
+        r35 = <java.lang.System: java.io.PrintStream out>;
+        z33 = virtualinvoke r45.<sootUp.RQ1.jb_cbf.JB_CBF: boolean tc23()>();
+        virtualinvoke r35.<java.io.PrintStream: void println(boolean)>(z33);
+        r36 = <java.lang.System: java.io.PrintStream out>;
+        z34 = virtualinvoke r45.<sootUp.RQ1.jb_cbf.JB_CBF: boolean tc24()>();
+        virtualinvoke r36.<java.io.PrintStream: void println(boolean)>(z34);
+        r37 = <java.lang.System: java.io.PrintStream out>;
+        z35 = virtualinvoke r45.<sootUp.RQ1.jb_cbf.JB_CBF: boolean tc25()>();
+        virtualinvoke r37.<java.io.PrintStream: void println(boolean)>(z35);
+        r38 = <java.lang.System: java.io.PrintStream out>;
+        z36 = virtualinvoke r45.<sootUp.RQ1.jb_cbf.JB_CBF: boolean tc26()>();
+        virtualinvoke r38.<java.io.PrintStream: void println(boolean)>(z36);
+        r39 = <java.lang.System: java.io.PrintStream out>;
+        z37 = virtualinvoke r45.<sootUp.RQ1.jb_cbf.JB_CBF: boolean tc27()>();
+        virtualinvoke r39.<java.io.PrintStream: void println(boolean)>(z37);
+
+        return;
+    }
+
+    boolean tc10()
+    {
+        boolean z0;
+        java.io.PrintStream r0, r1;
+        sootUp.RQ1.jb_cbf.JB_CBF r2;
+
+
+        r2 := @this: sootUp.RQ1.jb_cbf.JB_CBF;
+        z0 = 0;
+
+        if z0 == 0 goto label1;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(java.lang.String)>("False 1");
+
+      label1:
+        if z0 == 0 goto label2;
+        r1 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r1.<java.io.PrintStream: void println(java.lang.String)>("False 2");
+
+      label2:
+        return z0;
+    }
+
+    boolean tc21_1()
+    {
+        boolean z0;
+        byte b0, b1;
+        java.io.PrintStream r0;
+        sootUp.RQ1.jb_cbf.JB_CBF r1;
+
+
+        r1 := @this: sootUp.RQ1.jb_cbf.JB_CBF;
+        z0 = 1;
+
+      label1:
+        if z0 == 0 goto label4;
+        b0 = 10;
+
+        if z0 == 0 goto label3;
+        b1 = 20;
+
+        goto label2;
+
+      label2:
+        goto label1;
+
+      label3:
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(int)>(b0);
+
+        goto label4;
+
+      label4:
+        return z0;
+    }
+
+    boolean tc3()
+    {
+        boolean z0, z1;
+        java.io.PrintStream r0;
+        sootUp.RQ1.jb_cbf.JB_CBF r1;
+
+
+        r1 := @this: sootUp.RQ1.jb_cbf.JB_CBF;
+        z0 = 1;
+
+        if z0 != 0 goto label1;
+
+        if z0 == 0 goto label1;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(java.lang.String)>("True");
+
+        return z0;
+
+      label1:
+        if z0 != 0 goto label2;
+        z1 = 1;
+
+        goto label3;
+
+      label2:
+        z1 = 0;
+
+      label3:
+        return z1;
+    }
+
+    boolean tc6()
+    {
+        boolean z0;
+        java.io.PrintStream r0, r1;
+        sootUp.RQ1.jb_cbf.JB_CBF r2;
+
+
+        r2 := @this: sootUp.RQ1.jb_cbf.JB_CBF;
+        z0 = 0;
+
+        if z0 == 0 goto label1;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(java.lang.String)>("True");
+
+        goto label2;
+
+      label1:
+        r1 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r1.<java.io.PrintStream: void println(java.lang.String)>("False");
+
+      label2:
+        return z0;
+    }
+
+    boolean tc20()
+    {
+        boolean z0, z1;
+        java.io.PrintStream r0, r1;
+        sootUp.RQ1.jb_cbf.JB_CBF r2;
+
+
+        r2 := @this: sootUp.RQ1.jb_cbf.JB_CBF;
+        z0 = 1;
+
+        if z0 == 0 goto label2;
+        z1 = 0;
+
+        if z1 == 0 goto label1;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(java.lang.String)>("False");
+
+        goto label2;
+
+      label1:
+        r1 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r1.<java.io.PrintStream: void println(java.lang.String)>("True");
+
+      label2:
+        return z0;
+    }
+
+    boolean tc11()
+    {
+        boolean z0, z1;
+        java.io.PrintStream r0, r1;
+        sootUp.RQ1.jb_cbf.JB_CBF r2;
+
+
+        r2 := @this: sootUp.RQ1.jb_cbf.JB_CBF;
+        z0 = 1;
+
+        if z0 == 0 goto label1;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(java.lang.String)>("True");
+
+      label1:
+        z1 = 0;
+
+        if z1 == 0 goto label2;
+        r1 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r1.<java.io.PrintStream: void println(java.lang.String)>("False");
+
+      label2:
+        return z1;
+    }
+
+    boolean tc14()
+    {
+        boolean z0;
+        sootUp.RQ1.jb_cbf.JB_CBF r0;
+
+
+        r0 := @this: sootUp.RQ1.jb_cbf.JB_CBF;
+        z0 = 1;
+
+        if z0 == 0 goto label1;
+        virtualinvoke r0.<sootUp.RQ1.jb_cbf.JB_CBF: void someMethod()>();
+
+      label1:
+        return z0;
+    }
+
+    boolean tc3_1()
+    {
+        boolean z0;
+        java.io.PrintStream r0;
+        sootUp.RQ1.jb_cbf.JB_CBF r1;
+
+
+        r1 := @this: sootUp.RQ1.jb_cbf.JB_CBF;
+        z0 = 1;
+
+        if z0 == 0 goto label1;
+
+        if z0 != 0 goto label1;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(java.lang.String)>("True");
+
+      label1:
+        return z0;
+    }
+
+    boolean tc2_1()
+    {
+        boolean z0;
+        java.io.PrintStream r0;
+        java.lang.Boolean r1;
+        sootUp.RQ1.jb_cbf.JB_CBF r2;
+
+
+        r2 := @this: sootUp.RQ1.jb_cbf.JB_CBF;
+        r1 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>(0);
+        z0 = virtualinvoke r1.<java.lang.Boolean: boolean booleanValue()>();
+
+        if z0 == 0 goto label1;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(java.lang.String)>("False");
+
+      label1:
+        return 0;
+    }
+
+    public void <init>()
+    {
+        sootUp.RQ1.jb_cbf.JB_CBF r0;
+
+
+        r0 := @this: sootUp.RQ1.jb_cbf.JB_CBF;
+        specialinvoke r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    boolean tc9()
+    {
+        boolean z0;
+        java.io.PrintStream r0, r1;
+        sootUp.RQ1.jb_cbf.JB_CBF r2;
+
+
+        r2 := @this: sootUp.RQ1.jb_cbf.JB_CBF;
+        z0 = 1;
+
+        if z0 == 0 goto label1;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(java.lang.String)>("True 1");
+
+      label1:
+        if z0 == 0 goto label2;
+        r1 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r1.<java.io.PrintStream: void println(java.lang.String)>("True 2");
+
+      label2:
+        return z0;
+    }
+
+    boolean tc13()
+    {
+        boolean z0;
+        byte b0;
+        java.io.PrintStream r0;
+        java.lang.String r1;
+        sootUp.RQ1.jb_cbf.JB_CBF r2;
+
+
+        r2 := @this: sootUp.RQ1.jb_cbf.JB_CBF;
+        z0 = 0;
+
+        if z0 == 0 goto label1;
+        b0 = 10;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        r1 = dynamicinvoke "makeConcatWithConstants" <java.lang.String (int)>(b0) <java.lang.invoke.StringConcatFactory: java.lang.invoke.CallSite makeConcatWithConstants(java.lang.invoke.MethodHandles$Lookup,java.lang.String,java.lang.invoke.MethodType,java.lang.String,java.lang.Object[])>("False: \u0001");
+        virtualinvoke r0.<java.io.PrintStream: void println(java.lang.String)>(r1);
+
+      label1:
+        return z0;
+    }
+
+    boolean tc8()
+    {
+        boolean z0;
+        int i0;
+        java.io.PrintStream r0;
+        sootUp.RQ1.jb_cbf.JB_CBF r1;
+
+
+        r1 := @this: sootUp.RQ1.jb_cbf.JB_CBF;
+        z0 = 0;
+        i0 = 0;
+
+      label1:
+        if i0 >= 10 goto label3;
+
+        if z0 == 0 goto label2;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(java.lang.String)>("False");
+
+      label2:
+        i0 = i0 + 1;
+
+        goto label1;
+
+      label3:
+        return z0;
+    }
+
+    boolean tc15()
+    {
+        boolean z0;
+        sootUp.RQ1.jb_cbf.JB_CBF r0;
+
+
+        r0 := @this: sootUp.RQ1.jb_cbf.JB_CBF;
+        z0 = 0;
+
+        if z0 == 0 goto label1;
+        virtualinvoke r0.<sootUp.RQ1.jb_cbf.JB_CBF: void someMethod()>();
+
+      label1:
+        return z0;
+    }
+
+    boolean tc1_1(boolean)
+    {
+        boolean z0, z1;
+        java.io.PrintStream r0;
+        sootUp.RQ1.jb_cbf.JB_CBF r1;
+
+
+        r1 := @this: sootUp.RQ1.jb_cbf.JB_CBF;
+        z0 := @parameter0: boolean;
+        z1 = 1;
+
+        if z1 == 0 goto label1;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(java.lang.String)>("True");
+
+      label1:
+        return z1;
+    }
+
+    boolean tc7()
+    {
+        boolean z0;
+        int i0;
+        java.io.PrintStream r0;
+        sootUp.RQ1.jb_cbf.JB_CBF r1;
+
+
+        r1 := @this: sootUp.RQ1.jb_cbf.JB_CBF;
+        z0 = 1;
+        i0 = 0;
+
+      label1:
+        if i0 >= 10 goto label3;
+
+        if z0 == 0 goto label2;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(java.lang.String)>("True");
+
+      label2:
+        i0 = i0 + 1;
+
+        goto label1;
+
+      label3:
+        return z0;
+    }
+
+    private void someMethod1(boolean)
+    {
+        boolean z0;
+        java.io.PrintStream r0;
+        sootUp.RQ1.jb_cbf.JB_CBF r1;
+
+
+        r1 := @this: sootUp.RQ1.jb_cbf.JB_CBF;
+        z0 := @parameter0: boolean;
+
+        if z0 == 0 goto label1;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(java.lang.String)>("Flag is true");
+
+      label1:
+        return;
+    }
+
+    boolean tc25()
+    {
+        boolean z0;
+        java.io.PrintStream r0, r1, r2;
+        sootUp.RQ1.jb_cbf.JB_CBF r3;
+
+
+        r3 := @this: sootUp.RQ1.jb_cbf.JB_CBF;
+        z0 = 0;
+
+        if z0 != 0 goto label1;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(java.lang.String)>("True");
+
+        goto label3;
+
+      label1:
+        if z0 == 0 goto label2;
+        r1 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r1.<java.io.PrintStream: void println(java.lang.String)>("False");
+
+        goto label3;
+
+      label2:
+        r2 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r2.<java.io.PrintStream: void println(java.lang.String)>("last");
+
+      label3:
+        return z0;
+    }
+
+    boolean tc3_3()
+    {
+        boolean z0;
+        java.io.PrintStream r0;
+        sootUp.RQ1.jb_cbf.JB_CBF r1;
+
+
+        r1 := @this: sootUp.RQ1.jb_cbf.JB_CBF;
+        z0 = 1;
+
+        if z0 != 0 goto label1;
+
+        if z0 == 0 goto label1;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(java.lang.String)>("True");
+
+      label1:
+        return z0;
+    }
+
+    boolean tc18()
+    {
+        boolean z0;
+        sootUp.RQ1.jb_cbf.JB_CBF r0;
+
+
+        r0 := @this: sootUp.RQ1.jb_cbf.JB_CBF;
+        z0 = 1;
+
+        if z0 == 0 goto label1;
+        virtualinvoke r0.<sootUp.RQ1.jb_cbf.JB_CBF: void someMethod1(boolean)>(z0);
+
+      label1:
+        return z0;
+    }
+
+    boolean tc1(boolean)
+    {
+        boolean z0, z1, z2;
+        java.io.PrintStream r0;
+        sootUp.RQ1.jb_cbf.JB_CBF r1;
+
+
+        r1 := @this: sootUp.RQ1.jb_cbf.JB_CBF;
+        z0 := @parameter0: boolean;
+        z1 = 1;
+
+        if z1 == 0 goto label1;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(java.lang.String)>("True");
+
+        return z1;
+
+      label1:
+        if z1 != 0 goto label2;
+        z2 = 1;
+
+        goto label3;
+
+      label2:
+        z2 = 0;
+
+      label3:
+        return z2;
+    }
+
+    private void someMethod()
+    {
+        java.io.PrintStream r0;
+        sootUp.RQ1.jb_cbf.JB_CBF r1;
+
+
+        r1 := @this: sootUp.RQ1.jb_cbf.JB_CBF;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(java.lang.String)>("Method called");
+
+        return;
+    }
+
+    boolean tc16()
+    {
+        boolean z0;
+        java.lang.Exception r0, r1;
+        java.lang.Object r2, r3;
+        java.lang.Throwable r4, r5;
+        sootUp.RQ1.jb_cbf.JB_CBF r6;
+
+
+        r6 := @this: sootUp.RQ1.jb_cbf.JB_CBF;
+        z0 = 1;
+
+      label1:
+        if z0 == 0 goto label3;
+        r2 = new java.lang.Exception;
+        r0 = (java.lang.Exception) r2;
+
+      label2:
+        specialinvoke r0.<java.lang.Exception: void <init>(java.lang.String)>("True");
+        r4 = (java.lang.Throwable) r2;
+
+        throw r4;
+
+      label3:
+        goto label5;
+
+      label4:
+        r5 := @caughtexception;
+        r3 = r5;
+        r1 = (java.lang.Exception) r3;
+        virtualinvoke r1.<java.lang.Exception: void printStackTrace()>();
+
+      label5:
+        return z0;
+
+ catch java.lang.Exception from label1 to label2 with label4;
+    }
+
+    boolean tc16_1()
+    {
+        boolean z0;
+        java.io.PrintStream r0, r1, r2;
+        java.lang.Exception r3, r4;
+        java.lang.Object r5, r6;
+        java.lang.Throwable r10, r7, r8, r9;
+        sootUp.RQ1.jb_cbf.JB_CBF r11;
+
+
+        r11 := @this: sootUp.RQ1.jb_cbf.JB_CBF;
+        z0 = 1;
+
+      label1:
+        if z0 == 0 goto label3;
+        r5 = new java.lang.Exception;
+        r3 = (java.lang.Exception) r5;
+
+      label2:
+        specialinvoke r3.<java.lang.Exception: void <init>(java.lang.String)>("True");
+        r7 = (java.lang.Throwable) r5;
+
+        throw r7;
+
+      label3:
+        if z0 != 1 goto label4;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(java.lang.String)>("finally");
+
+        goto label4;
+
+      label4:
+        return z0;
+
+      label5:
+        r8 := @caughtexception;
+        r9 = r8;
+
+        if z0 != 1 goto label6;
+        r1 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r1.<java.io.PrintStream: void println(java.lang.String)>("finally");
+
+      label6:
+        throw r9;
+
+      label7:
+        r10 := @caughtexception;
+        r6 = r10;
+        r4 = (java.lang.Exception) r6;
+
+      label8:
+        virtualinvoke r4.<java.lang.Exception: void printStackTrace()>();
+
+        if z0 != 1 goto label4;
+        r2 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r2.<java.io.PrintStream: void println(java.lang.String)>("finally");
+
+        goto label4;
+
+ catch java.lang.Exception from label1 to label2 with label7;
+ catch java.lang.Throwable from label1 to label2 with label5;
+ catch java.lang.Throwable from label7 to label8 with label5;
+    }
+
+    boolean tc4()
+    {
+        boolean z0;
+        java.io.PrintStream r0;
+        sootUp.RQ1.jb_cbf.JB_CBF r1;
+
+
+        r1 := @this: sootUp.RQ1.jb_cbf.JB_CBF;
+        z0 = 0;
+
+        if z0 == 0 goto label1;
+
+        if z0 == 0 goto label1;
+        r0 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke r0.<java.io.PrintStream: void println(java.lang.String)>("False");
+
+      label1:
+        return z0;
+    }
+
+    private java.lang.String test0(java.io.File) throws java.lang.Exception
+    {
+        java.io.File r0;
+        java.io.FileInputStream r1, r2, r3;
+        java.io.InputStream r4;
+        java.io.ObjectInputStream r5, r6;
+        java.lang.Exception r7;
+        java.lang.Object r10, r8, r9;
+        java.lang.String r11;
+        java.lang.Throwable r12, r13, r14, r15, r16, r17, r18;
+        sootUp.RQ1.jb_cbf.JB_CBF r19;
+
+
+        r19 := @this: sootUp.RQ1.jb_cbf.JB_CBF;
+        r0 := @parameter0: java.io.File;
+
+      label01:
+        r1 = new java.io.FileInputStream;
+        specialinvoke r1.<java.io.FileInputStream: void <init>(java.io.File)>(r0);
+        r8 = r1;
+
+      label02:
+        r5 = new java.io.ObjectInputStream;
+        r4 = (java.io.InputStream) r8;
+
+      label03:
+        specialinvoke r5.<java.io.ObjectInputStream: void <init>(java.io.InputStream)>(r4);
+        r6 = r5;
+
+      label04:
+        r9 = virtualinvoke r6.<java.io.ObjectInputStream: java.lang.Object readObject()>();
+        r11 = (java.lang.String) r9;
+
+      label05:
+        virtualinvoke r6.<java.io.ObjectInputStream: void close()>();
+
+      label06:
+        r2 = (java.io.FileInputStream) r8;
+
+      label07:
+        virtualinvoke r2.<java.io.FileInputStream: void close()>();
+
+      label08:
+        return r11;
+
+      label09:
+        r12 := @caughtexception;
+        r13 = r12;
+
+      label10:
+        virtualinvoke r6.<java.io.ObjectInputStream: void close()>();
+
+        throw r13;
+
+      label11:
+        r14 := @caughtexception;
+        r15 = r14;
+
+      label12:
+        r3 = (java.io.FileInputStream) r8;
+
+      label13:
+        virtualinvoke r3.<java.io.FileInputStream: void close()>();
+
+        throw r15;
+
+      label14:
+        r16 := @caughtexception;
+        r17 = r16;
+        r10 = new java.lang.Exception;
+        r7 = (java.lang.Exception) r10;
+        specialinvoke r7.<java.lang.Exception: void <init>(java.lang.Throwable)>(r17);
+        r18 = (java.lang.Throwable) r10;
+
+        throw r18;
+
+ catch java.lang.Exception from label01 to label03 with label14;
+ catch java.lang.Throwable from label02 to label03 with label11;
+ catch java.lang.Throwable from label04 to label05 with label09;
+ catch java.lang.Exception from label04 to label06 with label14;
+ catch java.lang.Throwable from label05 to label06 with label11;
+ catch java.lang.Exception from label07 to label08 with label14;
+ catch java.lang.Throwable from label09 to label10 with label09;
+ catch java.lang.Exception from label09 to label12 with label14;
+ catch java.lang.Throwable from label10 to label12 with label11;
+ catch java.lang.Exception from label13 to label14 with label14;
+    }
+}
+
