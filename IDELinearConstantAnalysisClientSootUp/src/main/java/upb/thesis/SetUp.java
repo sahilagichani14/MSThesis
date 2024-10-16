@@ -273,6 +273,22 @@ public class SetUp {
 
         List<MethodSignature> cgEntryMethodsSignatures = cgEntryMethods.stream().map(SootClassMember::getSignature).toList();
         JimpleBasedInterproceduralCFG icfg = new JimpleBasedInterproceduralCFG(generatedcallGraph, view, false, false);
+        List<MethodSignature> generatedcallGraphEntryMethods = generatedcallGraph.getEntryMethods();
+        int totalStmtProp = 0;
+        int totalvarProp = 0;
+        for (MethodSignature m: generatedcallGraphEntryMethods){
+            totalStmtProp += view.getMethod(m).get().getBody().getStmts().size();
+            totalvarProp += view.getMethod(m).get().getBody().getLocalCount();
+            Set<CallGraph.Call> callsFrom = generatedcallGraph.callsFrom(m);
+            for (CallGraph.Call c: callsFrom) {
+                Optional<? extends SootMethod> optionalSootMethod = view.getMethod(c.getTargetMethodSignature());
+                if (optionalSootMethod.isPresent()){
+                    totalStmtProp += optionalSootMethod.get().getBody().getStmts().size();
+                    totalvarProp += optionalSootMethod.get().getBody().getLocalCount();
+                }
+            }
+        }
+        System.out.println(totalStmtProp + "  ---   " + totalvarProp);
         for (SootMethod method : ideCPEntryMethods) {
             // System.out.println("started solving from: " + method.getSignature());
             IDEConstantPropagationProblem problem = new IDEConstantPropagationProblem(icfg, method);
