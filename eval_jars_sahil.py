@@ -132,7 +132,7 @@ def set_command(cmd, jar, solver, cg_algo, thread, appliedbodyinterceptors):
     cmd[8] = solver #replace "solver" in cmd
     cmd[10] = cg_algo  #replace "cg_algo" in cmd
     cmd[11] = thread #replace "thread" in cmd
-    # cmd[12] = appliedbodyinterceptors #replace "bodyinterceptors" in cmd
+    cmd[12] = appliedbodyinterceptors #replace "bodyinterceptors" in cmd
     print(f'RUN:', cmd)
     return cmd
 
