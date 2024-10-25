@@ -26,7 +26,7 @@ solvers = ["default"]
 mandatorybodyinterceptors = ["jb.ls", "jb.tr"]
 allbodyinterceptors = ["jb.lp", "jb.ese", "jb.ne", "jb.dae", "jb.ule", "jb.cp", "jb.uce", "jb.tt", "jb.lns", "jb.cbf", "jb.dtr", "jb.sils", "jb.a", "jb.ulp", "jb.cp-ule"] 
 allbodyinterceptors = ["jb.lp", "jb.ese", "jb.ne", "jb.dae", "jb.ule", "jb.cp", "jb.uce", "jb.lns", "jb.cbf", "jb.a"]
-allbodyinterceptors = []
+# allbodyinterceptors = []
 
 # allbodyinterceptors = ["jb.ls", "jb.lp", "jb.ese", "jb.ne", "jb.dae", "jb.ule", "jb.cp", "jb.uce", "jb.tr", "jb.tt", "jb.lns", "jb.cbf", "jb.dtr", "jb.sils", "jb.a", "jb.ulp", "jb.cp-ule"]
 # defaultbodyinterceptors = ["jb.tt", "jb.dtr", "jb.uce", "jb.ls", "jb.sils", "jb.a", "jb.ule", "jb.tr", "jb.lns", "jb.cp", "jb.dae", "jb.cp-ule", "jb.lp", "jb.ne", "jb.uce"]
@@ -100,11 +100,13 @@ def get_permutations_combinations(items):
     global mandatorybodyinterceptors
     mandatory_str = ','.join(mandatorybodyinterceptors)
     newList = []
+    # insert 2 times to check if cache is decreasing time in second combo, also {mandatory_str},{item} reversed
+    newList.append(mandatory_str)
     newList.append(mandatory_str)
     global allbodyinterceptors
     # Combine mandatory_str with each item from otheritems
     for item in allbodyinterceptors:
-        newList.append(f"{mandatory_str},{item}")
+        newList.append(f"{item},{mandatory_str}")
     return newList
 
 def construct_callgraph_algorithms_list(specific_cg_algo):
