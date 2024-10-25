@@ -12,7 +12,7 @@ public class RTACallGraph extends AbstractCallGraphConstructor {
         ParametrisedCallGraphConstructor.setSootOptions();
         Options.v().setPhaseOption("cg.spark", "on");
         Options.v().setPhaseOption("cg.spark", "rta:true");
-        // Options.v().setPhaseOption("cg.spark", "apponly:true");
+        Options.v().setPhaseOption("cg.spark", "apponly:true");
         Options.v().setPhaseOption("cg.spark", "on-fly-cg:false");
         PackManager.v().getPack("cg").apply();
         return SceneWrapper.v().getCallGraph();

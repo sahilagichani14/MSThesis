@@ -179,8 +179,12 @@ public class SetUp {
             runTimeBodyInterceptorsList.add(runTimeBodyInterceptor);
         }
         AnalysisInputLocation inputLocation = new JavaClassPathAnalysisInputLocation(jarPath, SourceType.Application, Collections.unmodifiableList(runTimeBodyInterceptorsList));
+        // AnalysisInputLocation rtJarInputLocation = new DefaultRuntimeAnalysisInputLocation(SourceType.Application, Collections.unmodifiableList(runTimeBodyInterceptorsList));
+        // AnalysisInputLocation rtJarInputLocation = new DefaultRuntimeAnalysisInputLocation();
+        // View view = new JavaView(List.of(rtJarInputLocation, inputLocation));
         View view = new JavaView(List.of(inputLocation));
-
+        // JavaView applicationInputLocationView = new JavaView(List.of(inputLocation));
+        // JavaView rtJarView = new JavaView(List.of(rtJarInputLocation));
         ideCPEntryMethods = getIDECPEntryPointMethods(view);
         cgEntryMethods = getCGEntryPointMethods(view);
 
@@ -367,7 +371,9 @@ public class SetUp {
             for (SootMethod m : c.getMethods()) {
                 JavaIdentifierFactory javaIdentifierFactory = JavaIdentifierFactory.getInstance();
                 if (m.isMain(javaIdentifierFactory)) {
+                    methods.add(m);
                     System.out.println("Main method found in a jar " + m.getSignature());
+                    continue;
                 }
                 if (m.isConcrete()){
                     methods.add(m);
