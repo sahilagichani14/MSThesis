@@ -20,6 +20,7 @@ import sootup.core.transform.RunTimeBodyInterceptor;
 import sootup.core.views.View;
 import sootup.interceptors.*;
 import sootup.java.bytecode.frontend.inputlocation.JavaClassPathAnalysisInputLocation;
+import sootup.java.bytecode.frontend.inputlocation.JrtFileSystemAnalysisInputLocation;
 import sootup.java.core.JavaIdentifierFactory;
 import sootup.java.core.views.JavaView;
 import upb.thesis.config.*;
@@ -181,6 +182,7 @@ public class SetUp {
         AnalysisInputLocation inputLocation = new JavaClassPathAnalysisInputLocation(jarPath, SourceType.Application, Collections.unmodifiableList(runTimeBodyInterceptorsList));
         // AnalysisInputLocation rtJarInputLocation = new DefaultRuntimeAnalysisInputLocation(SourceType.Application, Collections.unmodifiableList(runTimeBodyInterceptorsList));
         // AnalysisInputLocation rtJarInputLocation = new DefaultRuntimeAnalysisInputLocation();
+        // AnalysisInputLocation rtJarInputLocationJava9Plus = new JrtFileSystemAnalysisInputLocation(SourceType.Application);
         // View view = new JavaView(List.of(rtJarInputLocation, inputLocation));
         View view = new JavaView(List.of(inputLocation));
         // JavaView applicationInputLocationView = new JavaView(List.of(inputLocation));
