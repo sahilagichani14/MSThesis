@@ -1,5 +1,3 @@
-jackson-core-2.14.2;default;1;16400;273;345093;50;476;CHA;12965;2859;46237;46237;null;{}
-jackson-core-2.14.2;default;1;16359;276;344051;50;426;CHA;12965;2859;46237;46237;null;{}
 jackson-core-2.14.2;default;1;17687;229;368590;50;389;CHA;12965;2859;46237;46542;[JB_LS, JB_TR];{sootup.interceptors.TypeAssigner@2e4a962c=[678, -543], sootup.interceptors.LocalSplitter@25727128=[128, 35]}
 jackson-core-2.14.2;default;1;17676;227;368536;50;660;CHA;12965;2859;46237;46542;[JB_LS, JB_TR];{sootup.interceptors.TypeAssigner@2e4a962c=[677, -463], sootup.interceptors.LocalSplitter@25727128=[134, 105]}
 jackson-core-2.14.2;default;1;14182;228;150283;50;378;CHA;12965;2859;46237;46542;[JB_LP, JB_LS, JB_TR];{sootup.interceptors.TypeAssigner@6cd065d=[641, -986], sootup.interceptors.LocalPacker@46ae62d6=[359, 125], sootup.interceptors.LocalSplitter@51362156=[212, 46]}
