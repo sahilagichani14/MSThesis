@@ -1,0 +1,361 @@
+jsr305-3.0.2;default;1;2043;368;0;0;40;CHA;0;0;0;0;[JB_A, JB_LS, JB_TR];{}
+jcl-over-slf4j-2.0.7;default;1;3641;608;40;1;61;CHA;448;214;1133;1137;[JB_A, JB_LS, JB_TR];{jb.tr=[266, 0], jb.a=[174, 1], jb.ls=[189, 0]}
+jakarta.servlet-api-6.0.0;default;1;4533;713;643;13;50;CHA;1066;524;2840;2776;[JB_A, JB_LS, JB_TR];{jb.tr=[249, 0], jb.a=[251, 1], jb.ls=[90, 0]}
+maven-plugin-api-3.9.9;default;1;5200;796;7054;16;78;CHA;839;434;3025;2890;[JB_A, JB_LS, JB_TR];{jb.tr=[271, 0], jb.a=[260, 2], jb.ls=[217, 0]}
+commons-logging-1.2;default;1;5561;1601;3420;14;97;CHA;3470;900;4789;4500;[JB_A, JB_LS, JB_TR];{jb.tr=[352, 1], jb.a=[493, 6], jb.ls=[158, -35]}
+jackson-annotations-2.14.2;default;1;5644;859;6798;50;49;CHA;1865;616;3768;3602;[JB_A, JB_LS, JB_TR];{jb.tr=[236, 0], jb.a=[310, 2], jb.ls=[211, 0]}
+junit-jupiter-api-5.9.2;default;1;6518;2578;124;10;65;CHA;4954;1636;8096;9287;[JB_A, JB_LS, JB_TR];{jb.tr=[743, -37], jb.a=[444, 0], jb.ls=[254, 0]}
+slf4j-reload4j-2.0.7;default;1;3505;416;0;0;47;CHA;100;91;381;346;[JB_A, JB_LS, JB_TR];{jb.tr=[92, 0], jb.a=[103, 1], jb.ls=[56, 0]}
+slf4j-api-2.0.7;default;1;5083;1011;74;7;59;CHA;2018;904;4446;4435;[JB_A, JB_LS, JB_TR];{jb.tr=[321, 0], jb.a=[364, 0], jb.ls=[212, 0]}
+slf4j-simple-2.0.7;default;1;3793;656;0;0;56;CHA;310;163;759;717;[JB_A, JB_LS, JB_TR];{jb.tr=[94, 0], jb.a=[144, 1], jb.ls=[66, 0]}
+junit-jupiter-engine-5.9.2;default;1;12265;3231;83656;23;240;CHA;14782;2473;9527;14445;[JB_A, JB_LS, JB_TR];{jb.tr=[965, 0], jb.a=[883, 1], jb.ls=[300, -36]}
+javapoet-1.13.0;default;1;12978;1881;488501;50;515;CHA;5401;1140;9242;8493;[JB_A, JB_LS, JB_TR];{jb.tr=[590, 2], jb.a=[628, 5], jb.ls=[165, 1]}
+commons-io-2.11.0;default;1;13149;4460;72813;50;252;CHA;16132;3212;25260;25202;[JB_A, JB_LS, JB_TR];{jb.tr=[1465, -34], jb.a=[876, -52], jb.ls=[425, 0]}
+commons-codec-1.15;default;1;13794;2664;231518;50;654;CHA;5780;1393;23911;22000;[JB_A, JB_LS, JB_TR];{jb.tr=[858, 2], jb.a=[571, -36], jb.ls=[432, 5]}
+jackson-core-2.14.2;default;1;14644;5900;101183;50;473;CHA;15436;3324;59675;51812;[JB_A, JB_LS, JB_TR];{jb.tr=[1548, 0], jb.a=[1329, -237], jb.ls=[431, -30]}
+commons-lang3-3.12.0;default;1;14908;7070;66363;50;273;CHA;35535;5913;54560;54279;[JB_A, JB_LS, JB_TR];{jb.tr=[1675, 1], jb.a=[1235, 5], jb.ls=[672, 1]}
+jsoup-1.18.1;default;1;16013;4843;513552;50;483;CHA;15339;3061;31162;29472;[JB_A, JB_LS, JB_TR];{jb.tr=[1067, 1], jb.a=[1053, 8], jb.ls=[438, 1]}
+gson-2.10.1;default;1;16678;2679;803830;50;409;CHA;11122;2065;17249;16541;[JB_A, JB_LS, JB_TR];{jb.tr=[775, 2], jb.a=[600, -54], jb.ls=[520, 1]}
+joda-time-2.12.5;default;1;18026;6044;552491;50;241;CHA;39124;4780;47020;45549;[JB_A, JB_LS, JB_TR];{jb.tr=[1965, -75], jb.a=[1129, 5], jb.ls=[688, 0]}
+testng-7.7.1;default;1;28574;2844;2510979;50;642;CHA;72171;6789;62786;61567;[JB_A, JB_LS, JB_TR];{jb.tr=[852, -191], jb.a=[647, 27], jb.ls=[259, 1]}
+mockito-all-1.10.19;default;1;63968;3508;15199560;50;739;CHA;34964;5083;59891;57276;[JB_A, JB_LS, JB_TR];{jb.tr=[938, 7], jb.a=[1167, -358], jb.ls=[422, 6]}
+jsr305-3.0.2;default;1;2432;281;0;0;40;CHA;0;0;0;0;[JB_A, JB_LS, JB_TR];{}
+jcl-over-slf4j-2.0.7;default;1;3680;570;40;1;62;CHA;448;214;1133;1137;[JB_A, JB_LS, JB_TR];{jb.tr=[265, 0], jb.a=[242, 0], jb.ls=[134, 0]}
+jakarta.servlet-api-6.0.0;default;1;4220;485;643;13;49;CHA;1066;524;2840;2776;[JB_A, JB_LS, JB_TR];{jb.tr=[312, 0], jb.a=[259, 1], jb.ls=[180, 0]}
+commons-logging-1.2;default;1;5030;1175;3420;14;98;CHA;3470;900;4789;4500;[JB_A, JB_LS, JB_TR];{jb.tr=[424, -36], jb.a=[559, 6], jb.ls=[186, 1]}
+maven-plugin-api-3.9.9;default;1;5193;648;7054;16;77;CHA;839;434;3025;2890;[JB_A, JB_LS, JB_TR];{jb.tr=[307, 0], jb.a=[217, 2], jb.ls=[124, 0]}
+junit-jupiter-api-5.9.2;default;1;5627;2136;124;10;64;CHA;4954;1636;8096;9287;[JB_A, JB_LS, JB_TR];{jb.tr=[723, 0], jb.a=[422, 0], jb.ls=[238, 0]}
+jackson-annotations-2.14.2;default;1;5898;1040;6798;50;50;CHA;1865;616;3768;3602;[JB_A, JB_LS, JB_TR];{jb.tr=[446, 0], jb.a=[375, 1], jb.ls=[143, 0]}
+slf4j-reload4j-2.0.7;default;1;3850;518;0;0;47;CHA;100;91;381;346;[JB_A, JB_LS, JB_TR];{jb.tr=[96, 0], jb.a=[215, 1], jb.ls=[56, 0]}
+slf4j-simple-2.0.7;default;1;3636;914;0;0;55;CHA;310;163;759;717;[JB_A, JB_LS, JB_TR];{jb.tr=[111, 0], jb.a=[229, 1], jb.ls=[76, 0]}
+slf4j-api-2.0.7;default;1;5481;1137;74;7;58;CHA;2018;904;4446;4435;[JB_A, JB_LS, JB_TR];{jb.tr=[446, 0], jb.a=[311, 0], jb.ls=[177, 0]}
+junit-jupiter-engine-5.9.2;default;1;12160;3262;83656;23;404;CHA;14782;2473;9527;14445;[JB_A, JB_LS, JB_TR];{jb.tr=[1084, 0], jb.a=[654, 1], jb.ls=[308, -62]}
+commons-io-2.11.0;default;1;12300;3668;72813;50;293;CHA;16132;3212;25260;25202;[JB_A, JB_LS, JB_TR];{jb.tr=[1182, 0], jb.a=[926, 6], jb.ls=[332, -51]}
+javapoet-1.13.0;default;1;12663;1815;488501;50;190;CHA;5401;1140;9242;8493;[JB_A, JB_LS, JB_TR];{jb.tr=[446, 2], jb.a=[610, -33], jb.ls=[285, 1]}
+commons-codec-1.15;default;1;13515;2473;231518;50;167;CHA;5780;1393;23911;22000;[JB_A, JB_LS, JB_TR];{jb.tr=[851, 1], jb.a=[715, -39], jb.ls=[247, -30]}
+jackson-core-2.14.2;default;1;14570;6250;101183;50;420;CHA;15436;3324;59675;51812;[JB_A, JB_LS, JB_TR];{jb.tr=[1966, 1], jb.a=[1725, 9], jb.ls=[624, -236]}
+commons-lang3-3.12.0;default;1;15110;6416;66363;50;305;CHA;35535;5913;54560;54279;[JB_A, JB_LS, JB_TR];{jb.tr=[2083, 0], jb.a=[1278, 6], jb.ls=[756, -164]}
+jsoup-1.18.1;default;1;15830;4982;513552;50;572;CHA;15339;3061;31162;29472;[JB_A, JB_LS, JB_TR];{jb.tr=[1451, 1], jb.a=[937, -25], jb.ls=[541, 1]}
+gson-2.10.1;default;1;16841;2517;803830;50;648;CHA;11122;2065;17249;16541;[JB_A, JB_LS, JB_TR];{jb.tr=[754, 3], jb.a=[662, 4], jb.ls=[320, -54]}
+joda-time-2.12.5;default;1;17763;5557;552491;50;608;CHA;39124;4780;47020;45549;[JB_A, JB_LS, JB_TR];{jb.tr=[1777, -30], jb.a=[1116, -215], jb.ls=[505, 0]}
+testng-7.7.1;default;1;29343;3097;2510979;50;651;CHA;72171;6789;62786;61567;[JB_A, JB_LS, JB_TR];{jb.tr=[911, 5], jb.a=[633, -74], jb.ls=[400, -382]}
+mockito-all-1.10.19;default;1;64412;4221;15199560;50;731;CHA;34964;5083;59891;57276;[JB_A, JB_LS, JB_TR];{jb.tr=[1498, 8], jb.a=[1156, -39], jb.ls=[400, 6]}
+jcl-over-slf4j-2.0.7;default;1;7550;3978;40;1;54;RTA;803;347;3259;1137;[JB_A, JB_LS, JB_TR];{jb.tr=[490, 0], jb.a=[484, 1], jb.ls=[494, 0]}
+jackson-annotations-2.14.2;default;1;10923;3945;7657;50;93;RTA;1496;529;6066;3602;[JB_A, JB_LS, JB_TR];{jb.tr=[548, 0], jb.a=[687, 2], jb.ls=[368, 0]}
+maven-plugin-api-3.9.9;default;1;10898;3828;23724;16;114;RTA;1335;564;5227;2890;[JB_A, JB_LS, JB_TR];{jb.tr=[722, 0], jb.a=[761, -37], jb.ls=[303, 0]}
+jcl-over-slf4j-2.0.7;default;1;9888;3730;40;1;53;RTA;803;347;3259;1137;[JB_A, JB_LS, JB_TR];{jb.tr=[865, 0], jb.a=[668, 1], jb.ls=[280, 0]}
+jackson-annotations-2.14.2;default;1;13865;4334;7657;50;96;RTA;1496;529;6066;3602;[JB_A, JB_LS, JB_TR];{jb.tr=[891, 0], jb.a=[768, 1], jb.ls=[565, 0]}
+maven-plugin-api-3.9.9;default;1;14298;3829;23724;16;124;RTA;1335;564;5227;2890;[JB_A, JB_LS, JB_TR];{jb.tr=[840, 0], jb.a=[695, -35], jb.ls=[487, 0]}
+junit-jupiter-api-5.9.2;default;1;17136;12074;128;10;209;RTA;5451;1731;11615;9287;[JB_A, JB_LS, JB_TR];{jb.tr=[1740, 0], jb.a=[1242, -62], jb.ls=[491, 0]}
+junit-jupiter-api-5.9.2;default;1;18109;9602;128;10;214;RTA;5451;1731;11615;9287;[JB_A, JB_LS, JB_TR];{jb.tr=[1692, 0], jb.a=[983, -58], jb.ls=[573, 0]}
+slf4j-reload4j-2.0.7;default;1;8371;2207;0;0;52;RTA;151;106;622;346;[JB_A, JB_LS, JB_TR];{jb.tr=[316, 0], jb.a=[436, 1], jb.ls=[168, 0]}
+slf4j-simple-2.0.7;default;1;10416;3879;0;0;50;RTA;821;320;3161;717;[JB_A, JB_LS, JB_TR];{jb.tr=[645, 0], jb.a=[723, 1], jb.ls=[356, 0]}
+jakarta.servlet-api-6.0.0;default;1;23325;4670;66222;13;541;RTA;1324;652;5301;2776;[JB_A, JB_LS, JB_TR];{jb.tr=[1101, 0], jb.a=[764, 1], jb.ls=[462, 0]}
+slf4j-api-2.0.7;default;1;14266;3928;74;7;49;RTA;2211;862;7002;4435;[JB_A, JB_LS, JB_TR];{jb.tr=[1060, -37], jb.a=[892, 1], jb.ls=[414, 0]}
+commons-logging-1.2;default;1;24174;4984;76381;14;522;RTA;2655;663;7688;4500;[JB_A, JB_LS, JB_TR];{jb.tr=[685, 0], jb.a=[1093, 6], jb.ls=[499, -34]}
+slf4j-reload4j-2.0.7;default;1;8531;1660;0;0;53;RTA;151;106;622;346;[JB_A, JB_LS, JB_TR];{jb.tr=[317, 0], jb.a=[231, 1], jb.ls=[151, 0]}
+jakarta.servlet-api-6.0.0;default;1;25307;3512;66222;13;576;RTA;1324;652;5301;2776;[JB_A, JB_LS, JB_TR];{jb.tr=[822, 0], jb.a=[625, -37], jb.ls=[505, 0]}
+slf4j-simple-2.0.7;default;1;10339;3730;0;0;50;RTA;821;320;3161;717;[JB_A, JB_LS, JB_TR];{jb.tr=[723, 0], jb.a=[613, 1], jb.ls=[282, 0]}
+slf4j-api-2.0.7;default;1;14589;4295;74;7;113;RTA;2211;862;7002;4435;[JB_A, JB_LS, JB_TR];{jb.tr=[1154, 0], jb.a=[1090, -36], jb.ls=[499, 0]}
+commons-logging-1.2;default;1;27462;6442;76381;14;385;RTA;2655;663;7688;4500;[JB_A, JB_LS, JB_TR];{jb.tr=[1040, 1], jb.a=[1590, 5], jb.ls=[544, -35]}
+commons-codec-1.15;default;1;36675;11481;355942;50;425;RTA;5790;1456;27688;22000;[JB_A, JB_LS, JB_TR];{jb.tr=[2167, 2], jb.a=[1417, -39], jb.ls=[698, 5]}
+jackson-core-2.14.2;default;1;37035;20751;190714;50;486;RTA;13790;3150;63053;51812;[JB_A, JB_LS, JB_TR];{jb.tr=[4832, -32], jb.a=[2507, -213], jb.ls=[1935, 2]}
+commons-codec-1.15;default;1;37143;12400;355942;50;516;RTA;5790;1456;27688;22000;[JB_A, JB_LS, JB_TR];{jb.tr=[2358, 2], jb.a=[1561, -40], jb.ls=[837, 5]}
+jackson-core-2.14.2;default;1;37631;20671;190714;50;834;RTA;13790;3150;63053;51812;[JB_A, JB_LS, JB_TR];{jb.tr=[4988, 2], jb.a=[3198, -143], jb.ls=[1070, -29]}
+commons-io-2.11.0;default;1;44551;19408;594992;50;707;RTA;12561;3006;29578;25202;[JB_A, JB_LS, JB_TR];{jb.tr=[3497, 0], jb.a=[2110, -29], jb.ls=[1241, 0]}
+commons-lang3-3.12.0;default;1;45669;26186;487231;50;476;RTA;26946;5564;60512;54279;[JB_A, JB_LS, JB_TR];{jb.tr=[4917, -46], jb.a=[3055, 6], jb.ls=[1551, -352]}
+commons-io-2.11.0;default;1;44040;18584;594992;50;230;RTA;12561;3006;29578;25202;[JB_A, JB_LS, JB_TR];{jb.tr=[3739, 0], jb.a=[2460, -48], jb.ls=[1032, 1]}
+commons-lang3-3.12.0;default;1;46272;25794;487231;50;447;RTA;26946;5564;60512;54279;[JB_A, JB_LS, JB_TR];{jb.tr=[5903, -48], jb.a=[3430, 7], jb.ls=[1378, 1]}
+javapoet-1.13.0;default;1;53458;9141;1873026;50;202;RTA;4099;1007;12396;8493;[JB_A, JB_LS, JB_TR];{jb.tr=[1313, 2], jb.a=[1473, -31], jb.ls=[724, 1]}
+javapoet-1.13.0;default;1;53466;10262;1873026;50;189;RTA;4099;1007;12396;8493;[JB_A, JB_LS, JB_TR];{jb.tr=[1815, 2], jb.a=[1231, 8], jb.ls=[896, -37]}
+joda-time-2.12.5;default;1;56166;25276;1312782;50;504;RTA;37646;4759;51129;45549;[JB_A, JB_LS, JB_TR];{jb.tr=[4299, -245], jb.a=[3169, 5], jb.ls=[1547, -51]}
+jsoup-1.18.1;default;1;56835;21652;1676062;50;603;RTA;14783;2847;34956;29472;[JB_A, JB_LS, JB_TR];{jb.tr=[3505, 0], jb.a=[2682, 7], jb.ls=[965, 1]}
+jsoup-1.18.1;default;1;55279;22434;1676062;50;262;RTA;14783;2847;34956;29472;[JB_A, JB_LS, JB_TR];{jb.tr=[3932, -50], jb.a=[2075, -26], jb.ls=[1142, 0]}
+joda-time-2.12.5;default;1;55716;23753;1312782;50;735;RTA;37646;4759;51129;45549;[JB_A, JB_LS, JB_TR];{jb.tr=[3821, 0], jb.a=[3043, -280], jb.ls=[1533, 0]}
+gson-2.10.1;default;1;67084;16898;2961260;50;441;RTA;10761;1953;21705;16541;[JB_A, JB_LS, JB_TR];{jb.tr=[2605, 2], jb.a=[1767, -53], jb.ls=[877, 1]}
+gson-2.10.1;default;1;67946;16050;2961260;50;439;RTA;10761;1953;21705;16541;[JB_A, JB_LS, JB_TR];{jb.tr=[2461, -49], jb.a=[1945, 4], jb.ls=[529, 0]}
+testng-7.7.1;default;1;95117;17285;6053254;50;383;RTA;58192;6329;68110;61567;[JB_A, JB_LS, JB_TR];{jb.tr=[2280, -91], jb.a=[1464, 31], jb.ls=[631, 1]}
+testng-7.7.1;default;1;92913;16241;6053254;50;463;RTA;58192;6329;68110;61567;[JB_A, JB_LS, JB_TR];{jb.tr=[2088, 8], jb.a=[1316, 29], jb.ls=[679, 2]}
+mockito-all-1.10.19;default;1;117241;24284;15426013;50;835;RTA;29216;4680;64530;57276;[JB_A, JB_LS, JB_TR];{jb.tr=[4497, 8], jb.a=[3087, -85], jb.ls=[1473, 6]}
+mockito-all-1.10.19;default;1;112518;20104;15426013;50;793;RTA;29216;4680;64530;57276;[JB_A, JB_LS, JB_TR];{jb.tr=[3329, 8], jb.a=[3079, 23], jb.ls=[1415, -58]}
+jsr305-3.0.2;default;1;2543;512;0;0;40;CHA;0;0;0;0;[JB_A, JB_LS, JB_TR];{}
+jcl-over-slf4j-2.0.7;default;1;4298;1807;40;1;61;CHA;448;214;1133;1137;[JB_A, JB_LS, JB_TR];{jb.tr=[315, 0], jb.a=[177, 0], jb.ls=[155, 0]}
+maven-plugin-api-3.9.9;default;1;6702;927;7054;16;78;CHA;839;434;3025;2890;[JB_A, JB_LS, JB_TR];{jb.tr=[655, 0], jb.a=[642, 1], jb.ls=[149, 0]}
+jakarta.servlet-api-6.0.0;default;1;7023;1201;643;13;50;CHA;1066;524;2840;2776;[JB_A, JB_LS, JB_TR];{jb.tr=[695, 0], jb.a=[603, 1], jb.ls=[248, 0]}
+jsr305-3.0.2;default;1;5068;616;0;0;40;CHA;0;0;0;0;[JB_A, JB_LS, JB_TR];{}
+jackson-annotations-2.14.2;default;1;8434;1868;6798;50;44;CHA;1865;616;3768;3602;[JB_A, JB_LS, JB_TR];{jb.tr=[604, 0], jb.a=[442, 2], jb.ls=[115, 0]}
+commons-logging-1.2;default;1;8564;2764;3420;14;97;CHA;3470;900;4789;4500;[JB_A, JB_LS, JB_TR];{jb.tr=[975, -36], jb.a=[675, 5], jb.ls=[520, 2]}
+jcl-over-slf4j-2.0.7;default;1;6981;1469;40;1;61;CHA;448;214;1133;1137;[JB_A, JB_LS, JB_TR];{jb.tr=[408, 0], jb.a=[814, 1], jb.ls=[375, 0]}
+jsr305-3.0.2;default;1;6115;686;0;0;40;CHA;0;0;0;0;[JB_A, JB_LS, JB_TR];{}
+junit-jupiter-api-5.9.2;default;1;10498;4470;124;10;65;CHA;4954;1636;8096;9287;[JB_A, JB_LS, JB_TR];{jb.tr=[1537, 0], jb.a=[719, -37], jb.ls=[530, 0]}
+jakarta.servlet-api-6.0.0;default;1;9115;1322;643;13;50;CHA;1066;524;2840;2776;[JB_A, JB_LS, JB_TR];{jb.tr=[561, 0], jb.a=[682, 0], jb.ls=[320, 0]}
+maven-plugin-api-3.9.9;default;1;10321;1529;7054;16;77;CHA;839;434;3025;2890;[JB_A, JB_LS, JB_TR];{jb.tr=[676, 0], jb.a=[556, 2], jb.ls=[408, 0]}
+jcl-over-slf4j-2.0.7;default;1;8452;1459;40;1;61;CHA;448;214;1133;1137;[JB_A, JB_LS, JB_TR];{jb.tr=[699, 0], jb.a=[282, 1], jb.ls=[298, 0]}
+jsr305-3.0.2;default;1;4667;676;0;0;40;CHA;0;0;0;0;[JB_A, JB_LS, JB_TR];{}
+commons-logging-1.2;default;1;11337;2648;3420;14;97;CHA;3470;900;4789;4500;[JB_A, JB_LS, JB_TR];{jb.tr=[724, 0], jb.a=[1184, 5], jb.ls=[670, 1]}
+jackson-annotations-2.14.2;default;1;11332;2037;6798;50;42;CHA;1865;616;3768;3602;[JB_A, JB_LS, JB_TR];{jb.tr=[774, 0], jb.a=[999, 1], jb.ls=[463, 0]}
+junit-jupiter-api-5.9.2;default;1;12788;5183;124;10;63;CHA;4954;1636;8096;9287;[JB_A, JB_LS, JB_TR];{jb.tr=[1540, 0], jb.a=[664, 1], jb.ls=[596, 0]}
+jcl-over-slf4j-2.0.7;default;1;8020;1589;40;1;62;CHA;448;214;1133;1137;[JB_A, JB_LS, JB_TR];{jb.tr=[410, 0], jb.a=[408, 0], jb.ls=[248, 0]}
+jakarta.servlet-api-6.0.0;default;1;10293;1307;643;13;51;CHA;1066;524;2840;2776;[JB_A, JB_LS, JB_TR];{jb.tr=[733, 0], jb.a=[396, 1], jb.ls=[325, 0]}
+maven-plugin-api-3.9.9;default;1;10939;1784;7054;16;77;CHA;839;434;3025;2890;[JB_A, JB_LS, JB_TR];{jb.tr=[577, 0], jb.a=[499, 1], jb.ls=[86, 0]}
+commons-logging-1.2;default;1;11746;2421;3420;14;97;CHA;3470;900;4789;4500;[JB_A, JB_LS, JB_TR];{jb.tr=[1035, 0], jb.a=[1254, -32], jb.ls=[488, 1]}
+jackson-annotations-2.14.2;default;1;11596;2067;6798;50;44;CHA;1865;616;3768;3602;[JB_A, JB_LS, JB_TR];{jb.tr=[773, 0], jb.a=[514, 2], jb.ls=[541, 0]}
+junit-jupiter-api-5.9.2;default;1;10959;3182;124;10;63;CHA;4954;1636;8096;9287;[JB_A, JB_LS, JB_TR];{jb.tr=[930, 0], jb.a=[522, 1], jb.ls=[430, 0]}
+jakarta.servlet-api-6.0.0;default;1;10214;1119;643;13;52;CHA;1066;524;2840;2776;[JB_A, JB_LS, JB_TR];{jb.tr=[551, 0], jb.a=[571, 1], jb.ls=[261, 0]}
+commons-io-2.11.0;default;1;24115;7293;72813;50;258;CHA;16132;3212;25260;25202;[JB_A, JB_LS, JB_TR];{jb.tr=[2337, 0], jb.a=[2264, 4], jb.ls=[726, 1]}
+slf4j-api-2.0.7;default;1;8933;1608;74;7;59;CHA;2018;904;4446;4435;[JB_A, JB_LS, JB_TR];{jb.tr=[576, 0], jb.a=[453, 1], jb.ls=[226, 0]}
+junit-jupiter-engine-5.9.2;default;1;24127;6549;83656;23;145;CHA;14782;2473;9527;14445;[JB_A, JB_LS, JB_TR];{jb.tr=[1546, 0], jb.a=[962, 1], jb.ls=[447, 0]}
+slf4j-reload4j-2.0.7;default;1;4231;380;0;0;47;CHA;100;91;381;346;[JB_A, JB_LS, JB_TR];{jb.tr=[104, 0], jb.a=[152, 1], jb.ls=[72, 0]}
+slf4j-simple-2.0.7;default;1;4639;791;0;0;56;CHA;310;163;759;717;[JB_A, JB_LS, JB_TR];{jb.tr=[110, 0], jb.a=[185, 0], jb.ls=[42, 0]}
+maven-plugin-api-3.9.9;default;1;11473;1293;7054;16;79;CHA;839;434;3025;2890;[JB_A, JB_LS, JB_TR];{jb.tr=[839, 0], jb.a=[652, 2], jb.ls=[313, 0]}
+jackson-annotations-2.14.2;default;1;11304;2384;6798;50;40;CHA;1865;616;3768;3602;[JB_A, JB_LS, JB_TR];{jb.tr=[799, 0], jb.a=[609, 2], jb.ls=[509, 0]}
+javapoet-1.13.0;default;1;27431;3117;488501;50;180;CHA;5401;1140;9242;8493;[JB_A, JB_LS, JB_TR];{jb.tr=[933, 2], jb.a=[805, -33], jb.ls=[462, 1]}
+commons-logging-1.2;default;1;12227;2904;3420;14;98;CHA;3470;900;4789;4500;[JB_A, JB_LS, JB_TR];{jb.tr=[633, 0], jb.a=[1160, -33], jb.ls=[536, 1]}
+slf4j-api-2.0.7;default;1;7711;1562;74;7;58;CHA;2018;904;4446;4435;[JB_A, JB_LS, JB_TR];{jb.tr=[478, 0], jb.a=[477, 1], jb.ls=[346, 0]}
+commons-codec-1.15;default;1;28460;4528;231518;50;259;CHA;5780;1393;23911;22000;[JB_A, JB_LS, JB_TR];{jb.tr=[1706, 1], jb.a=[1314, 15], jb.ls=[765, -88]}
+slf4j-reload4j-2.0.7;default;1;4139;555;0;0;47;CHA;100;91;381;346;[JB_A, JB_LS, JB_TR];{jb.tr=[194, 0], jb.a=[131, 1], jb.ls=[38, 0]}
+junit-jupiter-engine-5.9.2;default;1;26678;6698;83656;23;193;CHA;14782;2473;9527;14445;[JB_A, JB_LS, JB_TR];{jb.tr=[1919, -59], jb.a=[886, 2], jb.ls=[933, 0]}
+slf4j-reload4j-2.0.7;default;1;4611;600;0;0;47;CHA;100;91;381;346;[JB_A, JB_LS, JB_TR];{jb.tr=[176, 0], jb.a=[154, 1], jb.ls=[127, 0]}
+junit-jupiter-api-5.9.2;default;1;12801;3962;124;10;65;CHA;4954;1636;8096;9287;[JB_A, JB_LS, JB_TR];{jb.tr=[825, 0], jb.a=[993, 1], jb.ls=[531, 0]}
+slf4j-simple-2.0.7;default;1;4307;932;0;0;56;CHA;310;163;759;717;[JB_A, JB_LS, JB_TR];{jb.tr=[273, 0], jb.a=[114, 1], jb.ls=[164, 0]}
+slf4j-simple-2.0.7;default;1;5004;960;0;0;55;CHA;310;163;759;717;[JB_A, JB_LS, JB_TR];{jb.tr=[249, 0], jb.a=[194, 0], jb.ls=[134, 0]}
+commons-io-2.11.0;default;1;29343;8932;72813;50;319;CHA;16132;3212;25260;25202;[JB_A, JB_LS, JB_TR];{jb.tr=[2604, 0], jb.a=[2202, 7], jb.ls=[1241, -34]}
+slf4j-api-2.0.7;default;1;7146;1233;74;7;59;CHA;2018;904;4446;4435;[JB_A, JB_LS, JB_TR];{jb.tr=[550, 0], jb.a=[479, 1], jb.ls=[274, 0]}
+javapoet-1.13.0;default;1;30041;3866;488501;50;60;CHA;5401;1140;9242;8493;[JB_A, JB_LS, JB_TR];{jb.tr=[1073, 2], jb.a=[1132, -33], jb.ls=[592, 1]}
+jackson-core-2.14.2;default;1;33472;13527;101183;50;370;CHA;15436;3324;59675;51812;[JB_A, JB_LS, JB_TR];{jb.tr=[3077, 0], jb.a=[3526, -36], jb.ls=[1192, -268]}
+commons-codec-1.15;default;1;31384;4328;231518;50;524;CHA;5780;1393;23911;22000;[JB_A, JB_LS, JB_TR];{jb.tr=[1647, 2], jb.a=[1295, -30], jb.ls=[658, 5]}
+slf4j-reload4j-2.0.7;default;1;4239;513;0;0;47;CHA;100;91;381;346;[JB_A, JB_LS, JB_TR];{jb.tr=[118, 0], jb.a=[161, 1], jb.ls=[85, 0]}
+slf4j-api-2.0.7;default;1;6768;1232;74;7;58;CHA;2018;904;4446;4435;[JB_A, JB_LS, JB_TR];{jb.tr=[466, 0], jb.a=[503, 1], jb.ls=[246, 0]}
+slf4j-simple-2.0.7;default;1;4357;808;0;0;55;CHA;310;163;759;717;[JB_A, JB_LS, JB_TR];{jb.tr=[234, 0], jb.a=[233, 1], jb.ls=[67, 0]}
+commons-lang3-3.12.0;default;1;36958;17441;66363;50;233;CHA;35535;5913;54560;54279;[JB_A, JB_LS, JB_TR];{jb.tr=[4687, 0], jb.a=[2734, -119], jb.ls=[1511, 2]}
+jackson-core-2.14.2;default;1;36072;13361;101183;50;267;CHA;15436;3324;59675;51812;[JB_A, JB_LS, JB_TR];{jb.tr=[3865, 1], jb.a=[2931, -296], jb.ls=[1385, 2]}
+jsoup-1.18.1;default;1;39077;7974;513552;50;348;CHA;15339;3061;31162;29472;[JB_A, JB_LS, JB_TR];{jb.tr=[1899, 0], jb.a=[1441, -26], jb.ls=[576, 2]}
+commons-lang3-3.12.0;default;1;37442;14887;66363;50;331;CHA;35535;5913;54560;54279;[JB_A, JB_LS, JB_TR];{jb.tr=[3706, -119], jb.a=[3082, 6], jb.ls=[879, 1]}
+commons-io-2.11.0;default;1;15281;3745;72813;50;250;CHA;16132;3212;25260;25202;[JB_A, JB_LS, JB_TR];{jb.tr=[1135, -52], jb.a=[827, 5], jb.ls=[468, 0]}
+junit-jupiter-engine-5.9.2;default;1;16343;2976;83656;23;236;CHA;14782;2473;9527;14445;[JB_A, JB_LS, JB_TR];{jb.tr=[1399, -56], jb.a=[763, -34], jb.ls=[431, 0]}
+javapoet-1.13.0;default;1;14779;2153;488501;50;508;CHA;5401;1140;9242;8493;[JB_A, JB_LS, JB_TR];{jb.tr=[652, -35], jb.a=[628, 6], jb.ls=[350, 1]}
+junit-jupiter-engine-5.9.2;default;1;14946;2922;83656;23;209;CHA;14782;2473;9527;14445;[JB_A, JB_LS, JB_TR];{jb.tr=[924, 0], jb.a=[550, -36], jb.ls=[203, 0]}
+gson-2.10.1;default;1;45553;5064;803830;50;379;CHA;11122;2065;17249;16541;[JB_A, JB_LS, JB_TR];{jb.tr=[1620, 3], jb.a=[1461, 3], jb.ls=[1233, 1]}
+jsoup-1.18.1;default;1;43937;10039;513552;50;432;CHA;15339;3061;31162;29472;[JB_A, JB_LS, JB_TR];{jb.tr=[2940, -32], jb.a=[1955, -44], jb.ls=[798, 1]}
+commons-codec-1.15;default;1;16787;3393;231518;50;658;CHA;5780;1393;23911;22000;[JB_A, JB_LS, JB_TR];{jb.tr=[1251, 3], jb.a=[756, -19], jb.ls=[425, 5]}
+gson-2.10.1;default;1;46238;5375;803830;50;802;CHA;11122;2065;17249;16541;[JB_A, JB_LS, JB_TR];{jb.tr=[2394, -31], jb.a=[1494, -53], jb.ls=[670, 1]}
+commons-io-2.11.0;default;1;16028;5284;72813;50;233;CHA;16132;3212;25260;25202;[JB_A, JB_LS, JB_TR];{jb.tr=[1330, 1], jb.a=[1116, 3], jb.ls=[525, 0]}
+joda-time-2.12.5;default;1;49038;11956;552491;50;475;CHA;39124;4780;47020;45549;[JB_A, JB_LS, JB_TR];{jb.tr=[3256, 1], jb.a=[2038, -24], jb.ls=[1020, -217]}
+javapoet-1.13.0;default;1;15353;1736;488501;50;474;CHA;5401;1140;9242;8493;[JB_A, JB_LS, JB_TR];{jb.tr=[501, 2], jb.a=[630, -33], jb.ls=[297, 1]}
+jackson-core-2.14.2;default;1;17309;4848;101183;50;443;CHA;15436;3324;59675;51812;[JB_A, JB_LS, JB_TR];{jb.tr=[1493, 1], jb.a=[1000, -140], jb.ls=[550, 2]}
+commons-codec-1.15;default;1;17409;2957;231518;50;625;CHA;5780;1393;23911;22000;[JB_A, JB_LS, JB_TR];{jb.tr=[1155, 1], jb.a=[911, 14], jb.ls=[257, -30]}
+joda-time-2.12.5;default;1;49930;12599;552491;50;552;CHA;39124;4780;47020;45549;[JB_A, JB_LS, JB_TR];{jb.tr=[3854, 0], jb.a=[2235, -43], jb.ls=[1213, 0]}
+commons-lang3-3.12.0;default;1;16793;5945;66363;50;289;CHA;35535;5913;54560;54279;[JB_A, JB_LS, JB_TR];{jb.tr=[1266, -118], jb.a=[1162, 6], jb.ls=[598, 1]}
+jackson-core-2.14.2;default;1;16388;5341;101183;50;394;CHA;15436;3324;59675;51812;[JB_A, JB_LS, JB_TR];{jb.tr=[1519, -31], jb.a=[1278, -197], jb.ls=[389, -46]}
+commons-lang3-3.12.0;default;1;16188;4610;66363;50;282;CHA;35535;5913;54560;54279;[JB_A, JB_LS, JB_TR];{jb.tr=[1346, -162], jb.a=[979, 8], jb.ls=[528, 1]}
+jsoup-1.18.1;default;1;18080;3713;513552;50;389;CHA;15339;3061;31162;29472;[JB_A, JB_LS, JB_TR];{jb.tr=[1084, 1], jb.a=[875, -24], jb.ls=[221, -51]}
+gson-2.10.1;default;1;14468;1468;803830;50;502;CHA;11122;2065;17249;16541;[JB_A, JB_LS, JB_TR];{jb.tr=[612, -53], jb.a=[383, 3], jb.ls=[286, -33]}
+jsoup-1.18.1;default;1;14036;2235;513552;50;557;CHA;15339;3061;31162;29472;[JB_A, JB_LS, JB_TR];{jb.tr=[770, -31], jb.a=[651, -43], jb.ls=[248, 1]}
+gson-2.10.1;default;1;12627;1739;803830;50;489;CHA;11122;2065;17249;16541;[JB_A, JB_LS, JB_TR];{jb.tr=[525, 3], jb.a=[532, -41], jb.ls=[262, 0]}
+joda-time-2.12.5;default;1;13887;2679;552491;50;396;CHA;39124;4780;47020;45549;[JB_A, JB_LS, JB_TR];{jb.tr=[900, 0], jb.a=[487, -39], jb.ls=[396, -157]}
+joda-time-2.12.5;default;1;11971;2743;552491;50;663;CHA;39124;4780;47020;45549;[JB_A, JB_LS, JB_TR];{jb.tr=[737, 0], jb.a=[437, -267], jb.ls=[332, 0]}
+testng-7.7.1;default;1;53657;10764;2510979;50;443;CHA;72171;6789;62786;61567;[JB_A, JB_LS, JB_TR];{jb.tr=[2819, 14], jb.a=[2105, -33], jb.ls=[894, 1]}
+testng-7.7.1;default;1;50048;11438;2510979;50;439;CHA;72171;6789;62786;61567;[JB_A, JB_LS, JB_TR];{jb.tr=[3192, -99], jb.a=[1670, 32], jb.ls=[708, 1]}
+testng-7.7.1;default;1;26726;1712;2510979;50;665;CHA;72171;6789;62786;61567;[JB_A, JB_LS, JB_TR];{jb.tr=[413, 9], jb.a=[345, -52], jb.ls=[118, 1]}
+testng-7.7.1;default;1;26790;2013;2510979;50;618;CHA;72171;6789;62786;61567;[JB_A, JB_LS, JB_TR];{jb.tr=[486, 7], jb.a=[399, -81], jb.ls=[169, 1]}
+mockito-all-1.10.19;default;1;101626;7628;15199560;50;593;CHA;34964;5083;59891;57276;[JB_A, JB_LS, JB_TR];{jb.tr=[2328, -281], jb.a=[1851, 28], jb.ls=[788, -29]}
+mockito-all-1.10.19;default;1;100206;10081;15199560;50;586;CHA;34964;5083;59891;57276;[JB_A, JB_LS, JB_TR];{jb.tr=[2338, 9], jb.a=[2402, -83], jb.ls=[1054, 6]}
+mockito-all-1.10.19;default;1;58653;1067;15199560;50;743;CHA;34964;5083;59891;57276;[JB_A, JB_LS, JB_TR];{jb.tr=[273, 6], jb.a=[236, -52], jb.ls=[123, -131]}
+mockito-all-1.10.19;default;1;58238;1127;15199560;50;787;CHA;34964;5083;59891;57276;[JB_A, JB_LS, JB_TR];{jb.tr=[284, 8], jb.a=[282, 24], jb.ls=[113, 8]}
+jcl-over-slf4j-2.0.7;default;1;5959;2851;40;1;54;RTA;803;347;3259;1137;[JB_A, JB_LS, JB_TR];{jb.tr=[492, 0], jb.a=[598, 1], jb.ls=[228, 0]}
+maven-plugin-api-3.9.9;default;1;10909;3913;23724;16;113;RTA;1335;564;5227;2890;[JB_A, JB_LS, JB_TR];{jb.tr=[694, -37], jb.a=[302, 1], jb.ls=[254, 0]}
+jcl-over-slf4j-2.0.7;default;1;8456;3580;40;1;54;RTA;803;347;3259;1137;[JB_A, JB_LS, JB_TR];{jb.tr=[852, 0], jb.a=[476, 1], jb.ls=[442, 0]}
+jackson-annotations-2.14.2;default;1;11976;4332;7657;50;95;RTA;1496;529;6066;3602;[JB_A, JB_LS, JB_TR];{jb.tr=[492, 0], jb.a=[525, 1], jb.ls=[102, 0]}
+maven-plugin-api-3.9.9;default;1;13305;3412;23724;16;118;RTA;1335;564;5227;2890;[JB_A, JB_LS, JB_TR];{jb.tr=[823, 0], jb.a=[851, -36], jb.ls=[528, 0]}
+junit-jupiter-api-5.9.2;default;1;17886;12520;128;10;210;RTA;5451;1731;11615;9287;[JB_A, JB_LS, JB_TR];{jb.tr=[1723, 0], jb.a=[929, -37], jb.ls=[924, -63]}
+jackson-annotations-2.14.2;default;1;14562;4115;7657;50;101;RTA;1496;529;6066;3602;[JB_A, JB_LS, JB_TR];{jb.tr=[892, 0], jb.a=[1299, 1], jb.ls=[365, 0]}
+jcl-over-slf4j-2.0.7;default;1;12875;4223;40;1;54;RTA;803;347;3259;1137;[JB_A, JB_LS, JB_TR];{jb.tr=[969, 0], jb.a=[772, 1], jb.ls=[577, 0]}
+commons-logging-1.2;default;1;21307;6679;76381;14;658;RTA;2655;663;7688;4500;[JB_A, JB_LS, JB_TR];{jb.tr=[1400, -36], jb.a=[1151, 3], jb.ls=[254, 1]}
+jakarta.servlet-api-6.0.0;default;1;21938;4268;66222;13;639;RTA;1324;652;5301;2776;[JB_A, JB_LS, JB_TR];{jb.tr=[619, 0], jb.a=[325, 1], jb.ls=[378, -37]}
+junit-jupiter-api-5.9.2;default;1;20929;12509;128;10;209;RTA;5451;1731;11615;9287;[JB_A, JB_LS, JB_TR];{jb.tr=[2057, 0], jb.a=[1271, -62], jb.ls=[890, 0]}
+jcl-over-slf4j-2.0.7;default;1;12293;4673;40;1;54;RTA;803;347;3259;1137;[JB_A, JB_LS, JB_TR];{jb.tr=[938, 0], jb.a=[714, 0], jb.ls=[420, 0]}
+maven-plugin-api-3.9.9;default;1;12818;3264;23724;16;117;RTA;1335;564;5227;2890;[JB_A, JB_LS, JB_TR];{jb.tr=[782, 0], jb.a=[741, 1], jb.ls=[495, -37]}
+jackson-annotations-2.14.2;default;1;13598;3611;7657;50;101;RTA;1496;529;6066;3602;[JB_A, JB_LS, JB_TR];{jb.tr=[924, 0], jb.a=[808, 1], jb.ls=[249, -38]}
+commons-logging-1.2;default;1;24061;5014;76381;14;640;RTA;2655;663;7688;4500;[JB_A, JB_LS, JB_TR];{jb.tr=[1073, -36], jb.a=[1438, 6], jb.ls=[499, 1]}
+jakarta.servlet-api-6.0.0;default;1;24488;4185;66222;13;539;RTA;1324;652;5301;2776;[JB_A, JB_LS, JB_TR];{jb.tr=[922, 0], jb.a=[1065, -37], jb.ls=[556, 0]}
+maven-plugin-api-3.9.9;default;1;13379;2668;23724;16;120;RTA;1335;564;5227;2890;[JB_A, JB_LS, JB_TR];{jb.tr=[763, 0], jb.a=[820, 2], jb.ls=[288, 0]}
+slf4j-api-2.0.7;default;1;10516;3662;74;7;52;RTA;2211;862;7002;4435;[JB_A, JB_LS, JB_TR];{jb.tr=[828, 0], jb.a=[556, -36], jb.ls=[358, 0]}
+slf4j-reload4j-2.0.7;default;1;6294;1552;0;0;52;RTA;151;106;622;346;[JB_A, JB_LS, JB_TR];{jb.tr=[277, 0], jb.a=[230, 1], jb.ls=[24, 0]}
+junit-jupiter-api-5.9.2;default;1;13645;7387;128;10;213;RTA;5451;1731;11615;9287;[JB_A, JB_LS, JB_TR];{jb.tr=[1207, -37], jb.a=[724, 1], jb.ls=[486, 0]}
+jackson-annotations-2.14.2;default;1;14569;3943;7657;50;102;RTA;1496;529;6066;3602;[JB_A, JB_LS, JB_TR];{jb.tr=[593, 0], jb.a=[834, 1], jb.ls=[299, 0]}
+slf4j-simple-2.0.7;default;1;7678;2657;0;0;50;RTA;821;320;3161;717;[JB_A, JB_LS, JB_TR];{jb.tr=[616, 0], jb.a=[404, 0], jb.ls=[138, 0]}
+slf4j-api-2.0.7;default;1;10147;3305;74;7;48;RTA;2211;862;7002;4435;[JB_A, JB_LS, JB_TR];{jb.tr=[716, 0], jb.a=[760, -37], jb.ls=[421, 0]}
+slf4j-reload4j-2.0.7;default;1;6250;1951;0;0;53;RTA;151;106;622;346;[JB_A, JB_LS, JB_TR];{jb.tr=[326, 1], jb.a=[380, 1], jb.ls=[111, 0]}
+slf4j-reload4j-2.0.7;default;1;5580;1478;0;0;53;RTA;151;106;622;346;[JB_A, JB_LS, JB_TR];{jb.tr=[289, 1], jb.a=[214, 1], jb.ls=[41, 0]}
+slf4j-api-2.0.7;default;1;8463;3549;74;7;46;RTA;2211;862;7002;4435;[JB_A, JB_LS, JB_TR];{jb.tr=[669, 0], jb.a=[474, 1], jb.ls=[338, 0]}
+commons-logging-1.2;default;1;18936;4948;76381;14;653;RTA;2655;663;7688;4500;[JB_A, JB_LS, JB_TR];{jb.tr=[1361, -36], jb.a=[809, 4], jb.ls=[515, 1]}
+junit-jupiter-api-5.9.2;default;1;15849;8820;128;10;214;RTA;5451;1731;11615;9287;[JB_A, JB_LS, JB_TR];{jb.tr=[1343, 0], jb.a=[907, -37], jb.ls=[533, 0]}
+commons-codec-1.15;default;1;42417;12434;355942;50;182;RTA;5790;1456;27688;22000;[JB_A, JB_LS, JB_TR];{jb.tr=[2220, 2], jb.a=[1791, 16], jb.ls=[635, 5]}
+jakarta.servlet-api-6.0.0;default;1;19083;3755;66222;13;532;RTA;1324;652;5301;2776;[JB_A, JB_LS, JB_TR];{jb.tr=[940, 0], jb.a=[725, -36], jb.ls=[325, 0]}
+slf4j-simple-2.0.7;default;1;5780;2003;0;0;50;RTA;821;320;3161;717;[JB_A, JB_LS, JB_TR];{jb.tr=[484, 0], jb.a=[368, 1], jb.ls=[102, 0]}
+slf4j-simple-2.0.7;default;1;7784;3996;0;0;50;RTA;821;320;3161;717;[JB_A, JB_LS, JB_TR];{jb.tr=[918, 0], jb.a=[682, 1], jb.ls=[358, 0]}
+jackson-core-2.14.2;default;1;43653;19975;190714;50;441;RTA;13790;3150;63053;51812;[JB_A, JB_LS, JB_TR];{jb.tr=[4035, -51], jb.a=[2252, -221], jb.ls=[1131, 2]}
+slf4j-reload4j-2.0.7;default;1;5186;1400;0;0;53;RTA;151;106;622;346;[JB_A, JB_LS, JB_TR];{jb.tr=[270, 0], jb.a=[246, 1], jb.ls=[67, 0]}
+slf4j-api-2.0.7;default;1;8681;2974;74;7;111;RTA;2211;862;7002;4435;[JB_A, JB_LS, JB_TR];{jb.tr=[626, 0], jb.a=[436, -38], jb.ls=[289, 0]}
+commons-logging-1.2;default;1;18386;4548;76381;14;660;RTA;2655;663;7688;4500;[JB_A, JB_LS, JB_TR];{jb.tr=[1093, -37], jb.a=[808, 4], jb.ls=[463, 1]}
+jakarta.servlet-api-6.0.0;default;1;18857;3797;66222;13;569;RTA;1324;652;5301;2776;[JB_A, JB_LS, JB_TR];{jb.tr=[1032, 0], jb.a=[839, -37], jb.ls=[299, 0]}
+slf4j-simple-2.0.7;default;1;5965;2681;0;0;51;RTA;821;320;3161;717;[JB_A, JB_LS, JB_TR];{jb.tr=[352, 0], jb.a=[414, 1], jb.ls=[164, 0]}
+commons-codec-1.15;default;1;47552;11367;355942;50;520;RTA;5790;1456;27688;22000;[JB_A, JB_LS, JB_TR];{jb.tr=[2299, 2], jb.a=[1233, 18], jb.ls=[537, -48]}
+jackson-core-2.14.2;default;1;47659;21903;190714;50;705;RTA;13790;3150;63053;51812;[JB_A, JB_LS, JB_TR];{jb.tr=[3640, -210], jb.a=[2658, -77], jb.ls=[1349, 2]}
+commons-io-2.11.0;default;1;57315;18455;594992;50;542;RTA;12561;3006;29578;25202;[JB_A, JB_LS, JB_TR];{jb.tr=[3216, 0], jb.a=[1836, 4], jb.ls=[470, 1]}
+commons-lang3-3.12.0;default;1;60309;32562;487231;50;496;RTA;26946;5564;60512;54279;[JB_A, JB_LS, JB_TR];{jb.tr=[5166, 0], jb.a=[2620, 7], jb.ls=[1308, 1]}
+commons-io-2.11.0;default;1;57679;17668;594992;50;648;RTA;12561;3006;29578;25202;[JB_A, JB_LS, JB_TR];{jb.tr=[2486, 0], jb.a=[2013, -46], jb.ls=[866, 1]}
+commons-codec-1.15;default;1;18128;4223;355942;50;494;RTA;5790;1456;27688;22000;[JB_A, JB_LS, JB_TR];{jb.tr=[1013, -52], jb.a=[546, 15], jb.ls=[241, 5]}
+jackson-core-2.14.2;default;1;19933;6952;190714;50;349;RTA;13790;3150;63053;51812;[JB_A, JB_LS, JB_TR];{jb.tr=[1559, 0], jb.a=[968, -313], jb.ls=[477, 2]}
+commons-lang3-3.12.0;default;1;62912;33696;487231;50;529;RTA;26946;5564;60512;54279;[JB_A, JB_LS, JB_TR];{jb.tr=[4037, 0], jb.a=[3481, 6], jb.ls=[1528, -356]}
+commons-codec-1.15;default;1;16409;3167;355942;50;612;RTA;5790;1456;27688;22000;[JB_A, JB_LS, JB_TR];{jb.tr=[892, 2], jb.a=[516, -33], jb.ls=[231, 5]}
+jackson-core-2.14.2;default;1;18867;6063;190714;50;652;RTA;13790;3150;63053;51812;[JB_A, JB_LS, JB_TR];{jb.tr=[1415, -52], jb.a=[962, -20], jb.ls=[354, 2]}
+javapoet-1.13.0;default;1;74132;8997;1873026;50;478;RTA;4099;1007;12396;8493;[JB_A, JB_LS, JB_TR];{jb.tr=[1162, 2], jb.a=[1108, -33], jb.ls=[420, 1]}
+joda-time-2.12.5;default;1;75848;25746;1312782;50;544;RTA;37646;4759;51129;45549;[JB_A, JB_LS, JB_TR];{jb.tr=[4272, 1], jb.a=[1950, -76], jb.ls=[1489, 0]}
+javapoet-1.13.0;default;1;73149;10051;1873026;50;336;RTA;4099;1007;12396;8493;[JB_A, JB_LS, JB_TR];{jb.tr=[1983, 2], jb.a=[1155, 5], jb.ls=[720, -97]}
+jsoup-1.18.1;default;1;77596;19956;1676062;50;466;RTA;14783;2847;34956;29472;[JB_A, JB_LS, JB_TR];{jb.tr=[2232, -31], jb.a=[1957, 8], jb.ls=[1517, 1]}
+joda-time-2.12.5;default;1;77975;26048;1312782;50;535;RTA;37646;4759;51129;45549;[JB_A, JB_LS, JB_TR];{jb.tr=[4176, 1], jb.a=[2857, 3], jb.ls=[1388, -31]}
+commons-io-2.11.0;default;1;24450;4957;594992;50;196;RTA;12561;3006;29578;25202;[JB_A, JB_LS, JB_TR];{jb.tr=[841, 1], jb.a=[656, -30], jb.ls=[233, 0]}
+jsoup-1.18.1;default;1;80553;21786;1676062;50;640;RTA;14783;2847;34956;29472;[JB_A, JB_LS, JB_TR];{jb.tr=[3466, 0], jb.a=[2512, 8], jb.ls=[1141, 2]}
+commons-io-2.11.0;default;1;24312;5055;594992;50;296;RTA;12561;3006;29578;25202;[JB_A, JB_LS, JB_TR];{jb.tr=[781, 0], jb.a=[735, -77], jb.ls=[280, 1]}
+commons-lang3-3.12.0;default;1;28209;9063;487231;50;463;RTA;26946;5564;60512;54279;[JB_A, JB_LS, JB_TR];{jb.tr=[1234, 0], jb.a=[829, 7], jb.ls=[497, 1]}
+commons-lang3-3.12.0;default;1;25789;7323;487231;50;202;RTA;26946;5564;60512;54279;[JB_A, JB_LS, JB_TR];{jb.tr=[959, 1], jb.a=[767, -123], jb.ls=[457, -40]}
+gson-2.10.1;default;1;95830;15285;2961260;50;407;RTA;10761;1953;21705;16541;[JB_A, JB_LS, JB_TR];{jb.tr=[2235, 3], jb.a=[1600, -52], jb.ls=[703, 1]}
+gson-2.10.1;default;1;100371;15811;2961260;50;316;RTA;10761;1953;21705;16541;[JB_A, JB_LS, JB_TR];{jb.tr=[1934, 3], jb.a=[1056, -52], jb.ls=[989, 1]}
+javapoet-1.13.0;default;1;29363;2587;1873026;50;331;RTA;4099;1007;12396;8493;[JB_A, JB_LS, JB_TR];{jb.tr=[466, -61], jb.a=[322, -32], jb.ls=[212, 1]}
+javapoet-1.13.0;default;1;29330;3014;1873026;50;545;RTA;4099;1007;12396;8493;[JB_A, JB_LS, JB_TR];{jb.tr=[580, 2], jb.a=[375, 5], jb.ls=[292, -99]}
+joda-time-2.12.5;default;1;32251;6973;1312782;50;482;RTA;37646;4759;51129;45549;[JB_A, JB_LS, JB_TR];{jb.tr=[1246, -49], jb.a=[657, 6], jb.ls=[548, -30]}
+jsoup-1.18.1;default;1;32166;5012;1676062;50;640;RTA;14783;2847;34956;29472;[JB_A, JB_LS, JB_TR];{jb.tr=[846, 0], jb.a=[596, 6], jb.ls=[438, -80]}
+joda-time-2.12.5;default;1;28948;5723;1312782;50;370;RTA;37646;4759;51129;45549;[JB_A, JB_LS, JB_TR];{jb.tr=[804, -30], jb.a=[546, 6], jb.ls=[344, 0]}
+jsoup-1.18.1;default;1;27821;4084;1676062;50;400;RTA;14783;2847;34956;29472;[JB_A, JB_LS, JB_TR];{jb.tr=[723, -31], jb.a=[448, 6], jb.ls=[269, 0]}
+gson-2.10.1;default;1;34176;2453;2961260;50;802;RTA;10761;1953;21705;16541;[JB_A, JB_LS, JB_TR];{jb.tr=[375, 2], jb.a=[356, -44], jb.ls=[153, 1]}
+gson-2.10.1;default;1;33688;2484;2961260;50;298;RTA;10761;1953;21705;16541;[JB_A, JB_LS, JB_TR];{jb.tr=[624, -31], jb.a=[346, 2], jb.ls=[97, 1]}
+testng-7.7.1;default;1;117328;20770;6053254;50;360;RTA;58192;6329;68110;61567;[JB_A, JB_LS, JB_TR];{jb.tr=[2366, -100], jb.a=[1714, -47], jb.ls=[716, 1]}
+testng-7.7.1;default;1;111718;19143;6053254;50;609;RTA;58192;6329;68110;61567;[JB_A, JB_LS, JB_TR];{jb.tr=[1732, 10], jb.a=[1268, -235], jb.ls=[495, 2]}
+mockito-all-1.10.19;default;1;145020;27507;15426013;50;474;RTA;29216;4680;64530;57276;[JB_A, JB_LS, JB_TR];{jb.tr=[3918, 7], jb.a=[2913, -74], jb.ls=[1724, 6]}
+mockito-all-1.10.19;default;1;142764;26254;15426013;50;737;RTA;29216;4680;64530;57276;[JB_A, JB_LS, JB_TR];{jb.tr=[3259, -58], jb.a=[3356, 26], jb.ls=[1410, 7]}
+testng-7.7.1;default;1;74194;7037;6053254;50;313;RTA;58192;6329;68110;61567;[JB_A, JB_LS, JB_TR];{jb.tr=[435, -108], jb.a=[328, 26], jb.ls=[143, -82]}
+testng-7.7.1;default;1;75091;6810;6053254;50;312;RTA;58192;6329;68110;61567;[JB_A, JB_LS, JB_TR];{jb.tr=[436, 7], jb.a=[269, -78], jb.ls=[130, 2]}
+mockito-all-1.10.19;default;1;80069;4316;15426013;50;694;RTA;29216;4680;64530;57276;[JB_A, JB_LS, JB_TR];{jb.tr=[343, 8], jb.a=[277, -53], jb.ls=[131, 7]}
+mockito-all-1.10.19;default;1;80202;4596;15426013;50;718;RTA;29216;4680;64530;57276;[JB_A, JB_LS, JB_TR];{jb.tr=[424, 7], jb.a=[393, -255], jb.ls=[155, 7]}
+jackson-core-2.14.2;default;1;3415;856;190540;50;382;CHA;15436;3324;59675;61895;[JB_LS, JB_TR];{jb.tr=[337, -68], jb.ls=[144, 3]}
+jsr305-3.0.2;default;1;1720;223;0;0;40;CHA;0;0;0;0;[JB_LS, JB_TR];{}
+jcl-over-slf4j-2.0.7;default;1;3527;550;67;1;60;CHA;448;214;1133;1179;[JB_LS, JB_TR];{jb.tr=[250, 0], jb.ls=[199, 1]}
+jakarta.servlet-api-6.0.0;default;1;4127;602;2998;18;59;CHA;1066;524;2840;2923;[JB_LS, JB_TR];{jb.tr=[297, 0], jb.ls=[318, 1]}
+commons-logging-1.2;default;1;4934;1054;4575;14;93;CHA;3470;900;4789;4851;[JB_LS, JB_TR];{jb.tr=[664, 3], jb.ls=[470, 2]}
+jsr305-3.0.2;default;1;2422;242;0;0;39;CHA;0;0;0;0;[JB_LS, JB_TR];{}
+maven-plugin-api-3.9.9;default;1;5130;480;33421;21;82;CHA;839;434;3025;3181;[JB_LS, JB_TR];{jb.tr=[402, 1], jb.ls=[301, 1]}
+jackson-annotations-2.14.2;default;1;5383;779;9170;50;47;CHA;1865;616;3768;3869;[JB_LS, JB_TR];{jb.tr=[318, 0], jb.ls=[329, 1]}
+junit-jupiter-api-5.9.2;default;1;6327;2228;171;12;53;CHA;4954;1636;8096;9536;[JB_LS, JB_TR];{jb.tr=[533, -37], jb.ls=[629, 1]}
+jcl-over-slf4j-2.0.7;default;1;5350;923;67;1;59;CHA;448;214;1133;1179;[JB_LS, JB_TR];{jb.tr=[393, 0], jb.ls=[326, 1]}
+jsr305-3.0.2;default;1;3517;227;0;0;40;CHA;0;0;0;0;[JB_LS, JB_TR];{}
+jakarta.servlet-api-6.0.0;default;1;5213;636;2998;18;59;CHA;1066;524;2840;2923;[JB_LS, JB_TR];{jb.tr=[360, 0], jb.ls=[246, 1]}
+maven-plugin-api-3.9.9;default;1;5388;481;33421;21;86;CHA;839;434;3025;3181;[JB_LS, JB_TR];{jb.tr=[321, 1], jb.ls=[137, 1]}
+commons-logging-1.2;default;1;5561;1011;4575;14;93;CHA;3470;900;4789;4851;[JB_LS, JB_TR];{jb.tr=[563, 4], jb.ls=[352, 2]}
+jackson-annotations-2.14.2;default;1;6217;807;9170;50;47;CHA;1865;616;3768;3869;[JB_LS, JB_TR];{jb.tr=[258, 0], jb.ls=[294, 1]}
+junit-jupiter-engine-5.9.2;default;1;12541;3058;93025;25;189;CHA;14782;2473;9527;14796;[JB_LS, JB_TR];{jb.tr=[1248, -97], jb.ls=[689, 1]}
+jcl-over-slf4j-2.0.7;default;1;2561;370;67;1;59;CHA;448;214;1133;1179;[JB_LS, JB_TR];{jb.tr=[76, 0], jb.ls=[158, 1]}
+commons-io-2.11.0;default;1;12748;4260;50814;50;207;CHA;16132;3212;25260;27053;[JB_LS, JB_TR];{jb.tr=[1758, -86], jb.ls=[714, 2]}
+junit-jupiter-api-5.9.2;default;1;5419;1528;171;12;59;CHA;4954;1636;8096;9536;[JB_LS, JB_TR];{jb.tr=[552, 0], jb.ls=[327, 1]}
+javapoet-1.13.0;default;1;14346;2434;587573;50;383;CHA;5401;1140;9242;9549;[JB_LS, JB_TR];{jb.tr=[1045, -25], jb.ls=[560, 3]}
+jakarta.servlet-api-6.0.0;default;1;3392;355;2998;18;59;CHA;1066;524;2840;2923;[JB_LS, JB_TR];{jb.tr=[154, 0], jb.ls=[118, 1]}
+commons-logging-1.2;default;1;3741;618;4575;14;94;CHA;3470;900;4789;4851;[JB_LS, JB_TR];{jb.tr=[288, 5], jb.ls=[203, 2]}
+commons-codec-1.15;default;1;15974;2383;419830;50;639;CHA;5780;1393;23911;24712;[JB_LS, JB_TR];{jb.tr=[923, -84], jb.ls=[535, 8]}
+maven-plugin-api-3.9.9;default;1;4138;552;33421;21;90;CHA;839;434;3025;3181;[JB_LS, JB_TR];{jb.tr=[250, 0], jb.ls=[134, 1]}
+slf4j-api-2.0.7;default;1;3454;673;240;10;55;CHA;2018;904;4446;4568;[JB_LS, JB_TR];{jb.tr=[197, 0], jb.ls=[260, 1]}
+slf4j-reload4j-2.0.7;default;1;2285;403;0;0;45;CHA;100;91;381;368;[JB_LS, JB_TR];{jb.tr=[164, 0], jb.ls=[134, 1]}
+jackson-annotations-2.14.2;default;1;4756;717;9170;50;54;CHA;1865;616;3768;3869;[JB_LS, JB_TR];{jb.tr=[254, 0], jb.ls=[239, 1]}
+junit-jupiter-api-5.9.2;default;1;4745;1474;171;12;54;CHA;4954;1636;8096;9536;[JB_LS, JB_TR];{jb.tr=[477, 0], jb.ls=[330, -35]}
+commons-lang3-3.12.0;default;1;18668;6201;114101;50;443;CHA;35535;5913;54560;59128;[JB_LS, JB_TR];{jb.tr=[2164, -29], jb.ls=[778, -118]}
+jackson-core-2.14.2;default;1;18815;5350;190540;50;579;CHA;15436;3324;59675;61895;[JB_LS, JB_TR];{jb.tr=[2039, 7], jb.ls=[823, -48]}
+slf4j-simple-2.0.7;default;1;3098;695;0;0;54;CHA;310;163;759;797;[JB_LS, JB_TR];{jb.tr=[97, 0], jb.ls=[233, 1]}
+slf4j-reload4j-2.0.7;default;1;2037;244;0;0;45;CHA;100;91;381;368;[JB_LS, JB_TR];{jb.tr=[61, 0], jb.ls=[126, 1]}
+slf4j-api-2.0.7;default;1;3742;687;240;10;55;CHA;2018;904;4446;4568;[JB_LS, JB_TR];{jb.tr=[279, 0], jb.ls=[232, 1]}
+junit-jupiter-engine-5.9.2;default;1;8748;1947;93025;25;66;CHA;14782;2473;9527;14796;[JB_LS, JB_TR];{jb.tr=[615, -35], jb.ls=[385, 1]}
+slf4j-reload4j-2.0.7;default;1;1898;292;0;0;46;CHA;100;91;381;368;[JB_LS, JB_TR];{jb.tr=[38, 0], jb.ls=[105, 1]}
+slf4j-simple-2.0.7;default;1;2386;564;0;0;54;CHA;310;163;759;797;[JB_LS, JB_TR];{jb.tr=[107, 0], jb.ls=[102, 1]}
+commons-io-2.11.0;default;1;9579;2657;50814;50;111;CHA;16132;3212;25260;27053;[JB_LS, JB_TR];{jb.tr=[1097, -83], jb.ls=[458, 2]}
+slf4j-api-2.0.7;default;1;3384;548;240;10;57;CHA;2018;904;4446;4568;[JB_LS, JB_TR];{jb.tr=[207, 0], jb.ls=[187, 1]}
+slf4j-simple-2.0.7;default;1;2575;585;0;0;54;CHA;310;163;759;797;[JB_LS, JB_TR];{jb.tr=[111, 0], jb.ls=[174, 1]}
+javapoet-1.13.0;default;1;10649;1716;587573;50;380;CHA;5401;1140;9242;9549;[JB_LS, JB_TR];{jb.tr=[612, -24], jb.ls=[266, 2]}
+gson-2.10.1;default;1;28738;2598;1476470;50;685;CHA;11122;2065;17249;18044;[JB_LS, JB_TR];{jb.tr=[913, 5], jb.ls=[533, -32]}
+joda-time-2.12.5;default;1;29253;5804;727575;50;343;CHA;39124;4780;47020;49452;[JB_LS, JB_TR];{jb.tr=[2221, -45], jb.ls=[833, 1]}
+commons-codec-1.15;default;1;12818;1982;419830;50;596;CHA;5780;1393;23911;24712;[JB_LS, JB_TR];{jb.tr=[902, -47], jb.ls=[517, 7]}
+junit-jupiter-engine-5.9.2;default;1;6844;1182;93025;25;247;CHA;14782;2473;9527;14796;[JB_LS, JB_TR];{jb.tr=[621, -36], jb.ls=[297, 1]}
+commons-io-2.11.0;default;1;6880;1659;50814;50;260;CHA;16132;3212;25260;27053;[JB_LS, JB_TR];{jb.tr=[598, 1], jb.ls=[489, 2]}
+commons-lang3-3.12.0;default;1;11066;3428;114101;50;437;CHA;35535;5913;54560;59128;[JB_LS, JB_TR];{jb.tr=[1182, -27], jb.ls=[436, 2]}
+jsoup-1.18.1;default;1;30968;3924;1302931;50;421;CHA;15339;3061;31162;32501;[JB_LS, JB_TR];{jb.tr=[1293, 10], jb.ls=[691, -48]}
+jackson-core-2.14.2;default;1;11663;3459;190540;50;362;CHA;15436;3324;59675;61895;[JB_LS, JB_TR];{jb.tr=[1145, 6], jb.ls=[628, -237]}
+javapoet-1.13.0;default;1;6484;924;587573;50;341;CHA;5401;1140;9242;9549;[JB_LS, JB_TR];{jb.tr=[350, 13], jb.ls=[329, -34]}
+commons-codec-1.15;default;1;8134;1157;419830;50;622;CHA;5780;1393;23911;24712;[JB_LS, JB_TR];{jb.tr=[431, 9], jb.ls=[222, -44]}
+commons-lang3-3.12.0;default;1;8289;2708;114101;50;413;CHA;35535;5913;54560;59128;[JB_LS, JB_TR];{jb.tr=[935, 8], jb.ls=[531, -137]}
+jackson-core-2.14.2;default;1;8149;2853;190540;50;565;CHA;15436;3324;59675;61895;[JB_LS, JB_TR];{jb.tr=[1091, -42], jb.ls=[387, -134]}
+gson-2.10.1;default;1;12705;809;1476470;50;740;CHA;11122;2065;17249;18044;[JB_LS, JB_TR];{jb.tr=[375, -40], jb.ls=[180, 2]}
+joda-time-2.12.5;default;1;12762;2217;727575;50;335;CHA;39124;4780;47020;49452;[JB_LS, JB_TR];{jb.tr=[790, -41], jb.ls=[408, -137]}
+jsoup-1.18.1;default;1;13822;2096;1302931;50;682;CHA;15339;3061;31162;32501;[JB_LS, JB_TR];{jb.tr=[719, 12], jb.ls=[438, -47]}
+gson-2.10.1;default;1;9121;492;1476470;50;242;CHA;11122;2065;17249;18044;[JB_LS, JB_TR];{jb.tr=[279, -44], jb.ls=[148, 2]}
+joda-time-2.12.5;default;1;9399;1174;727575;50;345;CHA;39124;4780;47020;49452;[JB_LS, JB_TR];{jb.tr=[407, -156], jb.ls=[208, 1]}
+jsoup-1.18.1;default;1;9753;1002;1302931;50;618;CHA;15339;3061;31162;32501;[JB_LS, JB_TR];{jb.tr=[355, -31], jb.ls=[158, 3]}
+testng-7.7.1;default;1;42008;5131;3382649;50;527;CHA;72171;6789;62786;67957;[JB_LS, JB_TR];{jb.tr=[1759, -35], jb.ls=[841, -91]}
+testng-7.7.1;default;1;28204;1396;3382649;50;733;CHA;72171;6789;62786;67957;[JB_LS, JB_TR];{jb.tr=[435, 27], jb.ls=[187, 10]}
+testng-7.7.1;default;1;27870;1346;3382649;50;649;CHA;72171;6789;62786;67957;[JB_LS, JB_TR];{jb.tr=[425, -71], jb.ls=[180, 11]}
+mockito-all-1.10.19;default;1;214969;4196;23096112;50;454;CHA;34964;5083;59891;62499;[JB_LS, JB_TR];{jb.tr=[1506, 22], jb.ls=[702, 13]}
+mockito-all-1.10.19;default;1;205488;987;23096112;50;613;CHA;34964;5083;59891;62499;[JB_LS, JB_TR];{jb.tr=[370, -53], jb.ls=[166, 14]}
+mockito-all-1.10.19;default;1;203025;966;23096112;50;887;CHA;34964;5083;59891;62499;[JB_LS, JB_TR];{jb.tr=[383, 25], jb.ls=[161, 13]}
+jcl-over-slf4j-2.0.7;default;1;3798;1540;67;1;47;RTA;803;347;3259;1179;[JB_LS, JB_TR];{jb.tr=[325, 0], jb.ls=[348, 1]}
+maven-plugin-api-3.9.9;default;1;8526;2484;70949;21;159;RTA;1335;564;5227;3181;[JB_LS, JB_TR];{jb.tr=[406, 1], jb.ls=[419, 1]}
+junit-jupiter-api-5.9.2;default;1;9592;5095;177;12;202;RTA;5451;1731;11615;9536;[JB_LS, JB_TR];{jb.tr=[980, 0], jb.ls=[444, -36]}
+jcl-over-slf4j-2.0.7;default;1;5685;1426;67;1;46;RTA;803;347;3259;1179;[JB_LS, JB_TR];{jb.tr=[351, 0], jb.ls=[240, 1]}
+jackson-annotations-2.14.2;default;1;10619;2107;46109;50;290;RTA;1496;529;6066;3869;[JB_LS, JB_TR];{jb.tr=[546, 0], jb.ls=[473, 1]}
+commons-logging-1.2;default;1;12967;3395;80838;14;163;RTA;2655;663;7688;4851;[JB_LS, JB_TR];{jb.tr=[944, 4], jb.ls=[659, -34]}
+jcl-over-slf4j-2.0.7;default;1;3944;1268;67;1;47;RTA;803;347;3259;1179;[JB_LS, JB_TR];{jb.tr=[389, 0], jb.ls=[242, 1]}
+maven-plugin-api-3.9.9;default;1;6779;1314;70949;21;147;RTA;1335;564;5227;3181;[JB_LS, JB_TR];{jb.tr=[508, 1], jb.ls=[343, -35]}
+jakarta.servlet-api-6.0.0;default;1;17077;2186;236981;18;242;RTA;1324;652;5301;2923;[JB_LS, JB_TR];{jb.tr=[631, 0], jb.ls=[527, 1]}
+junit-jupiter-api-5.9.2;default;1;6719;3122;177;12;203;RTA;5451;1731;11615;9536;[JB_LS, JB_TR];{jb.tr=[502, 0], jb.ls=[413, 1]}
+jackson-annotations-2.14.2;default;1;7863;1791;46109;50;300;RTA;1496;529;6066;3869;[JB_LS, JB_TR];{jb.tr=[395, 0], jb.ls=[330, 1]}
+slf4j-api-2.0.7;default;1;4664;1267;500;10;47;RTA;2211;862;7002;4568;[JB_LS, JB_TR];{jb.tr=[338, 0], jb.ls=[318, -36]}
+commons-logging-1.2;default;1;8583;1728;80838;14;164;RTA;2655;663;7688;4851;[JB_LS, JB_TR];{jb.tr=[529, -32], jb.ls=[320, 2]}
+maven-plugin-api-3.9.9;default;1;5282;1195;70949;21;140;RTA;1335;564;5227;3181;[JB_LS, JB_TR];{jb.tr=[352, 1], jb.ls=[185, 1]}
+commons-codec-1.15;default;1;22869;5584;477841;50;581;RTA;5790;1456;27688;24712;[JB_LS, JB_TR];{jb.tr=[1335, -83], jb.ls=[654, 8]}
+junit-jupiter-api-5.9.2;default;1;5729;2419;177;12;204;RTA;5451;1731;11615;9536;[JB_LS, JB_TR];{jb.tr=[474, 0], jb.ls=[496, 1]}
+slf4j-api-2.0.7;default;1;4191;1377;500;10;50;RTA;2211;862;7002;4568;[JB_LS, JB_TR];{jb.tr=[298, 0], jb.ls=[285, 1]}
+slf4j-reload4j-2.0.7;default;1;2509;737;0;0;52;RTA;151;106;622;368;[JB_LS, JB_TR];{jb.tr=[103, 0], jb.ls=[82, 1]}
+jackson-annotations-2.14.2;default;1;6180;1236;46109;50;292;RTA;1496;529;6066;3869;[JB_LS, JB_TR];{jb.tr=[287, 0], jb.ls=[200, 1]}
+slf4j-simple-2.0.7;default;1;2999;1091;0;0;42;RTA;821;320;3161;797;[JB_LS, JB_TR];{jb.tr=[254, 0], jb.ls=[220, 1]}
+commons-io-2.11.0;default;1;27716;8303;388498;50;633;RTA;12561;3006;29578;27053;[JB_LS, JB_TR];{jb.tr=[2059, -31], jb.ls=[734, 2]}
+jackson-core-2.14.2;default;1;27875;10014;315830;50;761;RTA;13790;3150;63053;61895;[JB_LS, JB_TR];{jb.tr=[3135, 5], jb.ls=[1105, -139]}
+slf4j-reload4j-2.0.7;default;1;2151;450;0;0;51;RTA;151;106;622;368;[JB_LS, JB_TR];{jb.tr=[110, 0], jb.ls=[96, 1]}
+jakarta.servlet-api-6.0.0;default;1;12204;957;236981;18;262;RTA;1324;652;5301;2923;[JB_LS, JB_TR];{jb.tr=[322, 0], jb.ls=[243, 1]}
+slf4j-api-2.0.7;default;1;4329;1564;500;10;104;RTA;2211;862;7002;4568;[JB_LS, JB_TR];{jb.tr=[434, 0], jb.ls=[247, 1]}
+commons-logging-1.2;default;1;7800;1585;80838;14;205;RTA;2655;663;7688;4851;[JB_LS, JB_TR];{jb.tr=[400, 4], jb.ls=[282, 2]}
+slf4j-simple-2.0.7;default;1;3040;1135;0;0;43;RTA;821;320;3161;797;[JB_LS, JB_TR];{jb.tr=[203, 0], jb.ls=[174, 1]}
+slf4j-reload4j-2.0.7;default;1;2447;496;0;0;51;RTA;151;106;622;368;[JB_LS, JB_TR];{jb.tr=[94, 0], jb.ls=[88, 1]}
+slf4j-simple-2.0.7;default;1;3144;1453;0;0;44;RTA;821;320;3161;797;[JB_LS, JB_TR];{jb.tr=[184, 0], jb.ls=[192, 1]}
+commons-codec-1.15;default;1;14480;3168;477841;50;567;RTA;5790;1456;27688;24712;[JB_LS, JB_TR];{jb.tr=[676, -40], jb.ls=[301, -26]}
+jakarta.servlet-api-6.0.0;default;1;7479;1196;236981;18;142;RTA;1324;652;5301;2923;[JB_LS, JB_TR];{jb.tr=[360, 0], jb.ls=[206, 1]}
+commons-lang3-3.12.0;default;1;38486;13853;812708;50;406;RTA;26946;5564;60512;59128;[JB_LS, JB_TR];{jb.tr=[2890, -30], jb.ls=[1228, -118]}
+javapoet-1.13.0;default;1;38550;4560;1691125;50;250;RTA;4099;1007;12396;9549;[JB_LS, JB_TR];{jb.tr=[1062, 12], jb.ls=[428, 4]}
+commons-io-2.11.0;default;1;14256;3652;388498;50;634;RTA;12561;3006;29578;27053;[JB_LS, JB_TR];{jb.tr=[648, 1], jb.ls=[412, -31]}
+jackson-core-2.14.2;default;1;14196;4357;315830;50;555;RTA;13790;3150;63053;61895;[JB_LS, JB_TR];{jb.tr=[1258, 4], jb.ls=[545, -176]}
+commons-codec-1.15;default;1;10581;1874;477841;50;105;RTA;5790;1456;27688;24712;[JB_LS, JB_TR];{jb.tr=[574, 7], jb.ls=[297, -44]}
+joda-time-2.12.5;default;1;50200;11339;1711828;50;264;RTA;37646;4759;51129;49452;[JB_LS, JB_TR];{jb.tr=[2398, -159], jb.ls=[1274, -78]}
+jackson-core-2.14.2;default;1;10924;3402;315830;50;581;RTA;13790;3150;63053;61895;[JB_LS, JB_TR];{jb.tr=[847, 6], jb.ls=[523, -107]}
+commons-io-2.11.0;default;1;11308;2767;388498;50;204;RTA;12561;3006;29578;27053;[JB_LS, JB_TR];{jb.tr=[626, 1], jb.ls=[344, -31]}
+commons-lang3-3.12.0;default;1;19329;5543;812708;50;439;RTA;26946;5564;60512;59128;[JB_LS, JB_TR];{jb.tr=[969, -145], jb.ls=[432, 2]}
+javapoet-1.13.0;default;1;19086;1867;1691125;50;516;RTA;4099;1007;12396;9549;[JB_LS, JB_TR];{jb.tr=[409, 12], jb.ls=[271, 2]}
+jsoup-1.18.1;default;1;62939;8582;3782170;50;785;RTA;14783;2847;34956;32501;[JB_LS, JB_TR];{jb.tr=[1623, -69], jb.ls=[673, 4]}
+gson-2.10.1;default;1;63049;7262;3970158;50;385;RTA;10761;1953;21705;18044;[JB_LS, JB_TR];{jb.tr=[1761, 5], jb.ls=[768, 2]}
+javapoet-1.13.0;default;1;15923;1415;1691125;50;547;RTA;4099;1007;12396;9549;[JB_LS, JB_TR];{jb.tr=[281, 13], jb.ls=[157, 2]}
+commons-lang3-3.12.0;default;1;15971;3980;812708;50;400;RTA;26946;5564;60512;59128;[JB_LS, JB_TR];{jb.tr=[673, 11], jb.ls=[289, -98]}
+joda-time-2.12.5;default;1;24357;3179;1711828;50;436;RTA;37646;4759;51129;49452;[JB_LS, JB_TR];{jb.tr=[568, 4], jb.ls=[283, -72]}
+joda-time-2.12.5;default;1;20468;2371;1711828;50;438;RTA;37646;4759;51129;49452;[JB_LS, JB_TR];{jb.tr=[318, -70], jb.ls=[194, 1]}
+gson-2.10.1;default;1;35194;1783;3970158;50;731;RTA;10761;1953;21705;18044;[JB_LS, JB_TR];{jb.tr=[393, -41], jb.ls=[240, 2]}
+jsoup-1.18.1;default;1;35494;2536;3782170;50;301;RTA;14783;2847;34956;32501;[JB_LS, JB_TR];{jb.tr=[508, -36], jb.ls=[269, 3]}
+testng-7.7.1;default;1;97180;12095;7315965;50;226;RTA;58192;6329;68110;67957;[JB_LS, JB_TR];{jb.tr=[1688, 32], jb.ls=[848, 11]}
+gson-2.10.1;default;1;33474;1380;3970158;50;389;RTA;10761;1953;21705;18044;[JB_LS, JB_TR];{jb.tr=[278, -39], jb.ls=[157, 2]}
+jsoup-1.18.1;default;1;34020;2214;3782170;50;592;RTA;14783;2847;34956;32501;[JB_LS, JB_TR];{jb.tr=[446, 12], jb.ls=[191, -43]}
+testng-7.7.1;default;1;80427;7059;7315965;50;418;RTA;58192;6329;68110;67957;[JB_LS, JB_TR];{jb.tr=[539, -80], jb.ls=[202, -323]}
+testng-7.7.1;default;1;78674;6850;7315965;50;329;RTA;58192;6329;68110;67957;[JB_LS, JB_TR];{jb.tr=[475, -77], jb.ls=[188, 13]}
+mockito-all-1.10.19;default;1;290267;11897;22896696;50;392;RTA;29216;4680;64530;62499;[JB_LS, JB_TR];{jb.tr=[1421, 22], jb.ls=[760, 13]}
+mockito-all-1.10.19;default;1;260081;4098;22896696;50;771;RTA;29216;4680;64530;62499;[JB_LS, JB_TR];{jb.tr=[354, 24], jb.ls=[184, 13]}
+mockito-all-1.10.19;default;1;257254;4086;22896696;50;695;RTA;29216;4680;64530;62499;[JB_LS, JB_TR];{jb.tr=[383, 24], jb.ls=[147, 13]}
