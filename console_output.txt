@@ -1,0 +1,42 @@
+Running commons-codec-1.15 - default solver - 1 threads CHA Algo [JB_LS, JB_TR, JB_LP, JB_ULE, JB_CP, JB_DAE, JB_ESE, JB_A, JB_CBF] BI
+SLF4J(W): No SLF4J providers were found.
+SLF4J(W): Defaulting to no-operation (NOP) logger implementation
+SLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.
+NumberOfPublicMethods: 198
+NumberOfDefStmts: 1463
+NumberOfIntStmts: 50
+50 methods will be used as entry points for IDE LCP
+Main method found in a jar <org.apache.commons.codec.cli.Digest: void main(java.lang.String[])>
+953 methods will be used as entry points for cg
+CG TIME 11545
+Number of CallGraph edges: 4446
+629492  ---   46541
+3056
+Running commons-codec-1.15 - default solver - 1 threads CHA Algo [JB_LS, JB_TR, JB_LP, JB_ULE, JB_CP, JB_DAE, JB_ESE, JB_CBF, JB_A] BI
+SLF4J(W): No SLF4J providers were found.
+SLF4J(W): Defaulting to no-operation (NOP) logger implementation
+SLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.
+NumberOfPublicMethods: 198
+NumberOfDefStmts: 1463
+NumberOfIntStmts: 50
+50 methods will be used as entry points for IDE LCP
+Main method found in a jar <org.apache.commons.codec.cli.Digest: void main(java.lang.String[])>
+953 methods will be used as entry points for cg
+CG TIME 11235
+Number of CallGraph edges: 4446
+629492  ---   46541
+2908
+Running commons-codec-1.15 - default solver - 1 threads CHA Algo [JB_LS, JB_TR, JB_LP, JB_ULE, JB_CP, JB_DAE, JB_A, JB_ESE, JB_CBF] BI
+SLF4J(W): No SLF4J providers were found.
+SLF4J(W): Defaulting to no-operation (NOP) logger implementation
+SLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.
+NumberOfPublicMethods: 198
+NumberOfDefStmts: 1463
+NumberOfIntStmts: 50
+50 methods will be used as entry points for IDE LCP
+Main method found in a jar <org.apache.commons.codec.cli.Digest: void main(java.lang.String[])>
+953 methods will be used as entry points for cg
+CG TIME 11118
+Number of CallGraph edges: 4446
+629492  ---   46541
+3041
