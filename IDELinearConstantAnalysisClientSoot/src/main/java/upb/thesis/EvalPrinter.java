@@ -27,6 +27,8 @@ public class EvalPrinter {
     private List<Main.BodyTransformer> bodyTransformers;
     private Map<String, List<Long>> bodyTransformersMetrics;
 
+    public int totalStmtProp;
+    public int totalVarProp;
 
     public EvalPrinter(String solver) {
         this.solver = solver;
@@ -43,6 +45,8 @@ public class EvalPrinter {
         this.initialStmtCount = EvalHelper.getInitialStmtCount();
         this.stmtCountAfterApplyingBI = EvalHelper.getStmtCountAfterApplyingBI();
         this.bodyTransformersMetrics = EvalHelper.getBodyTransformersMetrics();
+        this.totalStmtProp = EvalHelper.getTotalStmtProp();
+        this.totalVarProp = EvalHelper.getTotalVarProp();
     }
 
     public void generate() {
@@ -83,6 +87,10 @@ public class EvalPrinter {
                 str.append("BodyTransformers");
                 str.append(";");
                 str.append("BodyTransformersMetrics");
+                str.append(";");
+                str.append("totalStmtProp");
+                str.append(";");
+                str.append("totalVarProp");
                 str.append(System.lineSeparator());
                 writer.write(str.toString());
             } catch (IOException e) {
@@ -120,6 +128,10 @@ public class EvalPrinter {
             str.append(bodyTransformers);
             str.append(";");
             str.append(bodyTransformersMetrics);
+            str.append(";");
+            str.append(totalStmtProp);
+            str.append(";");
+            str.append(totalVarProp);
             str.append(System.lineSeparator());
             writer.write(str.toString());
         } catch (IOException e) {

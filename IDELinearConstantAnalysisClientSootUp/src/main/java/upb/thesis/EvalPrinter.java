@@ -27,6 +27,8 @@ public class EvalPrinter {
     private List<Main.BodyInterceptor> bodyInterceptors;
     private Map<String, List<Long>> bodyInterceptorsMetrics;
 
+    public int totalStmtProp;
+    public int totalVarProp;
 
     public EvalPrinter(String solver) {
         this.solver = solver;
@@ -43,6 +45,8 @@ public class EvalPrinter {
         this.initialStmtCount = EvalHelper.getInitialStmtCount();
         this.stmtCountAfterApplyingBI = EvalHelper.getStmtCountAfterApplyingBI();
         this.bodyInterceptorsMetrics = EvalHelper.getBodyInterceptorMetrics();
+        this.totalStmtProp = EvalHelper.getTotalStmtProp();
+        this.totalVarProp = EvalHelper.getTotalVarProp();
     }
 
     public void generate() {
@@ -83,6 +87,10 @@ public class EvalPrinter {
                 str.append("BodyInterceptors");
                 str.append(";");
                 str.append("BodyInterceptorsMetrics");
+                str.append(";");
+                str.append("totalStmtProp");
+                str.append(";");
+                str.append("totalVarProp");
                 str.append(System.lineSeparator());
                 writer.write(str.toString());
             } catch (IOException e) {
@@ -120,6 +128,10 @@ public class EvalPrinter {
             str.append(bodyInterceptors);
             str.append(";");
             str.append(bodyInterceptorsMetrics);
+            str.append(";");
+            str.append(totalStmtProp);
+            str.append(";");
+            str.append(totalVarProp);
             str.append(System.lineSeparator());
             writer.write(str.toString());
         } catch (IOException e) {

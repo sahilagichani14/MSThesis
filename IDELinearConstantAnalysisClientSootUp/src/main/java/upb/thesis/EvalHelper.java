@@ -20,8 +20,26 @@ public class EvalHelper {
     private static int initialStmtCount = 0;
     private static int stmtCountAfterApplyingBI = 0;
     private static Map<String, List<Long>> bodyInterceptorMetrics = new HashMap<>();
+    public static int totalStmtProp;
+    public static int totalVarProp;
 
     public EvalHelper() {
+    }
+
+    public static int getTotalStmtProp() {
+        return totalStmtProp;
+    }
+
+    public static void setTotalStmtProp(int totalStmtProp) {
+        EvalHelper.totalStmtProp = totalStmtProp;
+    }
+
+    public static int getTotalVarProp() {
+        return totalVarProp;
+    }
+
+    public static void setTotalVarProp(int totalVarProp) {
+        EvalHelper.totalVarProp = totalVarProp;
     }
 
     public static Map<String, List<Long>> getBodyInterceptorMetrics() {
