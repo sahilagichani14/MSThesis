@@ -140,7 +140,7 @@ public class Main {
         EvalHelper.setStmtCountAfterApplyingBI(stmtCountAfterApplyingBI.get());
 
         int totalStmtProp = 0;
-        int totalvarProp = 0;
+        int totalVarProp = 0;
         ArrayList<MethodOrMethodContext> methodOrMethodContexts = Lists.newArrayList(Scene.v().getCallGraph().sourceMethods());
         // List<SootMethod> methodOrMethodContexts = Scene.v().getEntryPoints();
         for (MethodOrMethodContext m: methodOrMethodContexts) {
@@ -148,18 +148,20 @@ public class Main {
             SootMethod method = Scene.v().getMethod(m.method().getSignature());
             if (method.hasActiveBody()) {
                 totalStmtProp += method.getActiveBody().getUnits().size();
-                totalvarProp += method.getActiveBody().getLocals().size();
+                totalVarProp += method.getActiveBody().getLocals().size();
             }
             ArrayList<Edge> edgesOutOf = Lists.newArrayList(Scene.v().getCallGraph().edgesOutOf(m));
             for (Edge e : edgesOutOf){
                 SootMethod sootMethod = Scene.v().getMethod(e.getSrc().method().getSignature());
                 if (sootMethod.hasActiveBody()){
                     totalStmtProp += sootMethod.getActiveBody().getUnits().size();
-                    totalvarProp += sootMethod.getActiveBody().getLocals().size();
+                    totalVarProp += sootMethod.getActiveBody().getLocals().size();
                 }
             }
         }
-        System.out.println(totalStmtProp + "  ---   " + totalvarProp);
+        EvalHelper.setTotalVarProp(totalVarProp);
+        EvalHelper.setTotalStmtProp(totalStmtProp);
+        System.out.println(totalStmtProp + "  ---   " + totalVarProp);
         //Options.getBodyTransformerMetric().forEach((k, v) -> System.out.printf("%s : %s ", k, v)); // [runtime, memoryUsage]
         EvalHelper.setBodyTransformersMetrics(Options.getBodyTransformerMetric());
 

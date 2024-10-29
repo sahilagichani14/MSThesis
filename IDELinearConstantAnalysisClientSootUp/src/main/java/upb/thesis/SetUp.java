@@ -185,6 +185,9 @@ public class SetUp {
         // AnalysisInputLocation rtJarInputLocationJava9Plus = new JrtFileSystemAnalysisInputLocation(SourceType.Application);
         // View view = new JavaView(List.of(rtJarInputLocation, inputLocation));
         View view = new JavaView(List.of(inputLocation));
+        // start Call Graph Construction from this point
+        long cgStart = System.currentTimeMillis();
+        Stopwatch var1 = Stopwatch.createStarted();
         // JavaView applicationInputLocationView = new JavaView(List.of(inputLocation));
         // JavaView rtJarView = new JavaView(List.of(rtJarInputLocation));
         ideCPEntryMethods = getIDECPEntryPointMethods(view);
@@ -238,8 +241,6 @@ public class SetUp {
          */
 
         try {
-            Stopwatch var1 = Stopwatch.createStarted();
-            long cgStart = System.currentTimeMillis();
             CallGraphMetricsWrapper var2 = CallGraphApplication.generateCallGraph(view, this.constructCallGraphConfig());
             EvalHelper.setCg_construction_duration(var1.elapsed(TimeUnit.MILLISECONDS));
             long cgTime = System.currentTimeMillis() - cgStart;
@@ -281,20 +282,22 @@ public class SetUp {
         JimpleBasedInterproceduralCFG icfg = new JimpleBasedInterproceduralCFG(generatedcallGraph, view, false, false);
         List<MethodSignature> generatedcallGraphEntryMethods = generatedcallGraph.getEntryMethods();
         int totalStmtProp = 0;
-        int totalvarProp = 0;
+        int totalVarProp = 0;
         for (MethodSignature m: generatedcallGraphEntryMethods){
             totalStmtProp += view.getMethod(m).get().getBody().getStmts().size();
-            totalvarProp += view.getMethod(m).get().getBody().getLocalCount();
+            totalVarProp += view.getMethod(m).get().getBody().getLocalCount();
             Set<CallGraph.Call> callsFrom = generatedcallGraph.callsFrom(m);
             for (CallGraph.Call c: callsFrom) {
                 Optional<? extends SootMethod> optionalSootMethod = view.getMethod(c.getTargetMethodSignature());
                 if (optionalSootMethod.isPresent()){
                     totalStmtProp += optionalSootMethod.get().getBody().getStmts().size();
-                    totalvarProp += optionalSootMethod.get().getBody().getLocalCount();
+                    totalVarProp += optionalSootMethod.get().getBody().getLocalCount();
                 }
             }
         }
-        System.out.println(totalStmtProp + "  ---   " + totalvarProp);
+        EvalHelper.setTotalVarProp(totalVarProp);
+        EvalHelper.setTotalStmtProp(totalStmtProp);
+        System.out.println(totalStmtProp + "  ---   " + totalVarProp);
         for (SootMethod method : ideCPEntryMethods) {
             // System.out.println("started solving from: " + method.getSignature());
             IDEConstantPropagationProblem problem = new IDEConstantPropagationProblem(icfg, method);
