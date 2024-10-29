@@ -60,7 +60,7 @@ public class Main {
         EvalHelper.setTargetName(getJarName(jarPath));
         EvalHelper.setMaxMethod(maxMethodSize);
         EvalHelper.setThreadCount(numThreads);
-        String msg = MessageFormat.format("Running {0} - {1} solver - {2} threads", EvalHelper.getTargetName(), solver, numThreads);
+        String msg = MessageFormat.format("Running {0} - {1} solver - {2} threads {3} Algo {4} BI", EvalHelper.getTargetName(), solver, numThreads, algorithm, EvalHelper.getBodyInterceptors());
         System.out.println(msg);
 
         AnalysisInputLocation inputLocation = new JavaClassPathAnalysisInputLocation(jarPath, SourceType.Application, Collections.emptyList());
