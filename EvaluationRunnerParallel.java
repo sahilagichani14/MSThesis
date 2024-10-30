@@ -45,7 +45,8 @@
             }
     
             bodyInterceptors = generatePermutations();
-            bodyInterceptors = List.of(bodyInterceptors.get(0));
+            // bodyInterceptors = List.of(bodyInterceptors.get(0));
+            // bodyInterceptors = List.of("jb.ls,jb.tr", "jb.ls,jb.tr,jb.a", "jb.ls,jb.tr,jb.lns");
             System.out.println("Total permutations: " + bodyInterceptors.size());
     
             // Parallelize with a larger pool based on system cores
