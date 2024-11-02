@@ -50,7 +50,7 @@ public class EvaluationRunner {
         }
 
         bodyInterceptors = generatePermutations();
-        // bodyInterceptors = List.of(bodyInterceptors.get(0));
+        bodyInterceptors = List.of(bodyInterceptors.get(0));
         System.out.println("Total permutations: " + bodyInterceptors.size());
 
         ExecutorService executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
@@ -154,9 +154,13 @@ public class EvaluationRunner {
     }
 
     private static String[] constructCommand(String jar, String solver, String cgAlgo, String thread, String bodyInterceptors) {
+//        return new String[]{
+//                "java", "-XX:+UseG1GC", "-XX:+UseAdaptiveSizePolicy", "-Xmx1024m", "-Xss1024m", "-jar",
+//                EXECUTABLE, jar, solver, MAX_METHOD, cgAlgo, thread, bodyInterceptors
+//        };
         return new String[]{
                 "java", "-XX:+UseG1GC", "-XX:+UseAdaptiveSizePolicy", "-Xmx1024m", "-Xss1024m", "-jar",
-                EXECUTABLE, jar, solver, MAX_METHOD, cgAlgo, thread, bodyInterceptors
+                EXECUTABLE, jar, solver, MAX_METHOD, cgAlgo, thread
         };
     }
 }
