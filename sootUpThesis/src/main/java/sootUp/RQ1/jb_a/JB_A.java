@@ -23,4 +23,15 @@ public class JB_A {
         System.out.println(d); // Prints the result
         return d;
     }
+
+    public int tc3() {
+        int a = 0, b = 10;
+        try {
+            b = b/a;
+            return b;
+        } catch (ArithmeticException | NullPointerException e) {
+            b = b + 10;
+        }
+        return b;
+    }
 }
